@@ -1,0 +1,30 @@
+WEB PROFILE DAN ADMIN (Gereja Sion WKO) => www.gereja-sion-wko.com
+
+ADMIN :
+- KATEGORI IBADAH (Pemuda, Remaja, Dewasa, Anak, Lingkungan => )
+- DATA JEMAAT (Baptisan, Sidi, Nikah, Pendidikan, Pekerjaan, Nama, Usia)
+- EVENT
+- INFORMASI UMUM
+- AKUN (ADMIN) 
+- AYAT HARIAN
+- LOG OUT
+
+PROFILE :
+(NAVIGATION MENU)
+- IBADAH (MINGGU, PEMUDA, REMAJA, LINGKUNGAN, KAUM BAPAK/I)
+- MINGGU GEMBIRA
+- BERITA
+- ABOUT US => PETA
+(HEADER)
+- EVENT
+(BODY)
+- INFORMASI UMUM
+- AYAT HARI INI
+- MAP GEREJA
+(FOOTER)
+- CONTACT US 	
+
+
+WEBSITE RENUNGAN HARIAN :
+https://alkitab.mobi/renungan/rh/
+

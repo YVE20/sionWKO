@@ -1,0 +1,182 @@
+/* 
+Primary Color : #5D3CA6;
+Accent Color : 
+*/
+
+/* Mobile */
+.bg-blue-gray {
+    background-color: #42485d;
+}
+.h-50 {
+    height: 50px;
+}
+.w-55 {
+    width: 55px;
+}
+.w-40 {
+    width: 40px;
+}
+.h-40 {
+    height: 40px;
+}
+.cr-pointer {
+    cursor: pointer;
+}
+.loading-wrapper {
+    background: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+}
+.loading-wrapper > div {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: "Calibri";
+    font-size: 34px;
+}
+header #logo .h3 {
+    line-height: 50px;
+}
+header .username {
+    line-height: 40px;
+}
+header .username > img {
+    margin-top: -5px;
+}
+header .username:hover > .logout-wrapper {
+    display: block;
+}
+header .logout-wrapper {
+    display: none;
+    position: absolute;
+    right: 5px;
+    background: white;
+    z-index: 999;
+    width: 100%;
+}
+header .logout-wrapper a {
+    padding: 3px 15px;
+    display: block;
+    color: black;
+}
+main {
+    height: 92.6vh;
+}
+
+#side_bar {
+    width: 16.66%;
+    padding: 0 15px;
+    /* transition disini kalau mau animasi buka & tutup */
+}
+
+#side_bar.hide {
+    width: 0;
+    padding: 0;
+    transition: all 0.7s ease; /* transition disini kalau cuman mau tutup */
+}
+
+#side_bar.hide > div {
+    display: none;
+}
+
+#side_bar a {
+    color: white;
+    text-transform: none;
+    text-decoration: none;
+}
+
+#content {
+    width: 83.33%;
+
+    padding: 0 15px;
+}
+
+#content.full-width {
+    transition: all 0.7s ease;
+    width: 100%;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.nota-edited {
+    width: 100%;
+    outline: none;
+    border: none;
+}
+.inputfile:focus + label {
+    outline: 1px dotted #000;
+}
+table tr td {
+    vertical-align: middle !important;
+}
+.select2-container--below,
+.select2-container--above {
+    width: 100% !important;
+}
+.select2-selection {
+    border: 1px solid #ced4da !important;
+    border-radius: 0.25rem !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.select2-selection__rendered {
+    padding: 0.375rem 0.75rem !important;
+}
+
+.select2-selection__arrow {
+    height: 38px !important;
+    padding: 0.375rem 0 !important;
+}
+
+@media (max-width: 576px) {
+    #side_bar {
+        transition: none;
+        width: 100%;
+    }
+    #content {
+        transition: none;
+        width: 100%;
+    }
+    .detail-input {
+        display: block !important;
+    }
+    .detail-input input,
+    .detail-input button {
+        margin: 15px 0 !important;
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+    .hide {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .hide-menu {
+        display: none;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+}
+.foto_id_barang {
+    cursor: pointer;
+}
+.foto_id_barang:hover {
+    color: blue;
+}
