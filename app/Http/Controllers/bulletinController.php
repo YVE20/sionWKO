@@ -20,6 +20,7 @@ use App\Models\majelisIbadahMingguModel;
 use Illuminate\Support\Facades\Storage;
 use Exception;
 use PDF;
+use Carbon;
 
 class bulletinController extends Controller
 {
@@ -379,7 +380,21 @@ class bulletinController extends Controller
         $dataPenataanBunga = penataanBungaModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_penataan_bunga.serviceCategory_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->get();
 
         //Data Pemusik
-        $dataPemusik = pemusikModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_pemusik.serviceCategory_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->get();
+        $tanggalPemusik = pemusikModel::select('sermon_date')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
+        $dataPemusik = [];
+        foreach($tanggalPemusik as $tgl){ 
+            $jamPemusik = pemusikModel::select('time')->where('sermon_date',$tgl->sermon_date)->groupBy('time')->get();
+            foreach($jamPemusik as $jam){
+                $pemusik = pemusikModel::select('projector','infocus','keyboard','prokantor')->where('sermon_date',$tgl->sermon_date)->where('time',$jam->time)->get();
+                $temp = [
+                    'projector' => $pemusik->pluck('projector')->unique(),
+                    'infocus' => $pemusik->pluck('infocus')->unique(),
+                    'keyboard' => $pemusik->pluck('keyboard')->unique(),
+                    'prokantor' => $pemusik->pluck('prokantor')->unique(),
+                ];
+                $dataPemusik[$tgl->sermon_date][$jam->time] = $temp;
+            }
+        }
 
         //Data Pujian
         $dataPujian = pujianModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_pujian.serviceCategory_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
@@ -387,9 +402,16 @@ class bulletinController extends Controller
         $dataPujian2 = DB::select('SELECT *FROM tb_pujian WHERE TIME = TIME("09:30:00") AND MONTH(sermon_date) = MONTH(CURDATE())');
 
         //Data Penerima Tamu
-        $dataPenerimaTamu = penerimaTamuModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_penerima_tamu.serviceCategory_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
-        $dataPenerimaTamu1 = DB::select('SELECT *FROM tb_penerima_tamu WHERE TIME = TIME("07:00:00") AND MONTH(sermon_date) = MONTH(CURDATE())');
-        $dataPenerimaTamu2 = DB::select('SELECT *FROM tb_penerima_tamu WHERE TIME = TIME("07:00:00") AND MONTH(sermon_date) = MONTH(CURDATE())');
+        $tanggalPenerimaTamu = penerimaTamuModel::select('sermon_date')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
+        $dataPenerimaTamu = [];
+        foreach($tanggalPenerimaTamu as $tgl){
+            
+            $jamPenerimaTamu = PenerimaTamuModel::select('time')->where('sermon_date',$tgl->sermon_date)->groupBy('time')->get();
+            foreach($jamPenerimaTamu as $jam){
+                $penerimaTamu = PenerimaTamuModel::where('sermon_date',$tgl->sermon_date)->where('time',$jam->time)->get();
+                $dataPenerimaTamu[$tgl->sermon_date][$jam->time]['data'] = $penerimaTamu;
+            }
+        }
 
         //Daftar Hut Jemaat 
         $daftarHutJemaat = DB::select('SELECT tb_dtl_kartu_keluarga.fullName AS "Nama" , tb_dtl_kartu_keluarga.date_ofBirth AS "Tgl_lahir", (YEAR(CURDATE()) - YEAR(date_ofBirth)) AS "Umur", tb_data_jemaat.service_environtment AS "LP" FROM tb_dtl_kartu_keluarga INNER JOIN tb_data_jemaat ON tb_dtl_kartu_keluarga.familyCard_id = tb_data_jemaat.familyCard_id WHERE MONTH(date_ofBirth) = MONTH(CURDATE()) ORDER BY Nama ASC');
@@ -465,8 +487,6 @@ class bulletinController extends Controller
             'dataPujian1' => $dataPujian1,
             'dataPujian2' => $dataPujian2,
             'dataPenerimaTamu' => $dataPenerimaTamu,
-            'dataPenerimaTamu1' => $dataPenerimaTamu1,
-            'dataPenerimaTamu2' => $dataPenerimaTamu2,
             'daftarHutJemaat' => $daftarHutJemaat,
             'daftarNikahJemaat' => $daftarNikahJemaat,
             'dataKelompokMajelis' => $dataKelompokMajelis

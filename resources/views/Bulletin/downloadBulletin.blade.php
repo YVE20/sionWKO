@@ -1965,16 +1965,10 @@
 			</div>
 			<div style="margin-top:20px;width:100%;">
 				<table class="table table-bordered">
-					<colgroup>
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-					</colgroup>
 					<thead>
 						<tr>
-							<th> Hari, tanggal </th>
+							<th> Hari </th>
+							<th> Jam </th>
 							<th> Proyektor </th>
 							<th> Infocus </th>
 							<th> Keyboardis </th>
@@ -1983,20 +1977,70 @@
 					</thead>
 					<tbody>
 						<?php 
-							foreach($dataPemusik as $dPMSK){
-								$split = explode(' ',$dPMSK->sermon_date);
-								$newDate = explode('-',$split[0]);
-								echo "
-									<tr>
-										<td> Minggu, ".$newDate[2]."</td>
-										<td>".$dPMSK->projector."</td>
-										<td>".$dPMSK->infocus."</td>
-										<td>".$dPMSK->keyboard."</td>
-										<td>".$dPMSK->prokantor."</td>
-									</tr>
-								";
+							\Carbon\Carbon::setLocale('id');
+							$i = 0;
+							foreach($dataPemusik as $sermon_date => $timeData){
+								?>
+								<tr>
+									<td rowspan="2"><?php echo \Carbon\Carbon::parse($sermon_date)->translatedFormat('l, d'); ?></td>
+									
+									<?php
+									foreach($timeData as $time => $data){
+										?>
+										
+										
+										<td>
+											JM. <?php echo \Carbon\Carbon::parse($time)->translatedFormat('h:i'); ?>
+										</td>
+										<td>
+											<?php
+											foreach($data['projector'] as $name){
+												?>
+											<div>{{ $name }}</div>
+												<?php
+											}
+											?>
+										</td>
+										<td>
+											<?php
+											foreach($data['infocus'] as $name){
+												?>
+											<div>{{ $name }}</div>
+												<?php
+											}
+											?>
+										</td>
+										<td>
+											<?php
+											foreach($data['keyboard'] as $name){
+												?>
+											<div>{{ $name }}</div>
+												<?php
+											}
+											?>
+										</td>
+										<td>
+											<?php
+											foreach($data['prokantor'] as $name){
+												?>
+											<div>{{ $name }}</div>
+												<?php
+											}
+											?>
+										</td>
+										@if($i % 1 == 0)
+										</tr>
+										<tr>
+										@endif
+										
+										<?php	
+									}
+									?>
+								</tr>
+								<?php
+								$i += 1;
 							}
-						?>
+							?>
 					</tbody>
 				</table>
 			</div>
@@ -2065,60 +2109,52 @@
 			</div>
 			<div style="margin-top:20px;width:100%;">
 				<table class="table table-bordered">
-					<colgroup>
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-					</colgroup>
 					<thead>
 						<tr>
 							<th> Hari, tanggal </th>
-							<th> Terima Tamu </th>
-							<th> Terima Tamu </th>
-							<th> Terima Tamu </th>
 							<th> Ket </th>
+							<th> Terima Tamu </th>				
 						</tr>
 					</thead>
 					<tbody>
 						<?php 
-							/* foreach($dataPenerimaTamu as $dPT){
-								$split = explode(' ',$dPT->sermon_date);
-								$newDate = explode('-',$split[0]);
-								echo "
-									<tr>
-										<td> Minggu, ".$newDate[2]."</td>
-										<td>".$dPT->welcomer."</td>
-										<td>".$dPT->time."</td>
-									</tr>
-								";
-							} */
-							$z = 0;
-							echo "<tr>";
-							for($i=1;$i<=count($dataPenerimaTamu);$i++){
-								echo "<tr>";
-								if($z % 2){
-									foreach($dataPenerimaTamu1 as $a){
-										echo "
-												<td> DATA 1</td>
-										";
+							\Carbon\Carbon::setLocale('id');
+							$i = 0;
+							foreach($dataPenerimaTamu as $sermon_date => $timeData){
+								?>
+								<tr>
+									<td rowspan="2"><?php echo \Carbon\Carbon::parse($sermon_date)->translatedFormat('l, d'); ?></td>
+									
+									<?php
+									foreach($timeData as $time => $data){
+										?>
+										
+										
+										<td>
+											JM. <?php echo \Carbon\Carbon::parse($time)->translatedFormat('h:i'); ?>
+										</td>
+										<td>
+											<?php
+											foreach($data['data'] as $data){
+												?>
+												<div>{{ $data['welcomer'] }}</div>
+												<?php
+											}
+											?>
+										</td>
+										@if($i % 1 == 0)
+										</tr>
+										<tr>
+										@endif
+										
+										<?php	
 									}
-									$z+=1;
-								}else{
-									foreach($dataPenerimaTamu2 as $a){
-										echo "
-								
-												<td> DATA 2</td>
-											
-										";
-									}
-									$z+=1;
-								}
-								echo "</tr>";
+									?>
+								</tr>
+								<?php
+								$i += 1;
 							}
-							echo "</tr>";
-						?>
+							?>
 					</tbody>
 				</table>
 			</div>
