@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('layouts.frontend',['title' => 'Kesaksian'])
+=======
+@extends('Layouts.frontend',['title' => 'Kesaksian'])
+>>>>>>> e31524c9c0cb566971c2c2d7d469a6cb9f1aac23
 @section('content')
 <div class="col-lg-12 hero-image" id="rumah">
     

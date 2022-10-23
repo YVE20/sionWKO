@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('layouts.app',['title' => 'Sion WKO| Website - Kesaksian'])
+=======
+@extends('Layouts.app',['title' => 'Sion WKO| Website - Kesaksian'])
+>>>>>>> e31524c9c0cb566971c2c2d7d469a6cb9f1aac23
 @section('content')
 @include('Website.Kesaksian.modal')
 <div class="col-md-12 p-3">
