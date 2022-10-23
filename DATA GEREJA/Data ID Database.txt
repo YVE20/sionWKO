@@ -1,0 +1,34 @@
+Data Jemaat :
+DJA/01
+
+Data Baptis
+BPTS/VIII/2022/01
+
+Data SIDI :
+SIDI/VIII/2022/01
+
+
+Kategori Ibadah :
+IBD/IBM/2022 => Ibadah Minggu
+IBD/IBASM/2022 => Ibadah Anak Sekolah Minggu
+IBD/IBP/2022 => Ibadah Pemuda
+IBD/IBR/2022 => Ibadah Remaja
+IBD/IBKB/2022 => Ibadah Kaum Bapak
+IBD/IBKI/2022 => Ibadah Kaum Ibu
+IBD/IBMG/2022 => Ibadah Minggu Gembira
+IBD/IBLP/200 => Ibadah Lingkungan Pelayan
+
+Worship ID :
+IBD/IBM/VIII/2022/01 => Mengikuti 2 data terdepan
+
+Event :
+EV/01 
+
+HUT : 
+EVT/HUT/GM => HUT Gerja Mula
+EVT/HUT/GS => HUT Gerja Sion
+EVT/HUT/RP => HUT Rumah Pastori
+EVT/HUT/GMIH => HUT GMIH
+
+EVT/HRFG => Hari Reformasi Gereja
+EVT/PRKDS => Perjamuan Kudus
