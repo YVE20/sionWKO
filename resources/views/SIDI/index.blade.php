@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'Sion WKO| SIDI'])
+@extends('Layouts.app',['title' => 'Sion WKO| SIDI'])
 @section('content')
 @include('KategoriIbadah.modal')
 <div class="col-md-12 p-3">
