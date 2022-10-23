@@ -1,4 +1,4 @@
-@extends('layouts.frontend',['title' => 'Ibadah'])
+@extends('Layouts.frontend',['title' => 'Ibadah'])
 @section('content')
 <div class="col-lg-12 hero-image" id="rumah">
     

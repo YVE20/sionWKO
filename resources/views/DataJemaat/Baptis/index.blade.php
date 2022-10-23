@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'Sion WKO| Data Jemaat - Baptis'])
+@extends('Layouts.app',['title' => 'Sion WKO| Data Jemaat - Baptis'])
 @section('content')
 @include('DataJemaat.Baptis.modal')
 <div class="col-md-12 p-3">

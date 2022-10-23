@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'Sion WKO| Pelayan - Pujian'])
+@extends('Layouts.app',['title' => 'Sion WKO| Pelayan - Pujian'])
 @section('content')
 @include('Pelayan.Pembagian Tugas.Pujian.modal')
 <div class="col-md-12 p-3">

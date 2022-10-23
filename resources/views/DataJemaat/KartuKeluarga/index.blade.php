@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'Sion WKO| Data Jemaat - Kartu Keluarga'])
+@extends('Layouts.app',['title' => 'Sion WKO| Data Jemaat - Kartu Keluarga'])
 @section('content')
 @include('DataJemaat.KartuKeluarga.modal')
 <div class="col-md-12 p-3">

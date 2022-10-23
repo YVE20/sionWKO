@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'Sion WKO| Event - Hari Reformasi Gereja'])
+@extends('Layouts.app',['title' => 'Sion WKO| Event - Hari Reformasi Gereja'])
 @section('content')
 @include('Event.Hari Reformasi Gereja.modal')
 <div class="col-md-12 p-3">
