@@ -2,7 +2,7 @@
     <div class="col-lg-2 float-left" id="logo">
         <div style="padding:11px 0;">
             <img src="<?= asset('/img/Gereja SION WKO.png') ?>" class="h-50 w-55 float-left" alt="BMC">
-            <font class="h3 ml-3"> Gereja WKO </font>
+            <font class="h4 ml-3"> Gereja WKO </font>
         </div>
     </div>
     <div class="col-lg-10 float-left bg-blue-gray" id="header">
