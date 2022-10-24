@@ -11,7 +11,7 @@
             <div class="text-center py-5"><h2><strong>Pelayanan Kami</strong></h2></div>
             <div class="container">
                 <div class="row px-3">
-                    <div class="col-lg-4 col-6">
+                    <div class="col-lg-4 col-12">
                         <a href="{{url('/jadwalIbadah')}}" style="color:black;text-decoration: none;">
                             <div class="row mb-4">
                                 <div class="col-lg-3 col-3 text-right">
@@ -24,7 +24,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-6">
+                    <div class="col-lg-4 col-12">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
                                 <div class="col-lg-3 col-3 text-right">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="row px-3 mb-4">
-                    <div class="col-lg-4 col-6">
+                    <div class="col-lg-4 col-12">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
                                 <div class="col-lg-3 col-3 text-right">
@@ -65,7 +65,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-6">
+                    <div class="col-lg-4 col-12">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
                                 <div class="col-lg-3 col-3 text-right">
@@ -99,14 +99,16 @@
                         <font>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
                         </font><br>
-                        <div class="col-lg-4 col-3  float-left" style="margin-top:50px;">
-                            <img src="<?= asset('/img/Sion 2.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:200px;width:80%px">
-                        </div>
-                        <div class="col-lg-4 col-3  float-left" style="margin-top:50px;">
-                            <img src="<?= asset('/img/Sion 3.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:200px;width:80%px">
-                        </div>
-                        <div class="col-lg-4 col-3  float-left" style="margin-top:50px;">
-                            <img src="<?= asset('/img/Sion 7.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:200px;width:80%px">
+                        <div class="row mt-2">
+                            <div class="col-lg-4">
+                                <img src="<?= asset('/img/Sion 2.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="<?= asset('/img/Sion 3.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="<?= asset('/img/Sion 7.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
+                            </div>
                         </div>
                     </div>
                 </center>
@@ -127,17 +129,17 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <acronym title="Pelayana Doa">
-                                    <img class="d-block w-100" style="cursor: pointer;" onclick="pelayananDoa()" src="<?= asset('/img/Pelayanan Doa.jpg') ?>" alt="Pelayanan Doa">
+                                    <img class="d-block w-100" style="cursor: pointer;" onclick="pelayananDoa()" src="<?= asset('/img/Pelayanan Doa.png') ?>" alt="Pelayanan Doa">
                                 </acronym>
                             </div>
                             <div class="carousel-item">
                                 <acronym title="Pelanan Jemaat">
-                                    <img class="d-block w-100" style="cursor: pointer;" onclick="pelayananJemaat()" src="<?= asset('/img/Pelayanan Jemaat.jpg') ?>" alt="Pelayanan Jemaat">
+                                    <img class="d-block w-100" style="cursor: pointer;" onclick="pelayananJemaat()" src="<?= asset('/img/Pelayanan Jemaat.png') ?>" alt="Pelayanan Jemaat">
                                 </acronym>
                             </div>
                             <div class="carousel-item">
                                 <acronym title="Pelanan Baptis">
-                                    <img class="d-block w-100" style="cursor: pointer;" onclick="pelayananBaptis()" src="<?= asset('/img/Pelayanan Baptis.png') ?>" alt="Pelayanan Baptis">
+                                    <img class="d-block w-100" style="cursor: pointer;" onclick="pelayananBaptis()" src="<?= asset('/img/Pelayanan Baptisan.png') ?>" alt="Pelayanan Baptis">
                                 </acronym>
                             </div>
                         </div>
@@ -201,14 +203,17 @@
                         </form>
                     </div>
                     <div class="col-lg-4">
-                        <font style="font-size: 24px;"> Gedung Gereja </font> <br><br>
-                        <img src="<?= asset('/img/Sion 1.jpg') ?>" alt="Gereja" style="width:120px;height:170px;">
-                        <img src="<?= asset('/img/Gereja sion-3.jpg') ?>" alt="Gereja" style="width:120px;height:170px;">
-                        <br><br>
-                        <font><b> Alamat </b> </font><br>
-                        <font> WKO, Tobelo Tengah, Halmahera Utara, <br>Maluku Utara, Indonesia </font><br><br>
-                        <font><b> Telp  </b></font><br>
-                        <font> 0831-1233-1234</font>
+                        <center>
+                            <font style="font-size: 24px;"> Gedung Gereja </font> <br><br>
+                            <img src="<?= asset('/img/Sion 1.jpg') ?>" alt="Gereja" style="width:100px;height:170px;">
+                            <img src="<?= asset('/img/Gereja sion-3.jpg') ?>" alt="Gereja" style="width:100px;height:170px;">
+                            <img src="<?= asset('/img/Sion 6.jpg') ?>" alt="Gereja" style="width:100px;height:170px;">
+                        </center>
+                            <br><br>
+                            <font><b> Alamat </b> </font><br>
+                            <font> WKO, Tobelo Tengah, Halmahera Utara, <br>Maluku Utara, Indonesia </font><br><br>
+                            <font><b> Telp  </b></font><br>
+                            <font> 0831-1233-1234</font>
                     </div>
                 </div>
             </div>
@@ -261,6 +266,12 @@
     });
     function downloadBulletin(){
         location.href="<?= asset('/adm/bulletin/downloadBulletin')."/".date('m') ?>"
+    }
+    function goToIbadah(){
+        location.href="<?= url('/jadwalIbadah') ?>";
+    }
+    function goToKesaksian(){
+        location.href="<?= url('/') ?>";
     }
     function sendMessage(){
         const nama = $('#name').val();

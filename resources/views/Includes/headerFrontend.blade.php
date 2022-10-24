@@ -15,7 +15,7 @@
                 <a class="nav-link" href="{{url('/')}}"> <font style="color:white;" id="fontHome"> HOME </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/jadwalIbadah')}}"> <font style="color:white;" id="fontIbadah"> IBADAH </font> </a>
+                <a class="nav-link" onclick="goToIbadah()"> <font style="color:white;" id="fontIbadah"> IBADAH </font> </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#berita"> <font style="color:white;" id="fontBerita"> BERITA </font> </a>
@@ -27,7 +27,7 @@
                 <a class="nav-link" href="#event"> <font style="color:white;" id="fontEvent"> EVENT </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= url('/kesaksian') ?>"> <font style="color:white;" id="fontKesaksian"> KESAKSIAN </font> </a>
+                <a class="nav-link" onclick="goToKesaksian()"> <font style="color:white;" id="fontKesaksian"> KESAKSIAN </font> </a>
             </li>
         </ul>
     </div>
