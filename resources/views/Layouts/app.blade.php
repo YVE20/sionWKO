@@ -69,6 +69,7 @@
             $('#service').slideToggle("slow");
             $('#bulletin').slideToggle("slow");
             $('#testimony').slideToggle("slow");
+            $('#renungan').slideToggle("slow");
         });
         $('#pengaturan').click(function(){
             const swalWithBootstrapButtons = Swal.mixin({

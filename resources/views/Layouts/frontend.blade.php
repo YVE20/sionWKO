@@ -35,12 +35,12 @@
         .sticky + .content {
             padding-top: 60px;
         }
-        .fontHome , .fontIbadah, .fontBerita, .fontTentangKami, .fontEvent, .fontKesaksian{
+        .fontHome , .fontIbadah, .fontBerita, .fontTentangKami, .fontEvent, .fontKesaksian , .fontRenungan{
             color:black !important;
         }
 
     </style>
-    <script src="https://cdn.tiny.cloud/1/gefzfdndizlvr6gggggarxk0pj00kfvp4ahac972n8eeqr3l/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/drzndcs7x99r8cewem7nspuqoj8oakvdc6b38dmtrikywtub/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Styles and Scripts -->
     @stack('head-script')
 </head>
@@ -71,17 +71,19 @@
             var fontTentangKami = document.getElementById('fontTentangKami');
             var fontEvent = document.getElementById('fontEvent');
             var fontKesaksian = document.getElementById('fontKesaksian');
+            var fontRenungan = document.getElementById('fontRenungan');
             var sticky = navbar.offsetTop;
             function myFunction() {
                 if (window.pageYOffset >= sticky) {
                     navbar.classList.add("sticky")
-                    if(window.pageYOffset >= 700){
+                    if(window.pageYOffset >= 660){
                         fontHome.classList.add("fontHome");
                         fontIbadah.classList.add("fontIbadah");
                         fontBerita.classList.add("fontBerita");
                         fontTentangKami.classList.add("fontTentangKami");
                         fontEvent.classList.add("fontEvent");
                         fontKesaksian.classList.add("fontKesaksian");
+                        fontRenungan.classList.add("fontRenungan");
                         navbar.classList.add("navColor");
                     }else{
                         fontHome.classList.remove("fontHome");
@@ -90,6 +92,7 @@
                         fontTentangKami.classList.remove("fontTentangKami");
                         fontEvent.classList.remove("fontEvent");
                         fontKesaksian.classList.remove("fontKesaksian");
+                        fontRenungan.classList.remove("fontRenungan");
                         navbar.classList.remove("navColor");
                     }
                 } else {

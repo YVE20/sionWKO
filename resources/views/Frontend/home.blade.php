@@ -95,11 +95,18 @@
         <div class="col-lg-12 services-wrapper" id="about">
             <div class="text-center py-5"><h2><strong> Tentang Kami </strong></h2></div>
                 <center>
-                    <div class="col-lg-7 px-3">
-                        <font>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                        </font><br>
-                        <div class="row mt-2">
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-lg-12 px-3">
+                                <font>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="container">
+                            <div class="row mt-2">
                             <div class="col-lg-4">
                                 <img src="<?= asset('/img/Sion 2.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
                             </div>
@@ -109,6 +116,7 @@
                             <div class="col-lg-4">
                                 <img src="<?= asset('/img/Sion 7.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
                             </div>
+                        </div>
                         </div>
                     </div>
                 </center>
@@ -205,9 +213,9 @@
                     <div class="col-lg-4">
                         <center>
                             <font style="font-size: 24px;"> Gedung Gereja </font> <br><br>
-                            <img src="<?= asset('/img/Sion 1.jpg') ?>" alt="Gereja" style="width:100px;height:170px;">
-                            <img src="<?= asset('/img/Gereja sion-3.jpg') ?>" alt="Gereja" style="width:100px;height:170px;">
-                            <img src="<?= asset('/img/Sion 6.jpg') ?>" alt="Gereja" style="width:100px;height:170px;">
+                            <img src="<?= asset('/img/Sion 1.jpg') ?>" alt="Gereja" style="width:100px;height:150px;">
+                            <img src="<?= asset('/img/Gereja sion-3.jpg') ?>" alt="Gereja" style="width:100px;height:150px;">
+                            <img src="<?= asset('/img/Sion 6.jpg') ?>" alt="Gereja" style="width:100px;height:150px;">
                         </center>
                             <br><br>
                             <font><b> Alamat </b> </font><br>
@@ -271,7 +279,10 @@
         location.href="<?= url('/jadwalIbadah') ?>";
     }
     function goToKesaksian(){
-        location.href="<?= url('/') ?>";
+        location.href="<?= url('/kesaksian') ?>";
+    }
+    function goToRenungan(){
+        location.href="<?= url('/renungan') ?>";
     }
     function sendMessage(){
         const nama = $('#name').val();

@@ -23,6 +23,7 @@ Route::post('/hubungiKami','homeController@hubungiKami');
 Route::get('/downloadManageJemaat','dataJemaatController@downloadManageJemaat');
 Route::get('/jadwalIbadah','homeController@jadwalIbadah');
 Route::get('/kesaksian','homeController@kesaksian');
+Route::get('/renungan','homeController@renungan');
 
 //Admin
 Route::group(['prefix' => 'adm'],function(){
@@ -49,6 +50,7 @@ Route::group(['prefix' => 'adm'],function(){
         Route::get('/event/perjamuanKudus', 'perjamuanKudusController@readPerjamuanKudus');
 
         Route::get('/website/kesaksian','kesaksianController@readKesaksian');
+        Route::get('/website/renungan','renunganController@readRenungan');
     Route::get('/ayatHarian','alkitabController@readAlkitab');
 
     Route::get('/bulletin/downloadBulletin/{bulan}','bulletinController@downloadBulletin');
@@ -80,6 +82,7 @@ Route::group(['prefix' => 'adm'],function(){
     Route::post('/pelayanan/pembagianMajelis/createPembagianMajelis', 'pembagianMajelisController@createPembagianMajelis');
     Route::post('/bulletin/createBulletinCover','bulletinController@createBulletinCover');
     Route::post('/website/createKesaksian','kesaksianController@createKesaksian');
+    Route::post('/website/createRenungan','renunganController@createRenungan');
 
     //GET
     Route::post('/ibadah/getWorshipByCategoryId','ibadahController@getWorshipByCategoryId');
@@ -107,6 +110,7 @@ Route::group(['prefix' => 'adm'],function(){
     Route::post('/bulletin/getAllBulletin','bulletinController@getAllBulletin');
     Route::post('/bulletin/getAllBulletinCover','bulletinController@getAllBulletinCover');
     Route::post('/website/getAllKesaksian','kesaksianController@getAllKesaksian');
+    Route::post('/website/getAllRenungan','renunganController@getAllRenungan');
 
     //PUT
     Route::post('/ibadah/updateIbadah', 'ibadahController@updateIbadah');
@@ -130,6 +134,7 @@ Route::group(['prefix' => 'adm'],function(){
     Route::post('/pelayanan/pembagianMajelis/updatePembagianMajelis', 'pembagianMajelisController@updatePembagianMajelis');
     Route::post('/bulletin/updateBulletinCover','bulletinController@updateBulletinCover');
     Route::post('/website/updateKesaksian','kesaksianController@updateKesaksian');
+    Route::post('/website/updateRenungan','renunganController@updateRenungan');
 
     //SHOW
     Route::post('/ibadah/showIbadahModel', 'ibadahController@showIbadahModel');
@@ -151,6 +156,7 @@ Route::group(['prefix' => 'adm'],function(){
     Route::post('/pelayanan/pembagianMajelis/showPembagianMajelisModel', 'pembagianMajelisController@showPembagianMajelisModel');
     Route::post('/bulletin/showBulletinCoverModel','bulletinController@showBulletinCoverModel');
     Route::post('/website/showKesaksianModel','kesaksianController@showKesaksianModel');
+    Route::post('/website/showRenunganModel','renunganController@showRenunganModel');
 
     //DELETE
     Route::post('/ibadah/deleteIbadah', 'ibadahController@deleteIbadah');
@@ -174,6 +180,7 @@ Route::group(['prefix' => 'adm'],function(){
     Route::post('/pelayanan/pembagianMajelis/deletePembagianMajelis', 'pembagianMajelisController@deletePembagianMajelis');
     Route::post('/bulletin/deleteBulletinCover','bulletinController@deleteBulletinCover');
     Route::post('/website/deleteKesaksian','kesaksianController@deleteKesaksian');
+    Route::post('/website/deleteRenungan','renunganController@deleteRenungan');
 
 });
 

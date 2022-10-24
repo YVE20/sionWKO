@@ -130,47 +130,47 @@
                 <i class="fas fa-wine-glass h5"></i>
                 <font class="h5 pl-2"> Perjamuan Kudus </font>
             </div>
-        </a>
-    <a class="row d-block bg-blue-gray cr-pointer shadow">
-        <div class="p-3">
-            <i class="fas fa-book-open h5"></i>
-            <font class="h5 pl-2"> Ayat Harian </font>
-        </div>
-    </a>
+        </a> 
     <a class="row d-block bg-blue-gray cr-pointer shadow" id="website" href="javascript:void(0)">
         <div class="p-3">
             <i class="fab fa-chrome h5"></i>    
             <font class="h5 pl-2"> Website </font>
         </div>
     </a>
-        <a class="row bg-danger shadow" id="slideshow" href="{{asset('/adm/website/slideshow')}}" style="display: none">
+        <a class="row bg-secondary shadow" id="slideshow" href="{{asset('/adm/website/slideshow')}}" style="display: none">
             <div class="p-3 ml-2">
-                <i class="fas fa-wine-glass h5"></i>
+                <i class="fas fa-images h5"></i>
                 <font class="h5 pl-2"> Slideshow </font>
             </div>
         </a>
-        <a class="row bg-danger shadow" id="aboutUs" href="{{asset('/adm/website/tentangKami')}}" style="display: none">
+        <a class="row bg-secondary shadow" id="aboutUs" href="{{asset('/adm/website/tentangKami')}}" style="display: none">
             <div class="p-3 ml-2">
-                <i class="fas fa-wine-glass h5"></i>
+                <i class="fas fa-user-tie h5"></i>
                 <font class="h5 pl-2"> Tentang Kami </font>
             </div>
         </a>
-        <a class="row bg-danger shadow" id="service" href="{{asset('/adm/website/pelayanan')}}" style="display: none">
+        <a class="row bg-secondary shadow" id="service" href="{{asset('/adm/website/pelayanan')}}" style="display: none">
             <div class="p-3 ml-2">
-                <i class="fas fa-wine-glass h5"></i>
+                <i class="fas fa-praying-hands h5"></i>
                 <font class="h5 pl-2"> Pelayanan </font>
             </div>
         </a>
-        <a class="row bg-danger shadow" id="bulletin" href="{{asset('/adm/website/bulletin')}}" style="display: none">
+        <a class="row bg-secondary shadow" id="bulletin" href="{{asset('/adm/website/bulletin')}}" style="display: none">
             <div class="p-3 ml-2">
-                <i class="fas fa-wine-glass h5"></i>
+                <i class="fas fa-newspaper h5"></i>
                 <font class="h5 pl-2"> Berita Gereja </font>
             </div>
         </a>
         <a class="row bg-danger shadow" id="testimony" href="{{asset('/adm/website/kesaksian')}}" style="display: none">
             <div class="p-3 ml-2">
-                <i class="fas fa-wine-glass h5"></i>
+                <i class="fas fa-volume-up h5"></i>
                 <font class="h5 pl-2"> Kesaksian </font>
+            </div>
+        </a>
+        <a class="row bg-danger shadow" id="renungan" href="{{asset('/adm/website/renungan')}}" style="display: none">
+            <div class="p-3 ml-2">
+                <i class="fas fa-book-open h5"></i>
+                <font class="h5 pl-2"> Renungan </font>
             </div>
         </a>
     <a class="row d-block bg-blue-gray cr-pointer shadow" id="pengaturan">

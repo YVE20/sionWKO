@@ -1,6 +1,6 @@
 @extends('Layouts.frontend',['title' => 'Kesaksian'])
 @section('content')
-<div class="col-lg-12 hero-image" id="rumah">
+<div class="col-lg-12" id="cover-kesaksian">
     
 </div>
 <div class="col-lg-12" style="background-image: url('{{ asset('img/background-gereja.webp') }}');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative">
@@ -24,7 +24,7 @@
                             @foreach($dataKesaksian as $dK)
                                 <div class="row px-3 py-3">
                                     <div class="col-lg-3 pt-5">
-                                        <font> <center> <b> {{$dK->name}} </b> </center> </font><hr>
+                                        <font> <center> <b> {{$dK->name}} </b> </center> </font><hr class="style-eight">
                                     </div>
                                     <div class="col-lg-9">
                                         <?= $dK->message ?>
@@ -56,5 +56,15 @@
 </div>
 @endsection
 @push('js')
-
+<script>
+    function goToIbadah(){
+        location.href="<?= url('/jadwalIbadah') ?>";
+    }
+    function goToKesaksian(){
+        location.href="<?= url('/kesaksian') ?>";
+    }
+    function goToRenungan(){
+        location.href="<?= url('/renungan') ?>";
+    }
+</script>
 @endpush

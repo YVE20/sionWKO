@@ -711,3 +711,15 @@
 </div>
 @endsection
 @push('js')
+<script>
+    function goToIbadah(){
+        location.href="<?= url('/jadwalIbadah') ?>";
+    }
+    function goToKesaksian(){
+        location.href="<?= url('/kesaksian') ?>";
+    }
+    function goToRenungan(){
+        location.href="<?= url('/renungan') ?>";
+    }
+</script>
+@endpush

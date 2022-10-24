@@ -17,12 +17,34 @@
 }
 
 .main-wrapper .hero-image {
-    background: url("../img/Sion 3.jpg");
+    background: url("../img/Sion 7.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+#cover-kesaksian {
+    background: url("../img/Kesaksian.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+#cover-renungan {
+    background: url("../img/Renungan.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.cut-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 10px;
 }
 .color-overlay {
     position: absolute;
@@ -46,4 +68,21 @@
     text-align: center;
     font-weight: bold;
     margin-bottom: 45px;
+}
+hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: rgb(87, 87, 87);
+    text-align: center;
+}
+hr.style-eight:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: transparent;
 }

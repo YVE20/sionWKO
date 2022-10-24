@@ -5,7 +5,8 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5 p-2 m-2 float-left" style="background-color:red;height:100px;">
+                <div class="col-lg-5 p-2 m-2 float-left">
+                    <iframe src="https://alkitab.mobi/renungan/rh/" frameborder="0" style="width:100%;height:300px"></iframe>
                     <font> <h3> <b> Renungan Harian </b> </h3> </font>
                 </div>    
                 <div class="col-lg-5 p-2 m-2 float-left" style="background-color:green;height:100px;">

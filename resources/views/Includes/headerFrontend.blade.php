@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar" id="navbar">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{url('/')}}">
         <img src="{{asset('/img/Gereja SION WKO.png')}}" style="max-width:80px" alt="">
         <span style="line-height: 1;display:inline-block;margin-left:10px;font-size:16px !important;font-weight:bold;vertical-align:middle;color:black;">
             GEREJA MASEHI <br> INJILI DI HALMAHERA 
@@ -12,22 +12,25 @@
     <div class="collapse navbar-collapse ml-auto " id="frontend-navbar">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/')}}"> <font style="color:white;" id="fontHome"> HOME </font> </a>
+                <a class="nav-link" href="{{url('/')}}"> <font style="color:white;" id="fontHome"> <i class="fas fa-home"></i> HOME </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="goToIbadah()"> <font style="color:white;" id="fontIbadah"> IBADAH </font> </a>
+                <a class="nav-link" onclick="goToIbadah()" style="cursor: pointer;"> <font style="color:white;" id="fontIbadah"> <i class="fas fa-church"></i> IBADAH </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#berita"> <font style="color:white;" id="fontBerita"> BERITA </font> </a>
+                <a class="nav-link" onclick="goToRenungan()" style="cursor: pointer;"> <font style="color:white;" id="fontRenungan"> <i class="fas fa-book-open"></i> RENUNGAN HARIAN </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#about"> <font style="color:white;" id="fontTentangKami"> TENTANG KAMI </font> </a>
+                <a class="nav-link" href="#berita"> <font style="color:white;" id="fontBerita"> <i class="fas fa-newspaper"></i> BERITA </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#event"> <font style="color:white;" id="fontEvent"> EVENT </font> </a>
+                <a class="nav-link" href="#about"> <font style="color:white;" id="fontTentangKami"> <i class="fas fa-user-tie"></i> TENTANG KAMI </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="goToKesaksian()"> <font style="color:white;" id="fontKesaksian"> KESAKSIAN </font> </a>
+                <a class="nav-link" href="#event"> <font style="color:white;" id="fontEvent"> <i class="fas fa-calendar-week"></i> EVENT </font> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="goToKesaksian()" style="cursor: pointer;"> <font style="color:white;" id="fontKesaksian"> <i class="fas fa-volume-up"></i> KESAKSIAN </font> </a>
             </li>
         </ul>
     </div>

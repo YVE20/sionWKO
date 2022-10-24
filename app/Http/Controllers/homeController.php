@@ -140,4 +140,11 @@ class homeController extends Controller
         ];
         return view('Frontend.kesaksian',$data);
     }
+    public function renungan(){
+        $dataKesaksian = kesaksianModel::orderByRaw("SUBSTRING_INDEX(testimony_id, '/', -1) + 0 ASC LIMIT 5")->get();
+        $data = [
+            'dataKesaksian' => $dataKesaksian
+        ];
+        return view('Frontend.renungan',$data);
+    }
 }
