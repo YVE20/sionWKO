@@ -9,10 +9,10 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse ml-auto col-lg-12" id="frontend-navbar">
+    <div class="collapse navbar-collapse ml-auto " id="frontend-navbar">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link fontSmall" href="{{url('/')}}"> <font style="color:white;" id="fontHome"> <i class="fas fa-home"></i> HOME </font> </a>
+                <a class="nav-link fontSmall" href="{{url('/')}}"> <font style="color:white;" id="fontHome"> <i class="fas fa-home font15px"></i> HOME </font> </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link fontSmall" onclick="goToIbadah()" style="cursor: pointer;"> <font style="color:white;" id="fontIbadah"> <i class="fas fa-church"></i> IBADAH </font> </a>

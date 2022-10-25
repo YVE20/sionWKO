@@ -11,79 +11,77 @@
             <div class="text-center py-5" id="font22" ><h2><strong><font>Pelayanan Kami</font></strong></h2></div>
             <div class="container">
                 <div class="row px-3" id="pelayananKami">
-                    <div class="col-lg-4 col-sm-4 col-md-12">
+                    <div class="col-lg-4 col-sm-4 col-md-6 col-4">
                         <a href="{{url('/jadwalIbadah')}}" style="color:black;text-decoration: none;">
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-sm-3 text-right">
+                                <div class="col-lg-3 col-sm-3 col-2 text-right">
                                     <i class="fas fa-calendar-alt font15px" style="margin-top: 10px;font-size:50px;margin-right:10px;"></i>
                                 </div>
-                                <div class="col-lg-9 col-sm-9">
+                                <div class="col-lg-9 col-sm-9 col-12">
                                     <div id="font15"><strong>Jadwal Ibadah</strong></div>
                                     <div id="font15">Rasakan hadirat Tuhan di setiap waktu lewat pujian, penyembahan dan firman Tuhan.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-sm-4 col-md-12">
+                    <div class="col-lg-4 col-sm-4 col-md-6 col-4">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-sm-3 text-right">
+                                <div class="col-lg-3 col-sm-3 col-2 text-right">
                                     <i class="fas fa-praying-hands font15px" style="margin-top: 10px;font-size:50px"></i>
                                 </div>
-                                <div class="col-lg-9 col-sm-9">
+                                <div class="col-lg-9 col-sm-9 col-12">
                                     <div id="font15"><strong>Pelayanan Doa</strong></div>
                                     <div id="font15">Para hamba Tuhan yang akan siap melayani anda melalui doa.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-sm-4 col-md-12">
+                    <div class="col-lg-4 col-sm-4 col-md-6 col-4">
                         <a href="{{url('/komunitas')}}" style="color:black;text-decoration:none"> 
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-sm-3 text-right">
+                                <div class="col-lg-3 col-sm-3 col-2 text-right">
                                     <i class="fas fa-users font15px" style="margin-top: 10px;font-size:50px"></i>
                                 </div>
-                                <div class="col-lg-9 col-sm-9">
+                                <div class="col-lg-9 col-sm-9 col-12">
                                     <div id="font15"><strong>Komunitas Gereja</strong></div>
                                     <div id="font15">Mari bertumbuh bersama lewat komunitas yang telah Tuhan percayakan.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="row px-3 mb-4" id="pelayananKami">
-                    <div class="col-lg-4 col-sm-4 col-md-12">
+                    <div class="col-lg-4 col-sm-4 col-md-6 col-4">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-sm-3 text-right">
+                                <div class="col-lg-3 col-sm-3 col-2 text-right">
                                     <i class="fas fa-hands font15px" style="margin-top: 10px;font-size:50px"></i>
                                 </div>
-                                <div class="col-lg-9 col-sm-9">
+                                <div class="col-lg-9 col-sm-9 col-12">
                                     <div id="font15"><strong>Pelayanan Jemaat</strong></div>
                                     <div id="font15">Melayani setiap jemaat Tuhan dalam kasih dan anugrah Tuhan.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-sm-4 col-md-12">
+                    <div class="col-lg-4 col-sm-4 col-md-6 col-4">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-sm-3 text-right">
+                                <div class="col-lg-3 col-sm-3 col-2 text-right">
                                     <i class="fas fa-hand-holding-medical font15px" style="margin-top: 10px;font-size:50px"></i>
                                 </div>
-                                <div class="col-lg-9 col-sm-9">
+                                <div class="col-lg-9 col-sm-9 col-12">
                                     <div id="font15"><strong>Pelayanan Baptis</strong></div>
                                     <div id="font15">Baptis merupakan bentuk iman kita dalam mengakui Yesus sebagai juru selamat.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-sm-4 col-md-12">
+                    <div class="col-lg-4 col-sm-4 col-md-6 col-4">
                         <div class="row mb-4">
-                            <div class="col-lg-3 col-sm-3 text-right">
+                            <div class="col-lg-3 col-sm-3 col-2 text-right">
                                 <i class="fas fa-volume-up font15px"  style="margin-top: 10px;font-size:50px"></i>
                             </div>
-                            <div class="col-lg-9 col-sm-9">
+                            <div class="col-lg-9 col-sm-9 col-12">
                                 <div id="font15"><strong>Kesaksian Jemaat</strong></div>
                                 <div id="font15">Kesaksian rohani yang diberikan melalui Roh Kudus yang mampu menjamah dan mengubah hidup.</div>
                             </div>
@@ -107,13 +105,13 @@
                     <div>
                         <div class="container">
                             <div class="row mt-2">
-                            <div class="col-lg-4 col-sm-4">
+                            <div class="col-lg-4 col-sm-4 col-md-4">
                                 <img src="<?= asset('/img/Sion 2.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
                             </div>
-                            <div class="col-lg-4 col-sm-4">
+                            <div class="col-lg-4 col-sm-4 col-md-4">
                                 <img src="<?= asset('/img/Sion 3.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
                             </div>
-                            <div class="col-lg-4 col-sm-4">
+                            <div class="col-lg-4 col-sm-4 col-md-4">
                                 <img src="<?= asset('/img/Sion 7.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
                             </div>
                         </div>

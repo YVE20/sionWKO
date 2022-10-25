@@ -87,7 +87,7 @@ hr.style-eight:after {
     background: transparent;
 }
 /* For Mobile */
-@media only screen and (max-width: 768px) {
+@media screen and (min-width: 300px) and (max-width: 768px) {
     #navGerejaMasehi {
         margin-top: -20px;
     }
@@ -112,11 +112,23 @@ hr.style-eight:after {
     div#pelayananKami {
         margin-top: -10px;
     }
+    div#about #font22 {
+        margin-top: 30px;
+    }
 }
 /* For Tablet */
 @media only screen and (min-width: 600px) {
     #navGerejaMasehi {
         margin-top: -20px;
+    }
+    font#fontHome,
+    font#fontIbadah,
+    font#fontRenungan,
+    font#fontBerita,
+    font#fontTentangKami,
+    font#fontEvent,
+    font#fontKesaksian {
+        font-size: 15px;
     }
 }
 
@@ -124,5 +136,14 @@ hr.style-eight:after {
 @media only screen and (min-width: 768px) {
     #navGerejaMasehi {
         margin-top: -10px;
+    }
+    font#fontHome,
+    font#fontIbadah,
+    font#fontRenungan,
+    font#fontBerita,
+    font#fontTentangKami,
+    font#fontEvent,
+    font#fontKesaksian {
+        font-size: 17px;
     }
 }
