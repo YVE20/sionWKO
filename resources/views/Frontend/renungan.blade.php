@@ -1,7 +1,6 @@
 @extends('Layouts.frontend',['title' => 'Renungan'])
 @section('content')
-<div class="col-lg-12" id="cover-renungan">
-    
+<div class="col-lg-12" id="cover-renungan" style="background: url('{{ asset('img/Renungan.jpg') }}');height: 100%;background-position: center ;background-repeat: no-repeat;background-size: cover;position: relative;">   
 </div>
 <div class="col-lg-12" style="background-image: url('{{ asset('img/background-gereja.webp') }}');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative">
     <div class="color-overlay"></div>

@@ -87,7 +87,7 @@ hr.style-eight:after {
     background: transparent;
 }
 /* For Mobile */
-@media screen and (min-width: 300px) and (max-width: 768px) {
+@media screen and (min-width: 300px) and (max-width: 540px) {
     #navGerejaMasehi {
         margin-top: -20px;
     }
@@ -117,7 +117,7 @@ hr.style-eight:after {
     }
 }
 /* For Tablet */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 541px) {
     #navGerejaMasehi {
         margin-top: -20px;
     }
@@ -133,7 +133,7 @@ hr.style-eight:after {
 }
 
 /* For Desktop */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
     #navGerejaMasehi {
         margin-top: -10px;
     }
