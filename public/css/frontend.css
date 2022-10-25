@@ -132,8 +132,24 @@ hr.style-eight:after {
     }
 }
 
-/* For Desktop */
+/* For Desktop Biasa */
 @media only screen and (min-width: 1024px) {
+    #navGerejaMasehi {
+        margin-top: -10px;
+    }
+    font#fontHome,
+    font#fontIbadah,
+    font#fontRenungan,
+    font#fontBerita,
+    font#fontTentangKami,
+    font#fontEvent,
+    font#fontKesaksian {
+        font-size: 15px;
+    }
+}
+
+/* Laptop Full HD */
+@media only screen and (min-width: 1900px) {
     #navGerejaMasehi {
         margin-top: -10px;
     }

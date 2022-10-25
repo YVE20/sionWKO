@@ -6,8 +6,8 @@
 <head>
     <!-- Head -->
     @include('Includes.head')
-    <script src="{{ asset('/public/js/jquery-3.6.1.min.js') }}"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('/public/css/frontend.css')}}">
+    <script src="{{ asset('/js/jquery-3.6.1.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/frontend.css')}}">
     <style>
         #navbar {
             overflow: hidden;
