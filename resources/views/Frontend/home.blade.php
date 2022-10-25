@@ -8,84 +8,84 @@
     <div class="color-overlay"></div>
     <div class="row">
         <div class="col-lg-12 services-wrapper">
-            <div class="text-center py-5"><h2><strong>Pelayanan Kami</strong></h2></div>
+            <div class="text-center py-5" id="font22" ><h2><strong><font>Pelayanan Kami</font></strong></h2></div>
             <div class="container">
-                <div class="row px-3">
-                    <div class="col-lg-4 col-12">
+                <div class="row px-3" id="pelayananKami">
+                    <div class="col-lg-4 col-sm-4 col-md-12">
                         <a href="{{url('/jadwalIbadah')}}" style="color:black;text-decoration: none;">
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-3 text-right">
-                                    <i class="fas fa-calendar-alt" style="margin-top: 10px;font-size:50px;margin-right:10px;"></i>
+                                <div class="col-lg-3 col-sm-3 text-right">
+                                    <i class="fas fa-calendar-alt font15px" style="margin-top: 10px;font-size:50px;margin-right:10px;"></i>
                                 </div>
-                                <div class="col-lg-9 col-9">
-                                    <div><strong>Jadwal Ibadah</strong></div>
-                                    <div>Rasakan hadirat Tuhan di setiap waktu lewat pujian, penyembahan dan firman Tuhan.</div>
+                                <div class="col-lg-9 col-sm-9">
+                                    <div id="font15"><strong>Jadwal Ibadah</strong></div>
+                                    <div id="font15">Rasakan hadirat Tuhan di setiap waktu lewat pujian, penyembahan dan firman Tuhan.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-4 col-sm-4 col-md-12">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-3 text-right">
-                                    <i class="fas fa-praying-hands" style="margin-top: 10px;font-size:50px"></i>
+                                <div class="col-lg-3 col-sm-3 text-right">
+                                    <i class="fas fa-praying-hands font15px" style="margin-top: 10px;font-size:50px"></i>
                                 </div>
-                                <div class="col-lg-9 col-6">
-                                    <div><strong>Pelayanan Doa</strong></div>
-                                    <div>Para hamba Tuhan yang akan siap melayani anda melalui doa.</div>
+                                <div class="col-lg-9 col-sm-9">
+                                    <div id="font15"><strong>Pelayanan Doa</strong></div>
+                                    <div id="font15">Para hamba Tuhan yang akan siap melayani anda melalui doa.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-4 col-sm-4 col-md-12">
                         <a href="{{url('/komunitas')}}" style="color:black;text-decoration:none"> 
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-3 text-right">
-                                    <i class="fas fa-users" style="margin-top: 10px;font-size:50px"></i>
+                                <div class="col-lg-3 col-sm-3 text-right">
+                                    <i class="fas fa-users font15px" style="margin-top: 10px;font-size:50px"></i>
                                 </div>
-                                <div class="col-lg-9 col-9">
-                                    <div><strong>Komunitas Gereja</strong></div>
-                                    <div>Mari bertumbuh bersama lewat komunitas yang telah Tuhan percayakan.</div>
+                                <div class="col-lg-9 col-sm-9">
+                                    <div id="font15"><strong>Komunitas Gereja</strong></div>
+                                    <div id="font15">Mari bertumbuh bersama lewat komunitas yang telah Tuhan percayakan.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="row px-3 mb-4">
-                    <div class="col-lg-4 col-12">
+                <div class="row px-3 mb-4" id="pelayananKami">
+                    <div class="col-lg-4 col-sm-4 col-md-12">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-3 text-right">
-                                    <i class="fas fa-hands" style="margin-top: 10px;font-size:50px"></i>
+                                <div class="col-lg-3 col-sm-3 text-right">
+                                    <i class="fas fa-hands font15px" style="margin-top: 10px;font-size:50px"></i>
                                 </div>
-                                <div class="col-lg-9 col-9">
-                                    <div><strong>Pelayanan Jemaat</strong></div>
-                                    <div>Melayani setiap jemaat Tuhan dalam kasih dan anugrah Tuhan.</div>
+                                <div class="col-lg-9 col-sm-9">
+                                    <div id="font15"><strong>Pelayanan Jemaat</strong></div>
+                                    <div id="font15">Melayani setiap jemaat Tuhan dalam kasih dan anugrah Tuhan.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-4 col-sm-4 col-md-12">
                         <a href="#pelayanan" style="color:black;text-decoration:none" id="layanan"> 
                             <div class="row mb-4">
-                                <div class="col-lg-3 col-3 text-right">
-                                    <i class="fas fa-hand-holding-medical" style="margin-top: 10px;font-size:50px"></i>
+                                <div class="col-lg-3 col-sm-3 text-right">
+                                    <i class="fas fa-hand-holding-medical font15px" style="margin-top: 10px;font-size:50px"></i>
                                 </div>
-                                <div class="col-lg-9 col-9">
-                                    <div><strong>Pelayanan Baptis</strong></div>
-                                    <div>Baptis merupakan bentuk iman kita dalam mengakui Yesus sebagai juru selamat.</div>
+                                <div class="col-lg-9 col-sm-9">
+                                    <div id="font15"><strong>Pelayanan Baptis</strong></div>
+                                    <div id="font15">Baptis merupakan bentuk iman kita dalam mengakui Yesus sebagai juru selamat.</div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-4 col-sm-4 col-md-12">
                         <div class="row mb-4">
-                            <div class="col-lg-3 col-3 text-right">
-                                <i class="fas fa-volume-up"  style="margin-top: 10px;font-size:50px"></i>
+                            <div class="col-lg-3 col-sm-3 text-right">
+                                <i class="fas fa-volume-up font15px"  style="margin-top: 10px;font-size:50px"></i>
                             </div>
-                            <div class="col-lg-9 col-9">
-                                <div><strong>Kesaksian Jemaat</strong></div>
-                                <div>Kesaksian rohani yang diberikan melalui Roh Kudus yang mampu menjamah dan mengubah hidup.</div>
+                            <div class="col-lg-9 col-sm-9">
+                                <div id="font15"><strong>Kesaksian Jemaat</strong></div>
+                                <div id="font15">Kesaksian rohani yang diberikan melalui Roh Kudus yang mampu menjamah dan mengubah hidup.</div>
                             </div>
                         </div>
                     </div>
@@ -93,11 +93,11 @@
             </div>
         </div>
         <div class="col-lg-12 services-wrapper" id="about">
-            <div class="text-center py-5"><h2><strong> Tentang Kami </strong></h2></div>
+            <div class="text-center py-5" id="font22"><h2><strong><font> Tentang Kami </font></strong></h2></div>
                 <center>
                     <div class="row">
                         <div class="container">
-                            <div class="col-lg-12 px-3">
+                            <div class="col-lg-12 px-3" id="font15">
                                 <font>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
                                 </font>
@@ -107,13 +107,13 @@
                     <div>
                         <div class="container">
                             <div class="row mt-2">
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 col-sm-4">
                                 <img src="<?= asset('/img/Sion 2.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 col-sm-4">
                                 <img src="<?= asset('/img/Sion 3.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 col-sm-4">
                                 <img src="<?= asset('/img/Sion 7.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
                             </div>
                         </div>
@@ -123,9 +123,9 @@
         </div>
         <div class="col-lg-12 services-wrapper" id="pelayanan">
             <div class="container">
-                <div class="text-center py-5">
-                    <h2><strong> Pelayanan </strong></h2>
-                    <font> <u> Tekan gambar untuk informasi lebih lanjut </u> </font>
+                <div class="text-center py-5" id="font22">
+                    <h2><strong> <font>Pelayanan </font> </strong></h2>
+                    <font class="font15px"> <u> Tekan gambar untuk informasi lebih lanjut </u> </font>
                 </div>
                 <center>
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -165,7 +165,7 @@
         </div>
         <div class="col-lg-12 services-wrapper" id="berita">
             <div class="container">
-                <div class="text-center py-5"><h2><strong> Berita Gereja </strong></h2></div>
+                <div class="text-center py-5" id="font22"><h2><strong> <font> Berita Gereja  </font></strong></h2></div>
                 <center>
                     <img src="<?= asset('/img/Berita Gereja.png') ?>" alt="Berita" style="width:80%"><br><br>
                     <a href="javascript:void(0)" onclick="downloadBulletin()"> Download Disini </a>||
@@ -174,7 +174,7 @@
             </div>
         </div>
         <div class="col-lg-12 services-wrapper">
-            <div class="text-center py-5"><h2><strong> Hubungi Kami </strong></h2></div>
+            <div class="text-center py-5" id="font22"><h2><strong> <font> Hubungi Kami </font> </strong></h2></div>
             <div class="container">
                 <div class="row px-3">
                     <div class="col-lg-8">
@@ -184,10 +184,10 @@
                                 <input type="hidden" value="{{$id_kesaksian}}" name="testimony_id">
                                 <div class="col-xl-12">
                                     <div class="row">
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-6 col-sm-6">
                                             <input type="text" class="form-control" placeholder="Nama" id="name" name="name" >
                                         </div>
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-6 col-sm-6">
                                             <input type="text" class="form-control" placeholder="E-mail"  id="email" name="email" >
                                         </div>
                                     </div>
@@ -212,13 +212,13 @@
                     </div>
                     <div class="col-lg-4">
                         <center>
-                            <font style="font-size: 24px;"> Gedung Gereja </font> <br><br>
+                            <font style="font-size: 24px;" id="font22"> Gedung Gereja </font> <br><br>
                             <img src="<?= asset('/img/Sion 1.jpg') ?>" alt="Gereja" style="width:100px;height:150px;">
                             <img src="<?= asset('/img/Gereja sion-3.jpg') ?>" alt="Gereja" style="width:100px;height:150px;">
                             <img src="<?= asset('/img/Sion 6.jpg') ?>" alt="Gereja" style="width:100px;height:150px;">
                         </center>
                             <br><br>
-                            <font><b> Alamat </b> </font><br>
+                            <font class="font15px"><b> Alamat </b> </font><br>
                             <font> WKO, Tobelo Tengah, Halmahera Utara, <br>Maluku Utara, Indonesia </font><br><br>
                             <font><b> Telp  </b></font><br>
                             <font> 0831-1233-1234</font>
