@@ -23,7 +23,7 @@ class renunganController extends Controller
         $data = [
             'renungan' => $renungan
         ];
-        return view('Website.renungan.index',$data);
+        return view('Website.Renungan.index',$data);
     }
     public function getAllrenungan(){
         $perPage = 10;
