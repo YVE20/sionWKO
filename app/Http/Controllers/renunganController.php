@@ -50,7 +50,7 @@ class renunganController extends Controller
                         <td><div style="overflow-y: scroll;height:100px;">'.$dS->contents.'</div></td>
                         <td> 
                             <button onclick="editRenunganModal(`'.$dS->reflection_id.'`)" class="btn btn-warning text-white"> <i class="fas fa-pencil-alt"></i> </button>
-                            <button onclick="deleterenungan(`'.$dS->reflection_id.'`)" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>  </button>
+                            <button onclick="deleteRenungan(`'.$dS->reflection_id.'`)" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>  </button>
                         </td>
                     </tr>
                 ';
@@ -60,23 +60,97 @@ class renunganController extends Controller
         return $isi;
     }
     public function createRenungan(Request $request){
-        renunganModel::create([
-            'reflection_id' => $request->reflection_id,
-            'reflection_title' => $request->reflection_title,
-            'bible_verse' => $request->bible_verse,
-            'verse' => $request->verse,
-            'contents' => $request->contents,
-        ]);
-        return redirect('/adm/website/renungan')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
+        $url = "https://api-alkitab.herokuapp.com/v2/passage/list";
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $headers = array(
+            "Content-Type: application/json",
+            "Content-Length: 0",
+        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $resp = curl_exec($curl);
+        $obj = json_decode($resp, TRUE);
+        $singkatanKitab = "";
+        foreach($obj['passage_list'] as $o){
+          if($request->kitab == $o['book_name']){
+            $singkatanKitab = $o['abbreviation'];
+          }
+        }
+        if($singkatanKitab != ""){
+            $urlAyat = "https://api-alkitab.herokuapp.com/v2/passage/";
+            $urlLengkap = $urlAyat.$singkatanKitab."/".$request->pasal."/".$request->ayat."?ver=tb";
+            $curlAyat = curl_init($urlLengkap);
+            curl_setopt($curlAyat, CURLOPT_URL, $urlLengkap);
+            curl_setopt($curlAyat, CURLOPT_RETURNTRANSFER, true);
+
+            $headers = array(
+                "Content-Type: application/json",
+                "Content-Length: 0",
+            );
+            curl_setopt($curlAyat, CURLOPT_HTTPHEADER, $headers);
+
+            $response = curl_exec($curlAyat);
+            $object = json_decode($response, TRUE);
+            $ayatAlkitab = $object['verses'][0]['content'];
+            renunganModel::create([
+                'reflection_id' => $request->reflection_id,
+                'reflection_title' => $request->reflection_title,
+                'bible_verse' => $request->kitab." ".$request->pasal.":".$request->ayat,
+                'verse' => $ayatAlkitab,
+                'contents' => $request->contents,
+            ]);
+            return redirect('/adm/website/renungan')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
+
+        }else{
+            return redirect('/adm/website/renungan')->with(["status"=>"Data batal disimpan", "judul_alert" => "Gagal" , "icon" => "error"]); 
+        }
     }
     public function updateRenungan(Request $request){
-        renunganModel::where('reflection_id',$request->reflection_id)->update([
-            'reflection_title' => $request->reflection_title,
-            'bible_verse' => $request->bible_verse,
-            'verse' => $request->verse,
-            'contents' => $request->contents,
-        ]);
-        return redirect('/adm/website/renungan')->with(["status"=>"Data berhasil diubah", "judul_alert" => "Berhasil" , "icon" => "success"]);
+        $url = "https://api-alkitab.herokuapp.com/v2/passage/list";
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $headers = array(
+            "Content-Type: application/json",
+            "Content-Length: 0",
+        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $resp = curl_exec($curl);
+        $obj = json_decode($resp, TRUE);
+        $singkatanKitab = "";
+        foreach($obj['passage_list'] as $o){
+          if($request->kitab == $o['book_name']){
+            $singkatanKitab = $o['abbreviation'];
+          }
+        }
+        if($singkatanKitab != ""){
+            $urlAyat = "https://api-alkitab.herokuapp.com/v2/passage/";
+            $urlLengkap = $urlAyat.$singkatanKitab."/".$request->pasal."/".$request->ayat."?ver=tb";
+            $curlAyat = curl_init($urlLengkap);
+            curl_setopt($curlAyat, CURLOPT_URL, $urlLengkap);
+            curl_setopt($curlAyat, CURLOPT_RETURNTRANSFER, true);
+
+            $headers = array(
+                "Content-Type: application/json",
+                "Content-Length: 0",
+            );
+            curl_setopt($curlAyat, CURLOPT_HTTPHEADER, $headers);
+
+            $response = curl_exec($curlAyat);
+            $object = json_decode($response, TRUE);
+            $ayatAlkitab = $object['verses'][0]['content'];
+            renunganModel::where('reflection_id',$request->reflection_id)->update([
+                'reflection_title' => $request->reflection_title,
+                'bible_verse' => $request->kitab." ".$request->pasal.":".$request->ayat,
+                'verse' => $ayatAlkitab,
+                'contents' => $request->contents,
+            ]);
+            return redirect('/adm/website/renungan')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
+
+        }else{
+            return redirect('/adm/website/renungan')->with(["status"=>"Data batal disimpan", "judul_alert" => "Gagal" , "icon" => "error"]); 
+        }
     }
     public function deleteRenungan(){
         try{
@@ -93,7 +167,7 @@ class renunganController extends Controller
         if($row == 0){
             $row = 1;
         }else{
-            $id_renungan = $dataRenungan[$row-1]->testimony_id;
+            $id_renungan = $dataRenungan[$row-1]->reflection_id;
             $pisah = explode('/',$id_renungan);
             $row = $pisah[3] + 1;
         }
@@ -110,10 +184,10 @@ class renunganController extends Controller
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
-                                <label for="testimony_id"> ID renungan </label>
+                                <label for="reflection_id"> ID Renungan </label>
                             </div>
                             <div class="col-xl-8">
-                                <input type="text" class="form-control" readonly id="testimony_id" name="testimony_id" value="'."KSK/".$bulan."/".$tahun."/".$row.'">
+                                <input type="text" class="form-control" readonly id="reflection_id" name="reflection_id" value="'."REN/".$bulan."/".$tahun."/".$row.'"> 
                             </div>
                         </div>
                     </div>
@@ -122,10 +196,28 @@ class renunganController extends Controller
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
-                                <label for="name"> Nama </label>
+                                <label for="reflection_title"> Judul </label>
                             </div>
                             <div class="col-xl-8">
-                                <input type="text" class="form-control" autofocus required id="name" name="name" placeholder="Nama">
+                                <input type="text" class="form-control" autofocus required id="reflection_title" name="reflection_title" placeholder="Judul">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-xl-12">
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <label for="bible_verse"> Kitab </label>
+                            </div>
+                            <div class="col-xl-4 col-8">
+                                <input type="text" class="form-control" required id="kitab" name="kitab" placeholder="Kitab">
+                            </div>
+                            <div class="col-xl-2 col-2">
+                                <input type="text" class="form-control" required id="pasal" name="pasal" placeholder="Psl">
+                            </div>
+                            <div class="col-xl-2 col-2">
+                                <input type="text" class="form-control" required id="ayat" name="ayat" placeholder="Ayt">
                             </div>
                         </div>
                     </div>
@@ -134,52 +226,26 @@ class renunganController extends Controller
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
-                                <label for="email"> Email </label>
+                                <label for="contents"> Isi Renungan </label>
                             </div>
                             <div class="col-xl-8">
-                                <input type="email" class="form-control" required id="email" name="email" placeholder="Email">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-xl-12">
-                        <div class="row ">
-                            <div class="col-xl-4">
-                                <label for="subject"> Judul </label>
-                            </div>
-                            <div class="col-xl-8">
-                                <input type="text" class="form-control" required id="subject" name="subject" placeholder="Judul">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-xl-12">
-                        <div class="row ">
-                            <div class="col-xl-4">
-                                <label for="message"> Isi </label>
-                            </div>
-                            <div class="col-xl-8">
-                                <textarea id="message" class="form-control" name="message" placeholder="Isi" style="resize:none;">
-                                    
-                                </textarea>
+                                <textarea id="contents" class="form-control" name="contents" placeholder="Isi" style="resize:none;"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             ';
         }else{
-            $datarenunganModel = renunganModel::where('testimony_id',$_POST['testimony_id'])->get(); 
+            $dataRenunganModel = renunganModel::where('reflection_id',$_POST['reflection_id'])->first(); 
             $isi .='
                 <div class="row form-group">
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
-                                <label for="testimony_id"> ID renungan </label>
+                                <label for="reflection_id"> ID Renungan </label>
                             </div>
                             <div class="col-xl-8">
-                                <input type="text" class="form-control" readonly id="testimony_id" name="testimony_id" value="'.$datarenunganModel[0]->testimony_id.'">
+                                <input type="text" class="form-control" readonly id="reflection_id" name="reflection_id" value="'.$dataRenunganModel->reflection_id.'"> 
                             </div>
                         </div>
                     </div>
@@ -188,10 +254,30 @@ class renunganController extends Controller
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
-                                <label for="name"> Nama </label>
+                                <label for="reflection_title"> Judul </label>
                             </div>
                             <div class="col-xl-8">
-                                <input type="text" class="form-control" id="name" name="name" value="'.$datarenunganModel[0]->name.'">
+                                <input type="text" class="form-control" autofocus required id="reflection_title" name="reflection_title" value="'.$dataRenunganModel->reflection_title.'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-xl-12">
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <label for="bible_verse"> Kitab </label>
+                            </div>';
+                            $splitKitab = explode(' ',$dataRenunganModel->bible_verse);
+                            $splitPasal = explode(':',$splitKitab[1]);
+            $isi .='        <div class="col-xl-4 col-8">
+                                <input type="text" class="form-control" required id="kitab" name="kitab" value="'.$splitKitab[0].'">
+                            </div>
+                            <div class="col-xl-2 col-2">
+                                <input type="text" class="form-control" required id="pasal" name="pasal" value="'.$splitPasal[0].'">
+                            </div>
+                            <div class="col-xl-2 col-2">
+                                <input type="text" class="form-control" required id="ayat" name="ayat" value="'.$splitPasal[1].'">
                             </div>
                         </div>
                     </div>
@@ -200,36 +286,10 @@ class renunganController extends Controller
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
-                                <label for="email"> Email </label>
+                                <label for="contents"> Isi Renungan </label>
                             </div>
                             <div class="col-xl-8">
-                                <input type="email" class="form-control" id="email" name="email" value="'.$datarenunganModel[0]->email.'">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-xl-12">
-                        <div class="row ">
-                            <div class="col-xl-4">
-                                <label for="subject"> Judul </label>
-                            </div>
-                            <div class="col-xl-8">
-                                <input type="text" class="form-control" id="subject" name="subject" value="'.$datarenunganModel[0]->subject.'">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="row form-group">
-                    <div class="col-xl-12">
-                        <div class="row ">
-                            <div class="col-xl-4">
-                                <label for="message"> Isi </label>
-                            </div>
-                            <div class="col-xl-8">
-                                <textarea id="message" class="form-control" name="message" placeholder="Isi" style="resize:none;">';
-                                    $datarenunganModel[0]->message;    
-            $isi .='            </textarea>
+                                <textarea id="contents" class="form-control" name="contents" placeholder="Isi" style="resize:none;">'.$dataRenunganModel->contents.'</textarea>
                             </div>
                         </div>
                     </div>

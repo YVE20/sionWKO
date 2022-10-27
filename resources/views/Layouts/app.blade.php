@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="icon" type="image" href="{{asset('/public/img/Gereja WKO.jpg')}}">
+<link rel="icon" type="image" href="{{asset('/img/Gereja WKO.jpg')}}">
 <title> {{$title}} </title>
 <head>
     <!-- Head -->
@@ -33,9 +33,9 @@
             @include('Includes.footer')
         </footer>
     </div>
-    <script src="<?= asset('/public/js/jquery-3.5.1.js') ?>"></script>
-    <script src="<?= asset('/public/js/bootstrap.js') ?>"></script>
-    <script src="{{asset('/public/js/font-awesome.js')}}"></script>
+    <script src="<?= asset('/js/jquery-3.5.1.js') ?>"></script>
+    <script src="<?= asset('/js/bootstrap.js') ?>"></script>
+    <script src="{{asset('/js/font-awesome.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdn.tiny.cloud/1/gefzfdndizlvr6gggggarxk0pj00kfvp4ahac972n8eeqr3l/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>

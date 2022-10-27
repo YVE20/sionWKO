@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\sendEmailSionWKO;
 use App\Models\ibadahModel;
 use App\Models\kesaksianModel;
+use App\Models\renunganModel;
 
 class homeController extends Controller
 {
@@ -141,9 +142,9 @@ class homeController extends Controller
         return view('Frontend.kesaksian',$data);
     }
     public function renungan(){
-        $dataKesaksian = kesaksianModel::orderByRaw("SUBSTRING_INDEX(testimony_id, '/', -1) + 0 ASC LIMIT 5")->get();
+        $dataRenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 ASC LIMIT 5")->get();
         $data = [
-            'dataKesaksian' => $dataKesaksian
+            'dataRenungan' => $dataRenungan
         ];
         return view('Frontend.renungan',$data);
     }

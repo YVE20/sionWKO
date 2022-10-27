@@ -144,12 +144,12 @@ hr.style-eight:after {
     font#fontTentangKami,
     font#fontEvent,
     font#fontKesaksian {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 
 /* Laptop Full HD */
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1500px) {
     #navGerejaMasehi {
         margin-top: -10px;
     }

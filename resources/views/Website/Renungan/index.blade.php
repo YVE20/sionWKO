@@ -57,11 +57,20 @@
     @endif 
     $(document).ready(function(){
         getDataRenungan();
-        tinymce.init({
-            selector: 'textarea#message'
-        });
     });
-    
+    tinymce.init({
+        selector: '#message'
+    });
+    function getDataAyatApi(){
+        $.ajax({
+            url : 'https://api-alkitab.herokuapp.com/v2/passage/list',
+            method : 'GET',
+            dataType : 'JSON',
+            success:function(data){
+               
+            }
+        });
+    }
     function pagination_prev(){
         if(current_page_index != 1){
             current_page_index -= 1;

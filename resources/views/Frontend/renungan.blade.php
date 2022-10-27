@@ -9,44 +9,31 @@
             <div class="services-wrapper" id="kesaksian">
                 <div class="text-center py-4"><h2><strong> Renungan Harian </strong></h2></div>
                 <div class="container">
-                    <div class="row card-body">
-                        <div class="col-lg-4 mt-2">
-                            <div class="p-3 card shadow" style="height: 170px;">
-                                <b> Refleksi Matius 5 14-16: Apakah Anda orang yang menjadi terang dan memuliakan Tuhan? </b> <br>
-                                <div class="cut-text">
-                                    Engkau adalah terang dunia. Sebuah kota yang dibangun di atas bukit tidak dapat disembunyikan. Orang tidak menyalakan pelita dan meletakkannya di bawah gantang. Sebaliknya mereka meletakkannya di atas kaki dian, dan itu menerangi semua orang di rumah. Demikian pula, biarlah terangmu bersinar di hadapan orang lain, agar mereka melihat perbuatan baikmu dan memuliakan Bapamu yang di surga.
-                                </div>
+                    @if(count($dataRenungan) == 0)
+                        <div class="row card-body">
+                            <div class="col-lg-12 mt-2 shadow p-5">
+                                <center> <h3> TIDAK ADA DATA </h3> </center>
                             </div>
                         </div>
-                        <div class="col-lg-4 mt-2">
-                            <div class="p-3 card shadow" style="height: 170px;">
-                                <b> Refleksi Matius 5 14-16: Apakah Anda orang yang menjadi terang dan memuliakan Tuhan? </b> <br>
-                                <div class="cut-text">
-                                    Engkau adalah terang dunia. Sebuah kota yang dibangun di atas bukit tidak dapat disembunyikan. Orang tidak menyalakan pelita dan meletakkannya di bawah gantang. Sebaliknya mereka meletakkannya di atas kaki dian, dan itu menerangi semua orang di rumah. Demikian pula, biarlah terangmu bersinar di hadapan orang lain, agar mereka melihat perbuatan baikmu dan memuliakan Bapamu yang di surga.
+                    @else
+                        <div class="row card-body">
+                            @foreach($dataRenungan as $dR)
+                                <div class="col-lg-4 mt-2">
+                                    <div class="p-3 card shadow" style="height: 170px;border-radius: 10px;">
+                                        <div class="cut-text">
+                                            <b> Refleksi <?= $dR->bible_verse." ".$dR->verse ?> </b> <br>
+                                        </div>
+                                        <div class="cut-text">
+                                            <?= $dR->contents ?>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <div class="col-lg-4 mt-2">
-                            <div class="p-3 card shadow" style="height: 170px;">
-                                <b> Refleksi Matius 5 14-16: Apakah Anda orang yang menjadi terang dan memuliakan Tuhan? </b> <br>
-                                <div class="cut-text">
-                                    Engkau adalah terang dunia. Sebuah kota yang dibangun di atas bukit tidak dapat disembunyikan. Orang tidak menyalakan pelita dan meletakkannya di bawah gantang. Sebaliknya mereka meletakkannya di atas kaki dian, dan itu menerangi semua orang di rumah. Demikian pula, biarlah terangmu bersinar di hadapan orang lain, agar mereka melihat perbuatan baikmu dan memuliakan Bapamu yang di surga.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-2">
-                            <div class="p-3 card" style="height: 170px;">
-                                <b> Refleksi Matius 5 14-16: Apakah Anda orang yang menjadi terang dan memuliakan Tuhan? </b> <br>
-                                <div class="cut-text">
-                                    Engkau adalah terang dunia. Sebuah kota yang dibangun di atas bukit tidak dapat disembunyikan. Orang tidak menyalakan pelita dan meletakkannya di bawah gantang. Sebaliknya mereka meletakkannya di atas kaki dian, dan itu menerangi semua orang di rumah. Demikian pula, biarlah terangmu bersinar di hadapan orang lain, agar mereka melihat perbuatan baikmu dan memuliakan Bapamu yang di surga.
-                                </div>
-                            </div>
-                        </div>
-                    </div>        
+                    @endif
                 </div>
             </div>
         </div>
-        
         <div class="col-lg-12 footer-wrapper">
             <div class="container">
                 <div class="row px-3">
