@@ -37,7 +37,7 @@
     <script src="<?= asset('/js/bootstrap.js') ?>"></script>
     <script src="{{asset('/js/font-awesome.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://cdn.tiny.cloud/1/gefzfdndizlvr6gggggarxk0pj00kfvp4ahac972n8eeqr3l/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/drzndcs7x99r8cewem7nspuqoj8oakvdc6b38dmtrikywtub/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         $('#data_jemaat').click(function() {
             $('#manajemen_jemaat').slideToggle('slow');
