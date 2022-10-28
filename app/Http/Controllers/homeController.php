@@ -27,7 +27,7 @@ class homeController extends Controller
         $tahun = $split[1];
 
         $isAyatHarian = false;
-        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->get();
+        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
         if(count($dataRenungan) != null){
             $isAyatHarian = true;
         }
@@ -39,7 +39,7 @@ class homeController extends Controller
     }
     public function loadAyatHarianDB(){
         $isi = '';
-        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->get();
+        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
         foreach($dataRenungan as $dR){
             $isi .=$dR->bible_verse;
             $isi .='###';
