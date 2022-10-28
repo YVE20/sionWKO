@@ -163,6 +163,9 @@
             method : 'POST',
             success:function(data){
                 $('#isiModalIbadah').html(data);
+                tinymce.init({
+                    selector: '#sermon_content'
+                });
             }
         });
     }
@@ -199,6 +202,9 @@
             method : 'POST',
             success:function(data){
                 $('#isiModalIbadah').html(data);
+                tinymce.init({
+                    selector: '#sermon_content'
+                });
                 pilihKategoriIbadah();
             }
         });

@@ -58,9 +58,7 @@
     $(document).ready(function(){
         getDataRenungan();
     });
-    tinymce.init({
-        selector: '#message'
-    });
+
     function getDataAyatApi(){
         $.ajax({
             url : 'https://api-alkitab.herokuapp.com/v2/passage/list',
@@ -141,6 +139,9 @@
             method : 'POST',
             success:function(data){
                 $('#isiModalRenungan').html(data);
+                tinymce.init({
+                    selector: '#contents'
+                });
             }
         });
     }
@@ -159,6 +160,9 @@
             method : 'POST',
             success:function(data){
                 $('#isiModalRenungan').html(data);
+                tinymce.init({
+                    selector: '#contents'
+                });
             }
         });
     }

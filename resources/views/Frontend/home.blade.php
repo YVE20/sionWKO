@@ -90,6 +90,36 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-12 services-wrapper" id="ayatHarian">
+            <div class="text-center py-5" id="font22"><h2><strong><font> Ayat Hari Ini </font></strong></h2></div>
+            <div class="container">
+                <center>
+                   @if($isAyatHarian)
+                        <div class="row">
+                            <div class="col-lg-12 shadow">
+                                <center>
+                                    <div style="padding:30px">
+                                        <b><font style="font-size: 20px" id="AyatHarian"></font></b><br><br>
+                                        <i><font style="font-size: 20px" id="isiAyatHarian"></font></i><hr>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    @else
+                        <div class="row">
+                            <div class="col-lg-12 shadow">
+                                <center>
+                                    <div style="padding:30px">
+                                        <b><font style="font-size: 20px" id="AyatHarian"></font></b><br><br>
+                                        <i><font style="font-size: 20px" id="isiAyatHarian"></font></i><hr>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    @endif               
+                </center>
+            </div>
+        </div>
         <div class="col-lg-12 services-wrapper" id="about">
             <div class="text-center py-5" id="font22"><h2><strong><font> Tentang Kami </font></strong></h2></div>
                 <center>
@@ -219,7 +249,7 @@
                             <font class="font15px"><b> Alamat </b> </font><br>
                             <font> WKO, Tobelo Tengah, Halmahera Utara, <br>Maluku Utara, Indonesia </font><br><br>
                             <font><b> Telp  </b></font><br>
-                            <font> 0831-1233-1234</font>
+                            <font> <a style="text-decoration:none;color:black" href="https://wa.me/6281278293745/?text=Saya hendak menghubungi pihak Gereja untuk suatu keperluan. Apakah bisa menghubungi saya kembali ? Terima kasih. Tuhan Yesus Memberkati"> 0812-7829-3745 </a></font><br><br>
                     </div>
                 </div>
             </div>
@@ -281,6 +311,53 @@
     }
     function goToRenungan(){
         location.href="<?= url('/renungan') ?>";
+    }
+    @if($isAyatHarian)
+        refreshAyatHarianDB();
+    @else
+        refreshAyatHarianAPI();  
+    @endif
+    function refreshAyatHarianDB(){
+        $.ajax({
+            url : '<?= url('/loadAyatHarianDB') ?>',
+            method : 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function(data){
+                var arr_data = data.split('###');
+                $('#AyatHarian').html(arr_data[0]);
+                $('#isiAyatHarian').html(arr_data[1]);
+            }
+        });
+    }
+    function refreshAyatHarianAPI(){
+        $.ajax({
+            url : '<?= url('/loadAyatHarianAPI') ?>',
+            method : 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success:function(data){
+                var arr_data = data.split('###');
+                $('#AyatHarian').html(arr_data[0]);
+                $('#isiAyatHarian').html(arr_data[1]);
+                addAyatHarian(arr_data[0],arr_data[1]);
+            }
+        });
+    }
+    function addAyatHarian(ayat,isiAyat){
+        $.ajax({
+            url : '<?= url('/isiAyatHarian') ?>',
+            method : 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data : {ayat : ayat , isiAyat : isiAyat},
+            success:function(data){
+                console.log(data);
+            }
+        });
     }
     function sendMessage(){
         const nama = $('#name').val();

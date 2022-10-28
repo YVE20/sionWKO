@@ -269,9 +269,16 @@ class renunganController extends Controller
                                 <label for="bible_verse"> Kitab </label>
                             </div>';
                             $splitKitab = explode(' ',$dataRenunganModel->bible_verse);
-                            $splitPasal = explode(':',$splitKitab[1]);
+                            $hasilMergeKitab = "";
+                            if(count($splitKitab) == 3){
+                                $hasilMergeKitab = $splitKitab[0]." ".$splitKitab[1];
+                                $splitPasal = explode(':',$splitKitab[2]);
+                            }else{
+                                $hasilMergeKitab = $splitKitab[0];
+                                $splitPasal = explode(':',$splitKitab[1]);   
+                            }
             $isi .='        <div class="col-xl-4 col-8">
-                                <input type="text" class="form-control" required id="kitab" name="kitab" value="'.$splitKitab[0].'">
+                                <input type="text" class="form-control" required id="kitab" name="kitab" value="'.$hasilMergeKitab.'">
                             </div>
                             <div class="col-xl-2 col-2">
                                 <input type="text" class="form-control" required id="pasal" name="pasal" value="'.$splitPasal[0].'">

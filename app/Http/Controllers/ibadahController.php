@@ -418,9 +418,7 @@ class ibadahController extends Controller
                             <label for="sermon_content"> Isi Khotbah </label>
                         </div>
                         <div class="col-xl-10">
-                            <textarea name="sermon_content" class="form-control" id="sermon_content" cols="30" rows="10" placeholder="Isi Khotbah" style="resize:none;">
-                            '.$ibadah[0]->sermon_content.'
-                            </textarea>
+                            <textarea name="sermon_content" class="form-control" id="sermon_content" cols="30" rows="10" placeholder="Isi Khotbah" style="resize:none;">'.$ibadah[0]->sermon_content.'</textarea>
                         </div>
                     </div>
                 </div>

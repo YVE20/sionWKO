@@ -6,8 +6,8 @@
 <head>
     <!-- Head -->
     @include('Includes.head')
-    <script src="{{ asset('/public/js/jquery-3.6.1.min.js') }}"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('/public/css/frontend.css')}}?v=2">
+    <script src="{{ asset('/js/jquery-3.6.1.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/frontend.css')}}?v=2">
     <style>
         #navbar {
             overflow: hidden;
@@ -58,8 +58,8 @@
         <footer>
             @include('Includes.footerFrontend')
         </footer>
-        <script src="<?= asset('/public/js/jquery-3.5.1.js') ?>"></script>
-        <script src="<?= asset('/public/js/bootstrap.js') ?>"></script>
+        <script src="<?= asset('/js/jquery-3.5.1.js') ?>"></script>
+        <script src="<?= asset('/js/bootstrap.js') ?>"></script>
         <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script>

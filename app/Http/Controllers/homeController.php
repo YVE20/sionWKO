@@ -26,10 +26,70 @@ class homeController extends Controller
         $bulan = $split[0];
         $tahun = $split[1];
 
+        $isAyatHarian = false;
+        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->get();
+        if(count($dataRenungan) != null){
+            $isAyatHarian = true;
+        }
         $data = [
-            'id_kesaksian' => "KSK/".$bulan."/".$tahun."/".$row
+            'id_kesaksian' => "KSK/".$bulan."/".$tahun."/".$row,
+            'isAyatHarian' => $isAyatHarian
         ];
         return view('Frontend.home',$data);
+    }
+    public function loadAyatHarianDB(){
+        $isi = '';
+        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->get();
+        foreach($dataRenungan as $dR){
+            $isi .=$dR->bible_verse;
+            $isi .='###';
+            $isi .=$dR->verse;
+        }
+        return $isi;
+    }
+    public function loadAyatHarianAPI(){
+        $isi = '';
+        $urlAyat = "https://indo-bible.herokuapp.com/bible/random";
+        $curlAyat = curl_init($urlAyat);
+        curl_setopt($curlAyat, CURLOPT_URL, $urlAyat);
+        curl_setopt($curlAyat, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Content-Type: application/json",
+            "Content-Length: 0",
+        );
+        curl_setopt($curlAyat, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($curlAyat);
+        $object = json_decode($response, TRUE);
+        $isi .=$object['id']['verse']['details']['reference'];
+        $isi .='###';
+        $isi .=$object['id']['verse']['details']['text'];
+        return $isi;
+    }
+    public function isiAyatHarian(){
+        $dataRenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 ASC")->get();
+        $row = $dataRenungan->count();
+        if($row == 0){
+            $row = 1;
+        }else{
+            $id_renungan = $dataRenungan[$row-1]->reflection_id;
+            $pisah = explode('/',$id_renungan);
+            $row = $pisah[3] + 1;
+        }
+        $date = date('m/Y');
+        $split = explode('/', $date);
+        $bulan = $split[0];
+        $tahun = $split[1];
+
+        renunganModel::create([
+            'reflection_id' => "REN/".$bulan."/".$tahun."/".$row,
+            'reflection_title' => $_POST['ayat'],
+            'bible_verse' => $_POST['ayat'],
+            'verse' => $_POST['isiAyat'],
+            'contents' => "-"
+        ]);
+        return "success";
     }
     public function hubungiKami(Request $request){
         kesaksianModel::create([
