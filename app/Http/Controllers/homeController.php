@@ -208,4 +208,27 @@ class homeController extends Controller
         ];
         return view('Frontend.renungan',$data);
     }
+    public function getRenunganById(){
+        $dataRenungan = renunganModel::where('reflection_id',$_POST['reflection_id'])->get();
+        $isi = '';
+        $isi.='
+            <div class="row" style="text-align:justify">
+                <div class="col-lg-12 mt-4">
+                    <center><h4>'.strtoupper($dataRenungan[0]->reflection_title).'</h4></center>
+                </div>
+                <div class="col-lg-12">
+                    <font>'.$dataRenungan[0]->bible_verse.'</font><br>
+                    <font><i>'.$dataRenungan[0]->verse.'</i></font>
+                </div>
+                <div class="col-lg-12 mt-4">
+                    <font>'.$dataRenungan[0]->contents.'</font>
+                </div>
+                <div class="col-lg-12 mt-5 copyright" style="font-size:13px;margin-bottom:-5px;">
+                    2022 OLEH GEREJA MASEHI DI HALMAHERA UTARA <br>
+                    &copy; ALL RIGHTS RESERVED
+                </div>
+            </div>
+        ';
+        return $isi;
+    }
 }

@@ -18,12 +18,20 @@
                     @else
                         <div class="row card-body">
                             @foreach($dataRenungan as $dR)
-                                <div class="col-lg-4 mt-2">
-                                    <div class="p-3 card shadow" style="height: 170px;border-radius: 10px;">
-                                        <div class="cut-text">
-                                            <b> Refleksi <?= $dR->bible_verse." ".$dR->verse ?> </b> <br>
-                                        </div>
-                                        <div class="cut-text">
+                                <?php 
+                                $split = explode(' ',$dR->created_at);
+                                $splitTgl = explode('-',$split[0]); 
+                                ?>
+                                <div class="col-lg-4 mt-2" style="cursor: pointer;" onclick="openRenunganModal('<?= $dR->reflection_id ?>')">
+                                    <div class="p-3 card shadow" style="height: 200px;border-radius: 10px;">
+                                        <div>
+                                            <b> Refleksi <?= $dR->bible_verse ?> </b> <br>
+                                            <div class="cut-text">
+                                                <font> <?= $dR->verse ?> </font>
+                                            </div>
+                                        </div><hr>
+                                        <div class="cut-text" style="font-size:13px;margin-top:-10px">
+                                            <font> SANTAPAN ROHANI. <?= $splitTgl[2]."-".$splitTgl[1]."-".$splitTgl[0] ?> </font><br>    
                                             <?= $dR->contents ?>
                                         </div>
                                     </div>
@@ -50,6 +58,16 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="renunganModal" tabindex="-1" role="dialog" aria-labelledby="renunganModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="isiRenungan">
+                
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 @push('js')
 <script>
@@ -58,6 +76,21 @@
     }
     function goToKesaksian(){
         location.href="<?= url('/kesaksian') ?>";
+    }
+    function openRenunganModal(reflection_id){
+        $('#renunganModal').modal('show');
+        $.ajax({
+            url : '<?= url('/getRenunganById') ?>',
+            method : 'POST',
+             headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data : {reflection_id : reflection_id},
+            success:function(data){
+                console.log(data);
+                $('#isiRenungan').html(data);
+            }
+        });
     }
 </script>
 @endpush

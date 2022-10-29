@@ -27,6 +27,7 @@ Route::get('/renungan','homeController@renungan');
 Route::post('/loadAyatHarianDB','homeController@loadAyatHarianDB');
 Route::post('/loadAyatHarianAPI','homeController@loadAyatHarianAPI');
 Route::post('/isiAyatHarian','homeController@isiAyatHarian');
+Route::post('/getRenunganById','homeController@getRenunganById');
 
 //Admin
 Route::group(['prefix' => 'adm'],function(){
