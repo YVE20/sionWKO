@@ -212,7 +212,7 @@ class homeController extends Controller
         $dataRenungan = renunganModel::where('reflection_id',$_POST['reflection_id'])->get();
         $isi = '';
         $isi.='
-            <div class="row" style="text-align:justify">
+            <div class="row" style="text-align:justify;">
                 <div class="col-lg-12 mt-4">
                     <center><h4>'.strtoupper($dataRenungan[0]->reflection_title).'</h4></center>
                 </div>

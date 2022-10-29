@@ -59,7 +59,7 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="renunganModal" tabindex="-1" role="dialog" aria-labelledby="renunganModalLabel" aria-hidden="true">
+<div class="modal fade" style="z-index:9999" id="renunganModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-body" id="isiRenungan">
@@ -87,7 +87,6 @@
             },
             data : {reflection_id : reflection_id},
             success:function(data){
-                console.log(data);
                 $('#isiRenungan').html(data);
             }
         });
