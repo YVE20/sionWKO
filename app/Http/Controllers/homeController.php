@@ -202,7 +202,7 @@ class homeController extends Controller
         return view('Frontend.kesaksian',$data);
     }
     public function renungan(){
-        $dataRenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 ASC LIMIT 5")->get();
+        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
         $data = [
             'dataRenungan' => $dataRenungan
         ];
