@@ -203,7 +203,6 @@
                 <center>
                     <img src="<?= asset('/img/Berita Gereja.png') ?>" alt="Berita" style="width:80%"><br><br>
                     <a href="javascript:void(0)" onclick="downloadBulletin()"> Download Disini </a>||
-                    <a href="<?= asset('/downloadManageJemaat') ?>"> Download Data Jemaat </a>
                 </center>
             </div>
         </div>
@@ -268,7 +267,7 @@
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.9998450299563!2d128.00999027308282!3d1.7299409197953088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x329a61b6631599d3%3A0xc88152b44c94111c!2sKantor%20Sinode%20Gereja%20Masehi%20Injili%20Halmahera!5e0!3m2!1sid!2sid!4v1665719176949!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   
                     </div>
                     <div class="col-lg-6">
-                        <div style="background-image: url('{{ asset('img/2019-04-19.jpg') }}');background-size:cover;background-position:center;background-repeat:no-repeat;height:100%;"></div>
+                        <div style="background-image: url('{{ asset('img/Sion 3.jpg') }}');background-size:cover;background-position:center;background-repeat:no-repeat;height:100%;"></div>
                     </div>
                 </div>  
            </div>
