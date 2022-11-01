@@ -48,6 +48,7 @@ class reformasiGerejaController extends Controller
             'theme' => $request->theme,
             'contact_person' => $request->contact_person,
             'photo' => $urlPhotoFile,
+            'time' => $request->time
         ]); 
         return redirect('/adm/event/reformasiGereja')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
     }
@@ -73,6 +74,7 @@ class reformasiGerejaController extends Controller
             'theme' => $request->theme,
             'contact_person' => $request->contact_person,
             'photo' => $urlPhotoFile,
+            'time' => $request->time
         ]); 
         return redirect('/adm/event/reformasiGereja')->with(["status"=>"Data berhasil diubah", "judul_alert" => "Berhasil" , "icon" => "success"]);
     }
@@ -105,12 +107,13 @@ class reformasiGerejaController extends Controller
             foreach($paginator as $dERG){
                 $pisah = explode(' ',$dERG->sermon_date);
                 $tanggal_baru = explode('-',$pisah[0]);
+                $pisahJam = explode(':',$dERG->time);
                 $isi .='
                     <tr>
                         <td>'.$row++.'</td>
                         <td>'.$dERG->event_id.'</td>
-                        <td>'.$tanggal_baru[2].'-'.$tanggal_baru[1].'-'.$tanggal_baru[0].'</td>
-                        <td>'.$dERG->address.'</td>
+                         <td>'.$tanggal_baru[2].'-'.$tanggal_baru[1].'-'.$tanggal_baru[0].' ('.$pisahJam[0].':'.$pisahJam[1].' WIT)</td>
+                        <td>'.$dERG->place.'</td>
                         <td>'.$dERG->theme.'</td>
                         <td>'.$dERG->contact_person.'</td>';
                         if($dERG->photo == NULL){

@@ -25,6 +25,7 @@
                         <option value="IBD/IBMG/2022"> Ibadah Minggu Gembira </option>
                         <option value="IBD/IBP/2022"> Ibadah Pemuda </option>
                         <option value="IBD/IBR/2022"> Ibadah Remaja </option>
+                        <option value="IBD/IBLL/2022"> Ibadah Lain-lain </option>
                    </select>
                 </div>
                 <div class="text-left float-left col-lg-2 col-4">
@@ -34,7 +35,7 @@
                         <option value="2"> LP 2 </option>
                         <option value="3"> LP 3 </option>
                         <option value="4"> LP 4 </option>
-                        <option value="5"> Lingkungan Pelayanan 5 </option>
+                        <option value="5"> LP 5 </option>
                    </select>
                 </div>
                 <div class="text-right float-left col-lg-1 col-4">
@@ -240,22 +241,31 @@
             dataType : 'JSON',
             success:function(data){
                 $('#category').val(data.category);
-                if(data.category_id == "IBD/IBLP/2022"){
-                    $('#service_environtment').css('display','block');
-                    $("#service_environtment").prop('required',true);
-                }
-                else if(data.category_id == "IBD/IBKB/2022"){
-                    $('#service_environtment').css('display','block');
-                    $("#service_environtment").prop('required',true);
-                }
-                else if(data.category_id == "IBD/IBKI/2022"){
-                    $('#service_environtment').css('display','block');
-                    $("#service_environtment").prop('required',true);
-                }else if(data.category_id == "IBD/IBMG/2022"){
-                    $('#service_environtment').css('display','block');
-                    $("#service_environtment").prop('required',true);
+                var worship = $('#worship');
+
+                if(data.category == "Ibadah Lain-lain"){
+                    worship.prop('readonly',false);
+                    worship.css('display','block');
+                    worship.attr('placeholder','Tuliskan jenis ibadah');
                 }else{
-                    $('#service_environtment').css('display','none');
+                    if(data.category_id == "IBD/IBLP/2022"){
+                        $('#service_environtment').css('display','block');
+                        $("#service_environtment").prop('required',true);
+                    }
+                    else if(data.category_id == "IBD/IBKB/2022"){
+                        $('#service_environtment').css('display','block');
+                        $("#service_environtment").prop('required',true);
+                    }
+                    else if(data.category_id == "IBD/IBKI/2022"){
+                        $('#service_environtment').css('display','block');
+                        $("#service_environtment").prop('required',true);
+                    }else if(data.category_id == "IBD/IBMG/2022"){
+                        $('#service_environtment').css('display','block');
+                        $("#service_environtment").prop('required',true);
+                    }else{
+                        $('#service_environtment').css('display','none');
+                        worship.css('display','none');
+                    }   
                 }
             }
         }); 

@@ -15,7 +15,7 @@
                         <tr>
                             <th> ID Event </th>
                             <th> Kategori </th>
-                            <th> Tanggal </th>
+                            <th> Tgl & Waktu </th>
                             <th> Tempat </th>
                             <th> Tema </th>
                             <th> Pelayan </th>

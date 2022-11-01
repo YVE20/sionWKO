@@ -325,7 +325,7 @@ class kartuKeluargacontroller extends Controller
                                 <label for="RT/RW"> RT/RW </label>
                             </div>
                             <div class="col-xl-8">
-                            <input type="text" class="form-control" required id="RTRW" name="RTRW" placeholder="Masukan RT/RW">     
+                            <input type="text" class="form-control" id="RTRW" name="RTRW" placeholder="Masukan RT/RW">     
                             </div>
                         </div>
                     </div>
@@ -347,7 +347,7 @@ class kartuKeluargacontroller extends Controller
                                 <label for="photo"> Foto </label>
                             </div>
                             <div class="col-xl-8">
-                            <input type="file" class="form-control" required id="photo" name="photo">     
+                            <input type="file" class="form-control" id="photo" name="photo">     
                             </div>
                         </div>
                     </div>

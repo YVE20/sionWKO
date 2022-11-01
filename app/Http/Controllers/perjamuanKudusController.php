@@ -48,6 +48,7 @@ class perjamuanKudusController extends Controller
             'theme' => $request->theme,
             'contact_person' => $request->contact_person,
             'photo' => $urlPhotoFile,
+            'time' => $request->time
         ]); 
         return redirect('/adm/event/perjamuanKudus')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
     }
@@ -73,6 +74,7 @@ class perjamuanKudusController extends Controller
             'theme' => $request->theme,
             'contact_person' => $request->contact_person,
             'photo' => $urlPhotoFile,
+            'time' => $request->time
         ]); 
         return redirect('/adm/event/perjamuanKudus')->with(["status"=>"Data berhasil diubah", "judul_alert" => "Berhasil" , "icon" => "success"]);
     }
@@ -105,12 +107,13 @@ class perjamuanKudusController extends Controller
             foreach($paginator as $dEPK){
                 $pisah = explode(' ',$dEPK->sermon_date);
                 $tanggal_baru = explode('-',$pisah[0]);
+                $pisahJam = explode(':',$dEPK->time);
                 $isi .='
                     <tr>
                         <td>'.$row++.'</td>
                         <td>'.$dEPK->event_id.'</td>
-                        <td>'.$tanggal_baru[2].'-'.$tanggal_baru[1].'-'.$tanggal_baru[0].'</td>
-                        <td>'.$dEPK->address.'</td>
+                        <td>'.$tanggal_baru[2].'-'.$tanggal_baru[1].'-'.$tanggal_baru[0].' ('.$pisahJam[0].':'.$pisahJam[1].' WIT)</td>
+                        <td>'.$dEPK->place.'</td>
                         <td>'.$dEPK->theme.'</td>
                         <td>'.$dEPK->contact_person.'</td>';
                         if($dEPK->photo == NULL){

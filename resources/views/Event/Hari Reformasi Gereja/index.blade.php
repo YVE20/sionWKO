@@ -15,10 +15,10 @@
                         <tr>
                             <th>#</th>
                             <th> ID Event </th>
-                            <th> Tanggal </th>
-                            <th> Alamat </th>
+                            <th> Tgl & Waktu </th>
+                            <th> Tempat </th>
                             <th> Tema </th>
-                            <th> Narahubung </th>
+                            <th> Pelayan </th>
                             <th> Foto </th>
                             <th> Action </th>
                         </tr>

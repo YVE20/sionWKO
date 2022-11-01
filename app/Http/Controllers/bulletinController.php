@@ -332,55 +332,59 @@ class bulletinController extends Controller
         }
     }
     public function downloadBulletin($bulan){
-        $dataCover = bulletinCoverModel::where('month',date('m'))->first();
+        $dataCover = bulletinCoverModel::where('month',date($bulan))->first();
         //Data Ibadah Lingkungan
-        $dataIbadahLingkungan1 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
-        $dataIbadahLingkungan2 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
-        $dataIbadahLingkungan3 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','3')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
-        $dataIbadahLingkungan4 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','4')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
-        $dataIbadahLingkungan5 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','5')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
+        $dataIbadahLingkungan1 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
+        $dataIbadahLingkungan2 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
+        $dataIbadahLingkungan3 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','3')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
+        $dataIbadahLingkungan4 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','4')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
+        $dataIbadahLingkungan5 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','5')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
 
         //Data Ibadah Kategori Kaum Bapak
-        $dataIbadahLingkungan1KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
-        $dataIbadahLingkungan2KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
-        $dataIbadahLingkungan3KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','3')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
-        $dataIbadahLingkungan4KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','4')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
-        $dataIbadahLingkungan5KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','5')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
+        $dataIbadahLingkungan1KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
+        $dataIbadahLingkungan2KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
+        $dataIbadahLingkungan3KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','3')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
+        $dataIbadahLingkungan4KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','4')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
+        $dataIbadahLingkungan5KaumBapak = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','5')->where('tb_ibadah.category_id','IBD/IBKB/2022')->get();
 
         //Data Ibadah Kategori Kaum Ibu
-        $dataIbadahLingkungan1KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
-        $dataIbadahLingkungan2KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
-        $dataIbadahLingkungan3KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','3')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
-        $dataIbadahLingkungan4KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','4')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
-        $dataIbadahLingkungan5KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','5')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
+        $dataIbadahLingkungan1KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
+        $dataIbadahLingkungan2KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
+        $dataIbadahLingkungan3KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','3')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
+        $dataIbadahLingkungan4KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','4')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
+        $dataIbadahLingkungan5KaumIbu = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','5')->where('tb_ibadah.category_id','IBD/IBKI/2022')->get();
 
         //Data Ibadah Kategori Pemuda
-        $dataIbadahPemuda = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBP/2022')->get();
+        $dataIbadahPemuda = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBP/2022')->get();
 
         //Data Ibadah Kategori Remaja
-        $dataIbadahRemaja = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBR/2022')->get();
+        $dataIbadahRemaja = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBR/2022')->get();
 
         //Data Ibadah Kategori Minggu Gembira
-        $dataIbadahLingkungan1MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
-        $dataIbadahLingkungan2MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
-        $dataIbadahLingkungan3MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','3')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
-        $dataIbadahLingkungan4MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','4')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
-        $dataIbadahLingkungan5MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','5')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
+        $dataIbadahLingkungan1MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
+        $dataIbadahLingkungan2MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
+        $dataIbadahLingkungan3MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','3')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
+        $dataIbadahLingkungan4MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','4')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
+        $dataIbadahLingkungan5MingguGembira = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','5')->where('tb_ibadah.category_id','IBD/IBMG/2022')->get();
+
+        //Ibadah Lain-lain
+        $dataIbadahLainlainJam7 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBM/2022')->whereRaw('time="07:00:00"')->get();
+        $dataIbadahLainlainJam9 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBM/2022')->whereRaw('time="09:30:00"')->get();
 
         //Data Rapat Evaluasi
-        $dataRapatEvaluasi = rapatEvaluasiModel::whereRaw('month(date)='.date('m'))->whereRaw('year(date)='.date('Y'))->get();
+        $dataRapatEvaluasi = rapatEvaluasiModel::whereRaw('month(date)='.date($bulan))->whereRaw('year(date)='.date('Y'))->get();
         
         //Data Kelompok Majelis Ibadah Minggu
-        $dataKelompokMajelisIbadahMinggu = majelisIbadahMingguModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_majelis_ibadah_minggu.serviceCategory_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->get();
+        $dataKelompokMajelisIbadahMinggu = majelisIbadahMingguModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_majelis_ibadah_minggu.serviceCategory_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->get();
 
         //Data Khadim
-        $dataKhadim = khadimModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_khadim.serviceCategory_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->get();
+        $dataKhadim = khadimModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_khadim.serviceCategory_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->get();
 
         //Data Penataan Bunga
-        $dataPenataanBunga = penataanBungaModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_penataan_bunga.serviceCategory_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->get();
+        $dataPenataanBunga = penataanBungaModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_penataan_bunga.serviceCategory_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->get();
 
         //Data Pemusik
-        $tanggalPemusik = pemusikModel::select('sermon_date')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
+        $tanggalPemusik = pemusikModel::select('sermon_date')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
         $dataPemusik = [];
         foreach($tanggalPemusik as $tgl){ 
             $jamPemusik = pemusikModel::select('time')->where('sermon_date',$tgl->sermon_date)->groupBy('time')->get();
@@ -397,12 +401,12 @@ class bulletinController extends Controller
         }
 
         //Data Pujian
-        $dataPujian = pujianModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_pujian.serviceCategory_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
+        $dataPujian = pujianModel::join('tb_kategori_pelayanan','tb_kategori_pelayanan.serviceCategory_id','tb_pujian.serviceCategory_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
         $dataPujian1 = DB::select('SELECT *FROM tb_pujian WHERE TIME = TIME("07:00:00") AND MONTH(sermon_date) = MONTH(CURDATE())');
         $dataPujian2 = DB::select('SELECT *FROM tb_pujian WHERE TIME = TIME("09:30:00") AND MONTH(sermon_date) = MONTH(CURDATE())');
 
         //Data Penerima Tamu
-        $tanggalPenerimaTamu = penerimaTamuModel::select('sermon_date')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
+        $tanggalPenerimaTamu = penerimaTamuModel::select('sermon_date')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->groupByRaw('sermon_date')->get();
         $dataPenerimaTamu = [];
         foreach($tanggalPenerimaTamu as $tgl){
             
@@ -421,8 +425,8 @@ class bulletinController extends Controller
 
         //Dafter Kelompok Majelis 
         $dataKelompokMajelis = pembagianMajelisModel::select('assembly_group')->with(['group_data' => function($query){
-            return $query->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->get();
-        }])->withCount('group_data')->groupBy('assembly_group')->get();
+            return $query->whereRaw('year(sermon_date)='.date('Y'))->get();
+        }])->withCount('group_data')->whereRaw('month(sermon_date)='.$bulan)->groupBy('assembly_group')->get();
 
         $month = "";
         if($bulan == "1"){
@@ -478,6 +482,8 @@ class bulletinController extends Controller
             'dataIbadahLingkungan3MingguGembira' => $dataIbadahLingkungan3MingguGembira,
             'dataIbadahLingkungan4MingguGembira' => $dataIbadahLingkungan4MingguGembira,
             'dataIbadahLingkungan5MingguGembira' => $dataIbadahLingkungan5MingguGembira,
+            'dataIbadahLainlainJam7' => $dataIbadahLainlainJam7,
+            'dataIbadahLainlainJam9' => $dataIbadahLainlainJam9,
             'dataRapatEvaluasi' => $dataRapatEvaluasi,
             'dataKelompokMajelisIbadahMinggu' => $dataKelompokMajelisIbadahMinggu,
             'dataKhadim' => $dataKhadim,

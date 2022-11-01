@@ -65,7 +65,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="speaker"> Pembicara </label>
+                                    <label for="speaker"> MC </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required id="speaker" name="speaker" placeholder="Hamba Tuhan">
@@ -77,7 +77,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="place"> Tempat </label>
+                                    <label for="place"> Tempat Ibadah </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required name="place" id="place" placeholder="Tempat">
@@ -85,12 +85,15 @@ class eventController extends Controller
                             </div>
                         </div>
                         <div class="col-xl-6">
-                            <div class="row ">
+                            <div class="row">
                                 <div class="col-xl-4">
                                     <label for="sermon_date"> Tanggal </label>
                                 </div>
-                                <div class="col-xl-8">
+                                <div class="col-xl-5">
                                     <input type="date" class="form-control" required name="sermon_date" id="sermon_date" >
+                                </div>
+                                <div class="col-xl-3">
+                                    <input type="time" class="form-control" required name="time" id="time" >
                                 </div>
                             </div>
                         </div>
@@ -184,7 +187,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="speaker"> Pembicara </label>
+                                    <label for="speaker"> MC </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required id="speaker" name="speaker" placeholder="Hamba Tuhan">
@@ -196,7 +199,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="place"> Tempat </label>
+                                    <label for="place"> Tempat Ibadah </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required name="place" id="place" placeholder="Tempat">
@@ -208,8 +211,11 @@ class eventController extends Controller
                                 <div class="col-xl-4">
                                     <label for="sermon_date"> Tanggal </label>
                                 </div>
-                                <div class="col-xl-8">
+                                <div class="col-xl-5">
                                     <input type="date" class="form-control" required name="sermon_date" id="sermon_date" >
+                                </div>
+                                <div class="col-xl-3">
+                                    <input type="time" class="form-control" required name="time" id="time" >
                                 </div>
                             </div>
                         </div>
@@ -303,7 +309,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="speaker"> Pembicara </label>
+                                    <label for="speaker"> MC </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required id="speaker" name="speaker" placeholder="Hamba Tuhan">
@@ -315,7 +321,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="place"> Tempat </label>
+                                    <label for="place"> Tempat Ibadah </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required name="place" id="place" placeholder="Tempat">
@@ -327,8 +333,11 @@ class eventController extends Controller
                                 <div class="col-xl-4">
                                     <label for="sermon_date"> Tanggal </label>
                                 </div>
-                                <div class="col-xl-8">
+                                <div class="col-xl-5">
                                     <input type="date" class="form-control" required name="sermon_date" id="sermon_date" >
+                                </div>
+                                <div class="col-xl-3">
+                                    <input type="time" class="form-control" required name="time" id="time" >
                                 </div>
                             </div>
                         </div>
@@ -431,7 +440,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="speaker"> Pembicara </label>
+                                    <label for="speaker"> MC </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required id="speaker" name="speaker" value="'.$eventModel->speaker.'">
@@ -443,7 +452,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="place"> Tempat </label>
+                                    <label for="place"> Tempat Ibadah </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required name="place" id="place" value="'.$eventModel->place.'">
@@ -455,9 +464,12 @@ class eventController extends Controller
                                 <div class="col-xl-4">
                                     <label for="sermon_date"> Tanggal </label>
                                 </div>
-                                <div class="col-xl-8">';
+                                <div class="col-xl-5">';
                                     $tanggal = explode(' ',$eventModel->sermon_date);
                 $isi .='            <input type="date" class="form-control" required value="'.$tanggal[0].'" name="sermon_date" id="sermon_date" >
+                                </div>
+                                <div class="col-xl-3">
+                                    <input type="time" class="form-control" required name="time" id="time" value="'.$eventModel->time.'">
                                 </div>
                             </div>
                         </div>
@@ -560,7 +572,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="speaker"> Pembicara </label>
+                                    <label for="speaker"> MC </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required id="speaker" name="speaker" value="'.$eventModel->speaker.'">
@@ -572,7 +584,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="place"> Tempat </label>
+                                    <label for="place"> Tempat Ibadah </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required name="place" id="place" value="'.$eventModel->place.'">
@@ -584,9 +596,12 @@ class eventController extends Controller
                                 <div class="col-xl-4">
                                     <label for="sermon_date"> Tanggal </label>
                                 </div>
-                                <div class="col-xl-8">';
+                                <div class="col-xl-5">';
                                     $tanggal = explode(' ',$eventModel->sermon_date);
                 $isi .='            <input type="date" class="form-control" required value="'.$tanggal[0].'" name="sermon_date" id="sermon_date" >
+                                </div>
+                                <div class="col-xl-3">
+                                    <input type="time" class="form-control" required name="time" id="time" value="'.$eventModel->time.'">
                                 </div>
                             </div>
                         </div>
@@ -689,7 +704,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="speaker"> Pembicara </label>
+                                    <label for="speaker"> MC </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required id="speaker" name="speaker" value="'.$eventModel->speaker.'">
@@ -701,7 +716,7 @@ class eventController extends Controller
                         <div class="col-xl-6">
                             <div class="row ">
                                 <div class="col-xl-4">
-                                    <label for="place"> Tempat </label>
+                                    <label for="place"> Tempat Ibadah </label>
                                 </div>
                                 <div class="col-xl-8">
                                     <input type="text" class="form-control" required name="place" id="place" value="'.$eventModel->place.'">
@@ -713,9 +728,12 @@ class eventController extends Controller
                                 <div class="col-xl-4">
                                     <label for="sermon_date"> Tanggal </label>
                                 </div>
-                                <div class="col-xl-8">';
+                                <div class="col-xl-5">';
                                     $tanggal = explode(' ',$eventModel->sermon_date);
                 $isi .='            <input type="date" class="form-control" required value="'.$tanggal[0].'" name="sermon_date" id="sermon_date" >
+                                </div>
+                                <div class="col-xl-3">
+                                    <input type="time" class="form-control" required name="time" id="time" value="'.$eventModel->time.'">
                                 </div>
                             </div>
                         </div>

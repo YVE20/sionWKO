@@ -13,6 +13,6 @@ class eventModel extends Model
     public $incrementing = false;
     public $timestamps = true;
     public $fillable = [
-        'event_id','eventCategory_id','speaker','place','sermon_date','address','theme','contact_person','photo','created_at','updated_at'
+        'event_id','eventCategory_id','speaker','place','sermon_date','address','theme','contact_person','photo','time','created_at','updated_at'
     ];
 }

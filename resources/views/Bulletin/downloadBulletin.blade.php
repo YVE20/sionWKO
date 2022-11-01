@@ -1776,6 +1776,82 @@
         </div>
 		<center>
 			<div style="margin-top:40px;">
+				<font style="font-weight:bold;font-size:15px;"> IBADAH MINGGU </font> <br><br>
+			</div>
+			<div style="margin-top:20px;width:100%;">
+				<font style="float:left"> Ibadah Sesi 1 </font>
+				<font style="float:right"> Pukul 07.00 WIT </font><br><br>
+				<table class="table table-bordered">
+					<colgroup>
+						<col style="width:20%">
+						<col style="width:40%">
+						<col style="width:40%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th> Hari, tanggal </th>
+							<th> Tempat Ibadah </th>
+							<th> Pelayan </th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php 
+							foreach($dataIbadahLainlainJam7 as $dILlJ7){
+								$split = explode(' ',$dILlJ7->sermon_date);
+								$newDate = explode('-',$split[0]);
+								echo "
+									<tr>
+										<td> Minggu, ".$newDate[2]."</td>
+										<td>".$dILlJ7->place."</td>
+										<td>".$dILlJ7->speaker."</td>
+									</tr>
+								";
+							}
+						?>
+					</tbody>
+				</table>
+			</div>
+			<div style="margin-top:20px;width:100%;">
+				<font style="float:left"> Ibadah Sesi 2 </font>
+				<font style="float:right"> Pukul 09.30 WIT </font><br><br>
+				<table class="table table-bordered">
+					<colgroup>
+						<col style="width:20%">
+						<col style="width:40%">
+						<col style="width:40%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th> Hari, tanggal </th>
+							<th> Tempat Ibadah </th>
+							<th> Pelayan </th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php 
+							foreach($dataIbadahLainlainJam9 as $dILlJ9){
+								$split = explode(' ',$dILlJ9->sermon_date);
+								$newDate = explode('-',$split[0]);
+								echo "
+									<tr>
+										<td> Minggu, ".$newDate[2]."</td>
+										<td>".$dILlJ9->place."</td>
+										<td>".$dILlJ9->speaker."</td>
+									</tr>
+								";
+							}
+						?>
+					</tbody>
+				</table>
+			</div>
+		</center>
+    </div>
+	<div class="container">
+        <div>
+            <font style="font-size:20px;"> <i> Buletin <?= $bulan." ".date('y') ?> _Jemaat Sion WKO </i> </font>
+        </div>
+		<center>
+			<div style="margin-top:40px;">
 				<font style="font-weight:bold;font-size:15px;"> RAPAT EVALUASI MAJELIS, BPHJ DAN REGION 3 TOBELO TENGAH </font> <br><br>
 			</div>
 			<div style="margin-top:10px;width:100%;">

@@ -38,7 +38,39 @@ class ibadahController extends Controller
         }else if($request->category_id == "IBD/IBMG/2022" && $request->service_environtment == "-"){
             return redirect('/adm/ibadah')->with(["status"=>"Lingkungan Pelayanan tidak boleh kosong", "judul_alert" => "Peringatan" , "icon" => "warning"]);
         }else{
-            ibadahModel::create($request->all());
+            $worship = "";
+            if($request->category_id == "IBD/IBLP/2022"){
+                $worship = "Ibadah Lingkungan Pelayanan";
+            }else if($request->category_id == "IBD/IBM/2022"){
+                $worship = "Ibadah Minggu";
+            }else if($request->category_id == "IBD/IBP/2022"){
+                $worship = "Ibadah Pemuda";
+            }else if($request->category_id == "IBD/IBR/2022"){
+                $worship = "Ibadah Remaja";
+            }else if($request->category_id == "IBD/IBKB/2022"){
+                $worship = "Ibadah Kaum Bapak";
+            }else if($request->category_id == "IBD/IBKI/2022"){
+                $worship = "Ibadah Kaum Ibu";
+            }else if($request->category_id == "IBD/IBMG/2022"){
+                $worship = "Ibadah Minggu Gembira";
+            }else if($request->category_id == "IBD/IBASM/2022"){
+                $worship = "Ibadah Anak Sekolah Minggu";
+            }else{ 
+                $worship = $request->worship;
+            }
+            ibadahModel::create([
+                'worship_id' => $request->worship_id,
+                'category_id' => $request->category_id,
+                'speaker' => $request->speaker,
+                'sermon_title' => $request->sermon_title,
+                'sermon_content' => $request->sermon_content,
+                'place' => $request->place,
+                'sermon_date' => $request->sermon_date,
+                'time' => $request->time,
+                'speaker_contact' => $request->speaker_contact,
+                'service_environtment' => $request->service_environtment,
+                'worship' => $worship,
+            ]);
             return redirect('/adm/ibadah')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
         }
     }
@@ -59,6 +91,26 @@ class ibadahController extends Controller
         return view('KategoriIbadah.index',$data);
     }
     public function updateIbadah(Request $request){
+        $worship = "";
+        if($request->category_id == "IBD/IBLP/2022"){
+            $worship = "Ibadah Lingkungan Pelayanan";
+        }else if($request->category_id == "IBD/IBM/2022"){
+            $worship = "Ibadah Minggu";
+        }else if($request->category_id == "IBD/IBP/2022"){
+            $worship = "Ibadah Pemuda";
+        }else if($request->category_id == "IBD/IBR/2022"){
+            $worship = "Ibadah Remaja";
+        }else if($request->category_id == "IBD/IBKB/2022"){
+            $worship = "Ibadah Kaum Bapak";
+        }else if($request->category_id == "IBD/IBKI/2022"){
+            $worship = "Ibadah Kaum Ibu";
+        }else if($request->category_id == "IBD/IBMG/2022"){
+            $worship = "Ibadah Minggu Gembira";
+        }else if($request->category_id == "IBD/IBASM/2022"){
+            $worship = "Ibadah Anak Sekolah Minggu";
+        }else{ 
+            $worship = $request->worship;
+        }
         ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->where('tb_ibadah.worship_id',$request->worship_id)->update([
             'speaker' => $request->speaker,
             'sermon_title' => $request->sermon_title,
@@ -66,6 +118,7 @@ class ibadahController extends Controller
             'place' => $request->place,
             'sermon_date' => $request->sermon_date,
             'sermon_content' => $request->sermon_content,
+            'worship' => $worship,
             'updated_at' =>  date_create()->format('Y-m-d H:i:s')
         ]);
         return redirect('/adm/ibadah')->with(["status"=>"Data berhasil dirubah", "judul_alert" => "Berhasil" , "icon" => "success"]);
@@ -214,8 +267,11 @@ class ibadahController extends Controller
                         <div class="col-xl-4">
                             <label for="worship_id">ID Ibadah </label>
                         </div>
-                        <div class="col-xl-8">
+                        <div class="col-xl-3">
                             <input type="text" class="form-control" readonly required id="worship_id" name="worship_id" value="'.$row.'">
+                        </div>
+                        <div class="col-xl-5">
+                            <input type="text" class="form-control"  id="worship" name="worship" style="display:none">
                         </div>
                     </div>
                 </div>
@@ -346,8 +402,11 @@ class ibadahController extends Controller
                         <div class="col-xl-4">
                             <label for="worship_id">ID Ibadah </label>
                         </div>
-                        <div class="col-xl-8">
+                        <div class="col-xl-3">
                             <input type="text" class="form-control" readonly value="'.$ibadah[0]->worship_id.'" required id="worship_id" name="worship_id" placeholder="ID Ibadah">
+                        </div>
+                        <div class="col-xl-5">
+                            <input type="text" class="form-control" id="worship" style="display:none" name="worship" value="'.$ibadah[0]->worship.'">
                         </div>
                     </div>
                 </div>

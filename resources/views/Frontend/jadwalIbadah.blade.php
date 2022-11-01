@@ -12,7 +12,7 @@
                 <div class="container">
                     <div class="row" id="viewIbadahRemaja" style="display:none">
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Remaja.jpg')}}" alt="Remaja" style="height:250px;width:100%">
+                            <img src="{{asset('/img/Ibadah Remaja.jpg')}}" alt="Remaja" style="height:300px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:right"> 12.30 WIT </font>
@@ -76,7 +76,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Pemuda.jpg')}}" alt="Pemuda" style="height:250px;width:100%">
+                            <img src="{{asset('/img/Ibadah Pemuda.jpg')}}" alt="Pemuda" style="height:300px;width:100%">
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <div class="container" id="viewIbadahLingkunganPelayanan" style="display:none;">
                     <div class="row">
                         <div class="col-lg-6">
-                            <img src="{{asset('/img/Ibadah Lingkungan Pelayanan.jpeg')}}" alt="LingPel" style="height:250px;width:100%">
+                            <img src="{{asset('/img/Ibadah Lingkungan Pelayanan.jpeg')}}" alt="LingPel" style="height:300px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
@@ -268,7 +268,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Kaum Bapak.jpg')}}" alt="KaumBapak" style="height:250px;width:100%">
+                            <img src="{{asset('/img/Ibadah Kaum Bapak.jpg')}}" alt="KaumBapak" style="height:300px;width:100%">
                         </div>
                     </div>
                     <div class="row">
@@ -394,7 +394,7 @@
                 <div class="container" id="viewIbadahKaumIbu" style="display:none;">
                     <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Kaum Ibu.jpg')}}" alt="KaumBapak" style="height:250px;width:100%">
+                            <img src="{{asset('/img/Ibadah Kaum Ibu.jpg')}}" alt="KaumBapak" style="height:300px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
@@ -575,7 +575,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Minggu Gembira.jpg')}}" alt="MingguGembira" style="height:250px;width:100%">
+                            <img src="{{asset('/img/Ibadah Minggu Gembira.jpg')}}" alt="MingguGembira" style="height:300px;width:100%">
                         </div>
                     </div>
                     <div class="row">
@@ -692,6 +692,161 @@
                     </div>
                 </div>
             </div>
+            <div class="services-wrapper" id="ibadahAnakSekolahMinggu">
+                <div class="text-center py-5" onclick="viewIbadahAnakSekolahMinggu()"><h3><strong> Ibadah Anak Sekolah Minggu <?= $bulan ?> </strong></h3></div>
+                <div class="container">
+                    <div class="row" id="viewIbadahAnakSekolahMinggu" style="display:none";>
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <font style="float:right"> 07.00 WIT </font>
+                            <table class="table" style="margin-top:-15px;">
+                                <thead>
+                                    <tr>
+                                        <th> Hari, tgl </th>
+                                        <th> Tempat Ibadah </th>
+                                        <th> Pelayan </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        foreach($dataIbadahSekolahMingguJam7 as $dISMJ7){
+                                            $split = explode(' ',$dISMJ7->sermon_date);
+                                            $newDate = explode('-',$split[0]);
+                                            echo "
+                                                <tr>
+                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$dISMJ7->place."</td>
+                                                    <td>".$dISMJ7->speaker."</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <font style="float:right"> 09.30 WIT </font>
+                            <table class="table" style="margin-top:-15px;">
+                                <thead>
+                                    <tr>
+                                        <th> Hari, tgl </th>
+                                        <th> Tempat Ibadah </th>
+                                        <th> Pelayan </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        foreach($dataIbadahSekolahMingguJam9 as $dISMJ9){
+                                            $split = explode(' ',$dISMJ9->sermon_date);
+                                            $newDate = explode('-',$split[0]);
+                                            echo "
+                                                <tr>
+                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$dISMJ9->place."</td>
+                                                    <td>".$dISMJ9->speaker."</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="services-wrapper" id="ibadahlainlain">
+                <div class="text-center py-5" onclick="viewIbadahLainlain()"><h3><strong> Ibadah Lain-lain <?= $bulan ?> </strong></h3></div>
+                <div class="container">
+                    <div class="row" id="viewIbadahLainlain" style="display:none";>
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <table class="table" style="margin-top:-15px;">
+                                <thead>
+                                    <tr>
+                                        <th> Hari, tgl </th>
+                                        <th> Tempat Ibadah </th>
+                                        <th> Pelayan </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        foreach($dataIbadahLainlain as $dILl){
+                                            $split = explode(' ',$dILl->sermon_date);
+                                            $newDate = explode('-',$split[0]);
+                                            echo "
+                                                <tr>
+                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$dILl->place."</td>
+                                                    <td>".$dILl->speaker."</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="services-wrapper" id="ibadahlainlain">
+                <div class="text-center py-5" onclick="viewIbadahMinggu()"><h3><strong> Ibadah Minggu <?= $bulan ?> </strong></h3></div>
+                <div class="container">
+                    <div class="row" id="viewIbadahMinggu" style="display:none";>
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <font style="float:right"> 07.00 WIT </font>
+                            <table class="table" style="margin-top:-15px;">
+                                <thead>
+                                    <tr>
+                                        <th> Hari, tgl </th>
+                                        <th> Tempat Ibadah </th>
+                                        <th> Pelayan </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        foreach($dataIbadahMingguJam7 as $dIMJ7){
+                                            $split = explode(' ',$dIMJ7->sermon_date);
+                                            $newDate = explode('-',$split[0]);
+                                            echo "
+                                                <tr>
+                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$dIMJ7->place."</td>
+                                                    <td>".$dIMJ7->speaker."</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <font style="float:right"> 09.30 WIT </font>
+                            <table class="table" style="margin-top:-15px;">
+                                <thead>
+                                    <tr>
+                                        <th> Hari, tgl </th>
+                                        <th> Tempat Ibadah </th>
+                                        <th> Pelayan </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        foreach($dataIbadahMingguJam9 as $dIMJ9){
+                                            $split = explode(' ',$dIMJ9->sermon_date);
+                                            $newDate = explode('-',$split[0]);
+                                            echo "
+                                                <tr>
+                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$dIMJ9->place."</td>
+                                                    <td>".$dIMJ9->speaker."</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-12 footer-wrapper">
                 <div class="container">
                     <div class="row px-3">
@@ -738,6 +893,15 @@
     }
     function viewIbadahMingguGembira(){
         $('#viewIbadahMingguGembira').slideToggle('slow');
+    }
+    function viewIbadahAnakSekolahMinggu(){
+        $('#viewIbadahAnakSekolahMinggu').slideToggle('slow');
+    }
+    function viewIbadahLainlain(){
+        $('#viewIbadahLainlain').slideToggle('slow');
+    }
+    function viewIbadahMinggu(){
+        $('#viewIbadahMinggu').slideToggle('slow');
     }
 </script>
 @endpush
