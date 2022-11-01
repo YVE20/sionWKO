@@ -114,7 +114,7 @@ class hutController extends Controller
                         <td>'.$dEH->event_id.'</td>
                         <td>'.$dEH->event.'</td>
                         <td>'.$tanggal_baru[2].'-'.$tanggal_baru[1].'-'.$tanggal_baru[0].'</td>
-                        <td>'.$dEH->address.'</td>
+                        <td>'.$dEH->place.'</td>
                         <td>'.$dEH->theme.'</td>
                         <td>'.$dEH->contact_person.'</td>';
                         if($dEH->photo == NULL){

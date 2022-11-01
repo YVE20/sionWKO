@@ -8,11 +8,11 @@
     <div class="row">
         <div class="col-lg-12 services-wrapper">
             <div class="services-wrapper" id="ibadahRemaja">
-                <div class="text-center py-5"><h3><strong> Ibadah Remaja <?= $bulan ?> </strong></h3></div>
+                <div class="text-center py-5" onclick="viewIbadahRemaja()"><h3><strong> Ibadah Remaja <?= $bulan ?> </strong></h3></div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row" id="viewIbadahRemaja" style="display:none">
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Remaja.jpg')}}" alt="Remaja" style="height:250px;width:500px">
+                            <img src="{{asset('/img/Ibadah Remaja.jpg')}}" alt="Remaja" style="height:250px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:right"> 12.30 WIT </font>
@@ -45,9 +45,9 @@
                 </div>
             </div>
             <div class="services-wrapper" id="ibadahPemuda">
-                <div class="text-center py-5"><h3><strong> Ibadah Pemuda <?= $bulan ?> </strong></h3></div>
+                <div class="text-center py-5" onclick="viewIbadahPemuda()"><h3><strong> Ibadah Pemuda <?= $bulan ?> </strong></h3></div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row" id="viewIbadahPemuda" style="display:none";>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:right"> 11.00 WIT </font>
                             <table class="table" style="margin-top:-15px;">
@@ -76,17 +76,17 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Pemuda.jpg')}}" alt="Pemuda" style="height:250px;width:500px">
+                            <img src="{{asset('/img/Ibadah Pemuda.jpg')}}" alt="Pemuda" style="height:250px;width:100%">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="services-wrapper" id="ibadahLingkunganPelayanan">
-                <div class="text-center py-5"><h3><strong> Ibadah Lingkungan Pelayanan <?= $bulan ?> </strong></h3></div>
-                <div class="container">
+                <div class="text-center py-5" onclick="viewIbadahLingkunganPelayanan()"><h3><strong> Ibadah Lingkungan Pelayanan <?= $bulan ?> </strong></h3></div>
+                <div class="container" id="viewIbadahLingkunganPelayanan" style="display:none;">
                     <div class="row">
                         <div class="col-lg-6">
-                            <img src="{{asset('/img/Ibadah Lingkungan Pelayanan.jpeg')}}" alt="LingPel" style="height:250px;width:500px">
+                            <img src="{{asset('/img/Ibadah Lingkungan Pelayanan.jpeg')}}" alt="LingPel" style="height:250px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
@@ -236,8 +236,8 @@
                 </div>
             </div>
             <div class="services-wrapper" id="ibadahKaumBapak">
-                <div class="text-center py-5"><h3><strong> Ibadah Kaum Bapak <?= $bulan ?> </strong></h3></div>
-                <div class="container">
+                <div class="text-center py-5" onclick="viewIbadahKaumBapak()"><h3><strong> Ibadah Kaum Bapak <?= $bulan ?> </strong></h3></div>
+                <div class="container" id="viewIbadahKaumBapak" style="display:none;">
                     <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
@@ -268,7 +268,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Kaum Bapak.jpg')}}" alt="KaumBapak" style="height:250px;width:500px">
+                            <img src="{{asset('/img/Ibadah Kaum Bapak.jpg')}}" alt="KaumBapak" style="height:250px;width:100%">
                         </div>
                     </div>
                     <div class="row">
@@ -390,11 +390,11 @@
                 </div>
             </div>
             <div class="services-wrapper" id="ibadahKaumIbu">
-                <div class="text-center py-5"><h3><strong> Ibadah Kaum Ibu <?= $bulan ?> </strong></h3></div>
-                <div class="container">
+                <div class="text-center py-5" onclick="viewIbadahKaumIbu()"><h3><strong> Ibadah Kaum Ibu <?= $bulan ?> </strong></h3></div>
+                <div class="container" id="viewIbadahKaumIbu" style="display:none;">
                     <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Kaum Ibu.jpg')}}" alt="KaumBapak" style="height:250px;width:500px">
+                            <img src="{{asset('/img/Ibadah Kaum Ibu.jpg')}}" alt="KaumBapak" style="height:250px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
@@ -544,8 +544,8 @@
                 </div>
             </div>
             <div class="services-wrapper" id="ibadahKaumGembira">
-                <div class="text-center py-5"><h3><strong> Ibadah Minggu Gembira <?= $bulan ?> </strong></h3></div>
-                <div class="container">
+                <div class="text-center py-5" onclick="viewIbadahMingguGembira()"><h3><strong> Ibadah Minggu Gembira <?= $bulan ?> </strong></h3></div>
+                <div class="container" id="viewIbadahMingguGembira" style="display:none;">
                     <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
@@ -575,7 +575,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Minggu Gembira.jpg')}}" alt="MingguGembira" style="height:250px;width:500px">
+                            <img src="{{asset('/img/Ibadah Minggu Gembira.jpg')}}" alt="MingguGembira" style="height:250px;width:100%">
                         </div>
                     </div>
                     <div class="row">
@@ -720,6 +720,24 @@
     }
     function goToRenungan(){
         location.href="<?= url('/renungan') ?>";
+    }
+    function viewIbadahRemaja(){
+        $('#viewIbadahRemaja').slideToggle('slow');
+    }
+    function viewIbadahPemuda(){
+        $('#viewIbadahPemuda').slideToggle('slow');
+    }
+    function viewIbadahLingkunganPelayanan(){
+        $('#viewIbadahLingkunganPelayanan').slideToggle('slow');
+    }
+    function viewIbadahKaumBapak(){
+        $('#viewIbadahKaumBapak').slideToggle('slow');
+    }
+    function viewIbadahKaumIbu(){
+        $('#viewIbadahKaumIbu').slideToggle('slow');
+    }
+    function viewIbadahMingguGembira(){
+        $('#viewIbadahMingguGembira').slideToggle('slow');
     }
 </script>
 @endpush

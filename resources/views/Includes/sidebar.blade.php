@@ -8,7 +8,7 @@
     <a class="row d-block bg-blue-gray cr-pointer shadow" href="{{asset('/adm/ibadah')}}">
         <div class="p-3">
             <i class="fas fa-list h5"></i>
-            <font class="h5 pl-2"> Ibadah </font>
+            <font class="h5 pl-2"> Tata Ibadah </font>
         </div>
     </a>
     <a class="row d-block bg-blue-gray cr-pointer shadow" href="{{asset('/adm/bulletin')}}">
@@ -134,7 +134,7 @@
     <a class="row d-block bg-blue-gray cr-pointer shadow" id="website" href="javascript:void(0)">
         <div class="p-3">
             <i class="fab fa-chrome h5"></i>    
-            <font class="h5 pl-2"> Website </font>
+            <font class="h5 pl-2"> User </font>
         </div>
     </a>
         <a class="row bg-secondary shadow" id="slideshow" href="{{asset('/adm/website/slideshow')}}" style="display: none">

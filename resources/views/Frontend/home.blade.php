@@ -135,16 +135,22 @@
                     <div>
                         <div class="container">
                             <div class="row mt-2">
-                            <div class="col-lg-4 col-sm-4 col-md-4">
-                                <img src="<?= asset('/img/Sion 2.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
+                                <div class="col-lg-4 col-sm-4 col-md-4">
+                                    <acronym title="Struktur Gereja">
+                                        <img src="<?= asset('/img/Struktur Organisasi.jpg') ?>" onclick="strukturGereja()" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%;cursor: pointer;">
+                                    </acronym>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4">
+                                    <acronym title="Visi Misi Gereja">
+                                        <img src="<?= asset('/img/Sion 3.jpg') ?>" onclick="visiMisiGereja()" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%;cursor: pointer;">
+                                    </acronym>
+                                </div>
+                                <div class="col-lg-4 col-sm-4 col-md-4">
+                                    <acronym title="Majelis Gereja">
+                                        <img src="<?= asset('/img/Foto Majelis.jpg') ?>" onclick="majelisGereja()" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%;cursor: pointer;">
+                                    </acronym>
+                                </div>
                             </div>
-                            <div class="col-lg-4 col-sm-4 col-md-4">
-                                <img src="<?= asset('/img/Sion 3.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
-                            </div>
-                            <div class="col-lg-4 col-sm-4 col-md-4">
-                                <img src="<?= asset('/img/Sion 7.jpg') ?>" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%">
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </center>
@@ -422,6 +428,7 @@
             title: 'Pelayanan Doa <i class="fas fa-praying-hands"></i>',
             html : '<br><div class="row"><div class="col-lg-6" style="float:left;text-align:left;"><br>Kami bisa dikunjungi : <br> <table style="font-size:14px;"> <tr> <th> &nbsp; Tempat </th> <th> : Ruang Konseling </th> </tr> <tr> <th> </th> <th> &nbsp; Gereja Sion WKO  </th> </tr> <tr> <th> &nbsp; Waktu </th> <th> : Setiap Hari Minggu, 10.30 WIT </th> </tr> </table></div><div style="float:right;text-align:right;font-size:14px;" class="col-lg-6"><br>Kami bisa dihubungi : <br> <b> <a style="text-decoration:none;color:black;" href="https://wa.me/6281278293745/?text=Saya hendak mengajukan layanan doa. Apakah bisa menghubungi saya kembali ? Terima kasih. Tuhan Yesus Memberkati"> Sekretaris Gereja Sion WKO (0812-7829-3745) </a> </b><br</div></div><div calss="row"><br><div class="col-lg-12" style="text-align:left;font-size:13px;"> Konseling ini terbuka bagi : <b> Pasutri, Orangtua Tunggal, Lanjut Usia, Keluarga, UBK (Umat Kebutuhan Khusus) </b></div><div class="col-lg-12" style="font-size:13px;"> <br><br> Filipi 4 : 6 - 7 <br> <i> "Janganlah hendaknya kamu kuatir tentang apa pun juga, tetapi nyatakanlah dalam segala hal keinginanmu kepada Allah dalam doa dan permohonan dengan ucapan syukur. Damai sejahtera Allah, yang melampaui segala akal, akan memelihara hati dan pikiranmu dalam Kristus Yesus." </i> </div></div>',
             showConfirmButton: false,
+            showCloseButton: true,
             width : '50%'
         })
     }
@@ -430,6 +437,7 @@
             title: 'Pelayanan Jemaat <i class="fas fa-hands"></i> ',
             html : '<br><div class="row"><div class="col-lg-12" style="float:left;text-align:left;"> Kunjungan akan dilaksanakan setiap selesai ibadah dengan menghubungi melalui Majelis Lingkungan Pelayanan yang bersangkutan. <br><br> Kontak Person : <br> <b> <font style="font-size:15px;"> Sekretaris Gereja Sion WKO (0812-7829-3745)  </font> </b><br><br> <font style="font-size:13px;"> Roma 14 : 9 <i> "Sebab itu marilah kita mengejar apa yang mendatangkan damai sejahtera dan yang berguna untuk saling membangun." </i> </font> </div></div>',
             showConfirmButton: false,
+            showCloseButton: true,
             width : '50%'
         })
     }
@@ -439,6 +447,34 @@
             html : '<br><div class="row"><div class="col-lg-6" style="float:left;"> <center> <div class="col-12" style="border-top:6px dashed;border-bottom:6px dashed;margin:20px;padding:20px;"> <br><br><br> <h2> Baptisan Air </h2> <br><br> Dilaksanakan setiap minggu ke-3 <br><br><br> Info dan Pendaftaran : <br> <b> Sekretasi Sion WKO </b>  <br><br><br> <font style="font-size:13px;"> Yohanes 3 : 5 <i> Jawab Yesus: ”Aku berkata kepadamu, sesungguhnya jika seorang tidak dilahirkan dari air dan Roh, ia tidak dapat masuk ke dalam Kerajaan Allah. </i> </font> </div></center> </div><div class="col-lg-6" style="float:left;"> <img src="<?= asset("/img/Gambar Baptis.jpg") ?>" style="width:100%;"> </div></div>',
             showConfirmButton: false,
             width : '50%',
+            showCloseButton: true,
+            position : 'bottom'
+        })
+    }
+    function strukturGereja(){
+        Swal.fire({
+            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Struktur Organisasi.jpg') ?>" style="width:80%;height:80%"><br><font style="font-size:15px"> <b> Gambar 1. </b> Struktur Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;margin-top:-30px;font-size:16px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Utara merupakan gereja Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum </p> </div></div>',
+            showConfirmButton: false,
+            width : '50%',
+            showCloseButton: true,
+            position : 'bottom'
+        })
+    }
+    function visiMisiGereja(){
+        Swal.fire({
+            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Sion 3.jpg') ?>" style="width:80%;height:80%"><br><font style="font-size:15px"> <b> Gambar 2. </b> Visi Misi Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;margin-top:-30px;font-size:16px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Utara merupakan gereja Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum </p> </div></div>',
+            showConfirmButton: false,
+            width : '50%',
+            showCloseButton: true,
+            position : 'bottom'
+        })
+    }
+    function majelisGereja(){
+        Swal.fire({
+            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Foto Majelis.jpg') ?>" style="height:80%;width:80%"><br><font style="font-size:15px"> <b> Gambar 3. </b> Majelis Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;margin-top:-30px;font-size:16px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Utara merupakan gereja Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum </p> </div></div>',
+            showConfirmButton: false,
+            width : '50%',
+            showCloseButton: true,
             position : 'bottom'
         })
     }
