@@ -202,7 +202,7 @@ class homeController extends Controller
         return view('Frontend.kesaksian',$data);
     }
     public function renungan(){
-        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
+        $dataRenungan = renunganModel::whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
         $data = [
             'dataRenungan' => $dataRenungan
         ];
