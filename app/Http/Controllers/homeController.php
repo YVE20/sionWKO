@@ -8,6 +8,11 @@ use App\Mail\sendEmailSionWKO;
 use App\Models\ibadahModel;
 use App\Models\kesaksianModel;
 use App\Models\renunganModel;
+use App\Models\dataJemaatModel;
+use App\Models\dataSIDIModel;
+use App\Models\kartuKeluargaModel;
+use PDF;
+use Illuminate\Support\Facades\DB;
 
 class homeController extends Controller
 {
@@ -246,5 +251,45 @@ class homeController extends Controller
             </div>
         ';
         return $isi;
+    }
+    function dataStatistikJemaat(){
+        $services = dataJemaatModel::select('service_environtment')->groupBy('service_environtment')->pluck('service_environtment');
+        $tempData = [
+
+        ];
+        $tempEducation = [];
+        foreach($services as $service_i){
+        $serviceData = DB::select('SELECT "'.$service_i.'" as LP, KK.*,JIWA.*,DEWASA.*,ANAK.*,BAPTIS.*,SIDI.*,NIKAH.*,ANAK_SM.*,REMAJA.*,PEMUDA.*,JND.*,DD.*,YTM.*,PTU.*,YP.*,LANSIA.* FROM (SELECT COUNT(DISTINCT tb_data_jemaat.familyCard_id) AS KK FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'") AS KK CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS JIWA_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS JIWA_P, COUNT(*) AS JIWA_JLH FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'") AS JIWA CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS DEWASA_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS DEWASA_P, COUNT(*) AS DEWASA_JLH FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND (YEAR(CURDATE())-YEAR(date_ofBirth)) >= 26 AND (YEAR(CURDATE())-YEAR(date_ofBirth)) <= 45) AS DEWASA CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS ANAK_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS ANAK_P, COUNT(*) AS ANAK_JLH FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND (YEAR(CURDATE())-YEAR(date_ofBirth)) >= 5 AND (YEAR(CURDATE())-YEAR(date_ofBirth)) <= 12) AS ANAK CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS BAPTIS_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS BAPTIS_P, COUNT(*) AS BAPTIS_JLH FROM tb_data_baptis) AS BAPTIS CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS SIDI_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS SIDI_P, COUNT(*) AS SIDI_JLH FROM tb_data_sidi) AS SIDI CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN marriage = "Kawin Tercatat" THEN 1 ELSE 0 END),0) AS NIKAH_SD, COALESCE(SUM(CASE WHEN marriage = "Belum Kawin" THEN 1 ELSE 0 END),0) AS NIKAH_BLM FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'") AS NIKAH CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS ANAK_SM_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS ANAK_SM_P, COUNT(*) AS ANAK_SM_JLH FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND (YEAR(CURDATE())-YEAR(date_ofBirth)) >= 0 AND (YEAR(CURDATE())-YEAR(date_ofBirth)) <= 5) AS ANAK_SM CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS REMAJA_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS REMAJA_P, COUNT(*) AS REMAJA_JLH FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND (YEAR(CURDATE())-YEAR(date_ofBirth)) >= 12 AND (YEAR(CURDATE())-YEAR(date_ofBirth)) <= 16) AS REMAJA CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS PEMUDA_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS PEMUDA_P, COUNT(*) AS PEMUDA_JLH FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND (YEAR(CURDATE())-YEAR(date_ofBirth)) >= 16 AND (YEAR(CURDATE())-YEAR(date_ofBirth)) <= 25) AS PEMUDA CROSS JOIN (SELECT COUNT(*) AS JND FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND marriage = "Cerai" AND gender = "female") AS JND CROSS JOIN (SELECT COUNT(*) AS DD FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND marriage = "Cerai" AND gender = "male") AS DD CROSS JOIN (SELECT COUNT(*) AS YTM FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND fatherName = "-" AND motherName != "-") AS YTM CROSS JOIN (SELECT COUNT(congregation_id) AS PTU FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND fatherName != "-" AND motherName = "-") AS PTU CROSS JOIN (SELECT COUNT(*) AS YP FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = "'.$service_i.'" AND fatherName = "-" AND motherName = "-") AS YP CROSS JOIN (SELECT COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) AS LANSIA_L, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) AS LANSIA_P, COUNT(*) AS LANSIA_JLH FROM tb_data_jemaat inner join tb_dtl_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id where tb_data_jemaat.service_environtment = "'.$service_i.'" AND (YEAR(CURDATE())-YEAR(date_ofBirth)) >= 46 AND (YEAR(CURDATE())-YEAR(date_ofBirth)) <= 65) AS LANSIA limit 1');
+
+        $educationData =  DB::select('SELECT "'.$service_i.'" as LP, COUNT( DISTINCT tb_data_jemaat.familyCard_id) AS KK, 
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Strata III" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_S3,
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Strata III" AND gender = "female" THEN 1 ELSE 0 END ),0) AS P_S3,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Strata II" AND gender = "male" THEN 1 ELSE 0 END ),0) AS L_S2, 
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Strata II" AND gender = "female"THEN 1 ELSE 0 END ),0) AS P_S2, 
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Diploma IV/ Strata I" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_D4_S1,
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Diploma IV/ Strata I" AND gender = "female" THEN 1 ELSE 0 END),0) AS P_D4_S1,
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Akademi/ Diploma III/ S.Muda" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_D3,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Akademi/ Diploma III/ S.Muda" AND gender = "female" THEN 1 ELSE 0 END),0) AS P_D3,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Diploma I / II" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_D1_D2,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Diploma I / II" AND gender = "female" THEN 1 ELSE 0 END),0) AS P_D1_D2,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "SLTA / Sederajat" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_SLTA,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "SLTA / Sederajat" AND gender = "female" THEN 1 ELSE 0 END),0) AS P_SLTA,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "SLTP / Sederajat" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_SLTP,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "SLTP / Sederajat" AND gender = "female" THEN 1 ELSE 0 END),0) AS P_SLTP,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Tamat SD / Sederajat" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_SD,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Tamat SD / Sederajat" AND gender = "female" THEN 1 ELSE 0 END),0) AS P_SD, 
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Tidak / Belum Sekolah" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_TIDAK_SEKOLAH,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Tidak / Belum Sekolah" AND gender = "female" THEN 1 ELSE 0 END),0) AS P_TIDAK_SEKOLAH,
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Belum Tamat SD / Sederajat" AND gender = "male" THEN 1 ELSE 0 END),0) AS L_BELUM_TAMAT,  
+        COALESCE(SUM(CASE WHEN tb_dtl_kartu_keluarga.education = "Belum Tamat SD / Sederajat" AND gender = "female" THEN 1 ELSE 0 END),0) AS P_BELUM_TAMAT, COALESCE(SUM(CASE WHEN gender = "male" THEN 1 ELSE 0 END),0) as L_JLH, COALESCE(SUM(CASE WHEN gender = "female" THEN 1 ELSE 0 END),0) as P_JLH, COUNT(tb_data_jemaat.congregation_id) as TOTAL,  COALESCE(SUM(CASE WHEN gender = "male" AND tb_kartu_keluarga.address != "Maluku Utara" THEN 1 ELSE 0 END),0) as L_LUAR_DAERAH,  COALESCE(SUM(CASE WHEN gender = "female" AND tb_kartu_keluarga.address != "Maluku Utara" THEN 1 ELSE 0 END),0) as P_LUAR_DAERAH,  COALESCE(SUM(CASE WHEN tb_kartu_keluarga.address != "Maluku Utara" THEN 1 ELSE 0 END),0) as JLH_LUAR_DAERAH
+        FROM tb_data_jemaat INNER JOIN tb_dtl_kartu_keluarga ON tb_data_jemaat.familyCard_id = tb_dtl_kartu_keluarga.familyCard_id INNER JOIN tb_kartu_keluarga on tb_data_jemaat.familyCard_id = tb_kartu_keluarga.familyCard_id WHERE tb_data_jemaat.service_environtment = '.$service_i);
+            array_push($tempData,$serviceData[0]);
+            array_push($tempEducation,$educationData[0]);
+        }
+        $data = [
+            'dataJemaat' => $tempData,
+            'pendidikanJemaat' => $tempEducation
+        ];
+        return view('DataJemaat.Manage Jemaat.pdf',$data);
     }
 }

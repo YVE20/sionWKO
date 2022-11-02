@@ -113,7 +113,10 @@ hr.style-eight:after {
         margin-top: -10px;
     }
     div#about #font22 {
-        margin-top: 30px;
+        margin-top: 60px;
+    }
+    #ayatHarian .container {
+        margin-top: -30px;
     }
 }
 /* For Tablet */
