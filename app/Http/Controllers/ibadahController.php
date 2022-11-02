@@ -117,6 +117,7 @@ class ibadahController extends Controller
             'speaker_contact' => $request->speaker_contact,
             'place' => $request->place,
             'sermon_date' => $request->sermon_date,
+            'time' => $request->time,
             'sermon_content' => $request->sermon_content,
             'worship' => $worship,
             'updated_at' =>  date_create()->format('Y-m-d H:i:s')
