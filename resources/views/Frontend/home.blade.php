@@ -458,6 +458,7 @@
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,
+            position : 'bottom'
         })
     }
     function visiMisiGereja(){
@@ -466,6 +467,7 @@
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,
+            position : 'bottom'
         })
     }
     function majelisGereja(){
@@ -474,6 +476,7 @@
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,
+            position : 'bottom'
         })
     }
     function dataStatistikJemaat(){
