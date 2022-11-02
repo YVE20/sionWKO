@@ -488,7 +488,8 @@
                     html : data,
                     showConfirmButton: false,
                     showCloseButton: true,
-                    width : '100%'
+                    width : '100%',
+                    position : 'bottom'
                 })
             }
         });
