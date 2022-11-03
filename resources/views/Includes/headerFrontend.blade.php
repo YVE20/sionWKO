@@ -11,7 +11,7 @@
     </button>
     <div class="collapse navbar-collapse ml-auto " id="frontend-navbar">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link fontSmall" href="{{url('/')}}"> <font style="color:white;" id="fontHome"> <i class="fas fa-home font15px"></i> HOME </font> </a>
             </li>
             <li class="nav-item">

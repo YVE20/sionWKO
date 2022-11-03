@@ -38,7 +38,8 @@ class homeController extends Controller
         }
         $data = [
             'id_kesaksian' => "KSK/".$bulan."/".$tahun."/".$row,
-            'isAyatHarian' => $isAyatHarian
+            'isAyatHarian' => $isAyatHarian,
+            'data' => 'HOME'
         ];
         return view('Frontend.home',$data);
     }
@@ -218,14 +219,16 @@ class homeController extends Controller
     public function kesaksian(){
         $dataKesaksian = kesaksianModel::orderByRaw("SUBSTRING_INDEX(testimony_id, '/', -1) + 0 ASC LIMIT 5")->get();
         $data = [
-            'dataKesaksian' => $dataKesaksian
+            'dataKesaksian' => $dataKesaksian,
+            'data' => 'KESAKSIAN'
         ];
         return view('Frontend.kesaksian',$data);
     }
     public function renungan(){
         $dataRenungan = renunganModel::whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
         $data = [
-            'dataRenungan' => $dataRenungan
+            'dataRenungan' => $dataRenungan,
+            'data' => 'RENUNGAN'
         ];
         return view('Frontend.renungan',$data);
     }

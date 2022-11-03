@@ -480,7 +480,7 @@
         })
     }
     function dataStatistikJemaat(){
-        $.ajax({
+        /* $.ajax({
             url : '<?= url('/dataStatistikJemaat') ?>',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -495,7 +495,58 @@
                     position : 'bottom'
                 })
             }
-        });
+        }); */
+        Swal.fire({
+            html : '<div class="row"><div class="col-lg-12"><img src="<?= url('/img/Statistik Gereja.jpg') ?>" style="width:80%;height:70%"></div<</div>',
+            showConfirmButton: false,
+            showCloseButton: true,
+            width : '80%',
+            position : 'bottom'
+        })
+    }
+    $('document').ready(function(){
+        $('#fontHome').css('color','black');
+        $('#fontHome').wrapInner('<b></b>');
+        $('#fontHome').css({'-webkit-text-stroke':'0.5px white'});
+    });
+    window.onscroll = function() {myFunction()};
+    var navbar = document.getElementById("navbar");
+    var fontHome = document.getElementById('fontHome');
+    var fontIbadah = document.getElementById('fontIbadah');
+    var fontBerita = document.getElementById('fontBerita');
+    var fontTentangKami = document.getElementById('fontTentangKami');
+    var fontEvent = document.getElementById('fontEvent');
+    var fontKesaksian = document.getElementById('fontKesaksian');
+    var fontRenungan = document.getElementById('fontRenungan');
+    var sticky = navbar.offsetTop;
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+            if(window.pageYOffset >= 660){
+                fontIbadah.classList.add("fontIbadah");
+                fontRenungan.classList.add("fontRenungan");
+                fontBerita.classList.add("fontBerita");
+                fontEvent.classList.add("fontEvent");
+                fontKesaksian.classList.add("fontKesaksian");
+                fontTentangKami.classList.add("fontTentangKami");
+                navbar.classList.add("navColor");
+                $('#fontHome').css({'-webkit-text-stroke':'1px black'});
+                $('#fontHome').css('color','white');
+            }else{
+                fontIbadah.classList.remove("fontIbadah");
+                fontRenungan.classList.remove("fontRenungan");
+                fontBerita.classList.remove("fontBerita");
+                fontEvent.classList.remove("fontEvent");
+                fontKesaksian.classList.remove("fontKesaksian");
+                fontTentangKami.classList.remove("fontTentangKami");
+                navbar.classList.remove("navColor");
+                $('#fontHome').css('color','black');
+                $('#fontHome').wrapInner('<b></b>');
+                $('#fontHome').css({'-webkit-text-stroke':'0.5px white'});
+            }
+        } else {
+            navbar.classList.remove("sticky");
+        }
     }
 </script>
 @endpush

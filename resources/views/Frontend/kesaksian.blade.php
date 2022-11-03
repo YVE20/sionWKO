@@ -66,5 +66,50 @@
     function goToRenungan(){
         location.href="<?= url('/renungan') ?>";
     }
+    $('document').ready(function(){
+        var data = "<?= $data ?>";
+        $('#fontKesaksian').css('color','black');
+        $('#fontKesaksian').wrapInner('<b></b>');
+        $('#fontKesaksian').css({'-webkit-text-stroke':'0.5px white'});
+        $('#fontBerita').css('color','gray');
+        $('#fontTentangKami').css('color','gray');
+        $('#fontEvent').css('color','gray');
+        $('#fontBerita').css('cursor','not-allowed');
+        $('#fontTentangKami').css('cursor','not-allowed');
+        $('#fontEvent').css('cursor','not-allowed');
+    });
+    window.onscroll = function() {myFunction()};
+    var navbar = document.getElementById("navbar");
+    var fontHome = document.getElementById('fontHome');
+    var fontIbadah = document.getElementById('fontIbadah');
+    var fontBerita = document.getElementById('fontBerita');
+    var fontTentangKami = document.getElementById('fontTentangKami');
+    var fontEvent = document.getElementById('fontEvent');
+    var fontKesaksian = document.getElementById('fontKesaksian');
+    var fontRenungan = document.getElementById('fontRenungan');
+    var sticky = navbar.offsetTop;
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+            if(window.pageYOffset >= 660){
+                fontHome.classList.add("fontHome");
+                fontIbadah.classList.add("fontIbadah");
+                fontRenungan.classList.add("fontRenungan");
+                navbar.classList.add("navColor");
+                $('#fontKesaksian').css({'-webkit-text-stroke':'1px black'});
+                $('#fontKesaksian').css('color','white');
+            }else{
+                fontHome.classList.remove("fontHome");
+                fontIbadah.classList.remove("fontIbadah");
+                fontRenungan.classList.remove("fontRenungan");
+                navbar.classList.remove("navColor");
+                $('#fontKesaksian').css('color','black');
+                $('#fontKesaksian').wrapInner('<b></b>');
+                $('#fontKesaksian').css({'-webkit-text-stroke':'0.5px white'});
+            }
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
 </script>
 @endpush
