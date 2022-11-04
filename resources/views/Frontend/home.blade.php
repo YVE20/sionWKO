@@ -497,10 +497,10 @@
             }
         }); */
         Swal.fire({
-            html : '<div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Statistik Gereja.jpg') ?>" style="width:80%;height:70%"></div<</div>',
+            html : '<div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Statistik Gereja.jpg') ?>" style="width:100%;height:100%"></div<</div>',
             showConfirmButton: false,
             showCloseButton: true,
-            width : '80%',
+            width : '58%',
             position : 'bottom'
         })
     }
