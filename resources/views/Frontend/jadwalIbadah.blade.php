@@ -12,7 +12,7 @@
                 <div class="container">
                     <div class="row" id="viewIbadahRemaja" style="display:none">
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Remaja.jpg')}}" alt="Remaja" style="height:300px;width:100%">
+                            <img src="{{asset('/img/Ibadah Remaja Sion.jpg')}}" alt="Remaja" style="height:300px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:right"> 12.30 WIT </font>
@@ -76,7 +76,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Pemuda.jpg')}}" alt="Pemuda" style="height:300px;width:100%">
+                            <img src="{{asset('/img/Ibadah Pemuda Sion.jpg')}}" alt="Pemuda" style="height:300px;width:100%">
                         </div>
                     </div>
                 </div>
