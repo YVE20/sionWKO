@@ -86,7 +86,7 @@
                 <div class="container" id="viewIbadahLingkunganPelayanan" style="display:none;">
                     <div class="row">
                         <div class="col-lg-6">
-                            <img src="{{asset('/img/Ibadah Lingkungan Pelayanan.jpeg')}}" alt="LingPel" style="height:300px;width:100%">
+                            <img src="{{asset('/img/Ibadah Lingkungan Pelayanan Sion.jpg')}}" alt="LingPel" style="height:300px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
@@ -268,7 +268,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Kaum Bapak.jpg')}}" alt="KaumBapak" style="height:300px;width:100%">
+                            <img src="{{asset('/img/Ibadah Kaum Bapak Sion.jpg')}}" alt="KaumBapak" style="height:300px;width:100%">
                         </div>
                     </div>
                     <div class="row">
@@ -394,7 +394,7 @@
                 <div class="container" id="viewIbadahKaumIbu" style="display:none;">
                     <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Kaum Ibu.jpg')}}" alt="KaumBapak" style="height:300px;width:100%">
+                            <img src="{{asset('/img/Ibadah Kaum Ibu Sion.jpg')}}" alt="KaumBapak" style="height:300px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
@@ -575,7 +575,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <img src="{{asset('/img/Ibadah Minggu Gembira.jpg')}}" alt="MingguGembira" style="height:300px;width:100%">
+                            <img src="{{asset('/img/Ibadah Minggu Gembira Sion.jpg')}}" alt="MingguGembira" style="height:300px;width:100%">
                         </div>
                     </div>
                     <div class="row">
@@ -694,8 +694,8 @@
             </div>
             <div class="services-wrapper" id="ibadahAnakSekolahMinggu">
                 <div class="text-center py-5" onclick="viewIbadahAnakSekolahMinggu()"><h3><strong> Ibadah Anak Sekolah Minggu <?= $bulan ?> </strong></h3></div>
-                <div class="container">
-                    <div class="row" id="viewIbadahAnakSekolahMinggu" style="display:none";>
+                <div class="container" id="viewIbadahAnakSekolahMinggu" style="display:none">
+                    <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:right"> 07.00 WIT </font>
                             <table class="table" style="margin-top:-15px;">
@@ -751,6 +751,11 @@
                             </table>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <img src="{{asset('/img/Ibadah Anak Sekolah Minggu.jpg')}}" alt="AnakSekolahMinggu" style="height:300px;width:100%">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="services-wrapper" id="ibadahlainlain">
@@ -788,8 +793,8 @@
             </div>
             <div class="services-wrapper" id="ibadahlainlain">
                 <div class="text-center py-5" onclick="viewIbadahMinggu()"><h3><strong> Ibadah Minggu <?= $bulan ?> </strong></h3></div>
-                <div class="container">
-                    <div class="row" id="viewIbadahMinggu" style="display:none";>
+                <div class="container" id="viewIbadahMinggu" style="display:none">
+                    <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:right"> 07.00 WIT </font>
                             <table class="table" style="margin-top:-15px;">
@@ -816,6 +821,14 @@
                                     ?>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <img src="{{asset('/img/Ibadah Minggu - 7.jpg')}}" alt="MingguGembira" style="height:300px;width:100%">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <img src="{{asset('/img/Ibadah Minggu - 9.jpg')}}" alt="MingguGembira" style="height:300px;width:100%">
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:right"> 09.30 WIT </font>
