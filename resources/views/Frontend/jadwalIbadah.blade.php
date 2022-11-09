@@ -889,6 +889,9 @@
     function goToRenungan(){
         location.href="<?= url('/renungan') ?>";
     }
+    function gotoToEvent(){
+        location.href="<?= url('/event') ?>";
+    }
     function viewIbadahRemaja(){
         $('#viewIbadahRemaja').slideToggle('slow');
     }

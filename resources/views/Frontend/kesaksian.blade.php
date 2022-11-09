@@ -66,6 +66,9 @@
     function goToRenungan(){
         location.href="<?= url('/renungan') ?>";
     }
+    function gotoToEvent(){
+        location.href="<?= url('/event') ?>";
+    }
     $('document').ready(function(){
         var data = "<?= $data ?>";
         $('#fontKesaksian').css('color','black');

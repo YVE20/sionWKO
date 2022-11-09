@@ -202,7 +202,7 @@
                 <div class="text-center py-5" id="font22"><h2><strong> <font> Berita Gereja  </font></strong></h2></div>
                 <center>
                     <img src="<?= asset('/img/Berita Gereja.png') ?>" alt="Berita" style="width:80%"><br><br>
-                    <a href="javascript:void(0)" onclick="downloadBulletin()"> Download Disini </a> 
+                    <a href="javascript:void(0)" onclick="viewInfoBulletin()"> Tekan untuk info lebih lanjut </a> 
                 </center>
             </div>
         </div>
@@ -318,6 +318,9 @@
     }
     function goToRenungan(){
         location.href="<?= url('/renungan') ?>";
+    }
+    function gotoToEvent(){
+        location.href="<?= url('/event') ?>";
     }
     @if($isAyatHarian)
         refreshAyatHarianDB();
@@ -467,7 +470,6 @@
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,
-            position : 'bottom'
         })
     }
     function majelisGereja(){
@@ -476,26 +478,9 @@
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,
-            position : 'bottom'
         })
     }
     function dataStatistikJemaat(){
-        /* $.ajax({
-            url : '<?= url('/dataStatistikJemaat') ?>',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            method : 'POST',
-            success:function(data){
-                Swal.fire({
-                    html : data,
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    width : '100%',
-                    position : 'bottom'
-                })
-            }
-        }); */
         Swal.fire({
             html : '<div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Statistik Gereja Sion.jpg') ?>" style="width:100%;height:100%"></div<</div>',
             showConfirmButton: false,
@@ -547,6 +532,23 @@
         } else {
             navbar.classList.remove("sticky");
         }
+    }
+    function viewInfoBulletin(){
+        $.ajax({
+            url : '<?= url('/viewInfoBulletin') ?>',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            method : 'POST',
+            success:function(data){
+                Swal.fire({
+                    html : data,
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    width : '50%'
+                })
+            }
+        }); 
     }
 </script>
 @endpush

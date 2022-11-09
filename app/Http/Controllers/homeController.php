@@ -13,6 +13,7 @@ use App\Models\dataSIDIModel;
 use App\Models\kartuKeluargaModel;
 use PDF;
 use Illuminate\Support\Facades\DB;
+use App\Models\eventModel;
 
 class homeController extends Controller
 {
@@ -294,5 +295,50 @@ class homeController extends Controller
             'pendidikanJemaat' => $tempEducation
         ];
         return view('DataJemaat.Manage Jemaat.pdf',$data);
+    }
+    public function viewInfoBulletin(){
+        $dataEvent = eventModel::join('tb_kategori_event','tb_kategori_event.eventCategory_id','tb_event.eventCategory_id')->whereRaw('year(sermon_date) ='.date('Y'))->get();
+        $isi = '';
+        $isi .='
+            <div class="row">
+                <div class="col-lg-12">
+                    <h5> <b> <i class="fas fa-calendar-alt"></i> Event Gereja Sion WKO </b> </h5>
+                    <table class="mt-3 table-bordered table" >
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Kategori </th>
+                                <th> Pelaksanaan </th>
+                                <th> Tempat </th>
+                                <th> Gambar </th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+                            $row = 1;
+                            foreach($dataEvent as $dE){
+                                $split = explode(' ',$dE->sermon_date);
+                                $splitTanggal = explode('-',$split[0]);
+                                $splitWaktu = explode(':',$dE->time);
+        $isi .='                <tr>
+                                    <td> '.$row++.' </td>
+                                    <td> '.$dE->event.' </td>
+                                    <td> '.$splitTanggal[2].'-'.$splitTanggal[1].'-'.$splitTanggal[0].' ( '.$splitWaktu[0].':'.$splitWaktu[1].' WIT) </td>
+                                    <td> '.$dE->place.' </td>';
+                                if($dE->photo == ""){
+        $isi .='                    <td> <img src="'.asset('/uploads/NOPICTURE/no_picture.png').'" style="height:50px;width:50px" alt="Poster"> </td>';
+                                }else{
+        $isi .='                    <td> <img src="'.asset('/uploads/EVENT/'.$dE->photo).'" style="height:50px;width:50px" alt="Poster"> </td>';
+                                }                     
+        $isi .='                </tr>';                        
+                            }    
+        $isi .='        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-12">
+                    <a href="javascript:void(0)" onclick="downloadBulletin()"> <i class="fas fa-file-pdf"></i> Download Bulletin </a>
+                </div>
+            </div>
+        ';
+        return $isi;
     }
 }

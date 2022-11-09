@@ -29,6 +29,7 @@ Route::post('/loadAyatHarianAPI','homeController@loadAyatHarianAPI');
 Route::post('/isiAyatHarian','homeController@isiAyatHarian');
 Route::post('/getRenunganById','homeController@getRenunganById');
 Route::post('/dataStatistikJemaat','homeController@dataStatistikJemaat');
+Route::post('/viewInfoBulletin','homeController@viewInfoBulletin');
 
 //Admin
 Route::group(['prefix' => 'adm'],function(){

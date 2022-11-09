@@ -77,6 +77,9 @@
     function goToKesaksian(){
         location.href="<?= url('/kesaksian') ?>";
     }
+    function gotoToEvent(){
+        location.href="<?= url('/event') ?>";
+    }
     function openRenunganModal(reflection_id){
         $('#renunganModal').modal('show');
         $.ajax({

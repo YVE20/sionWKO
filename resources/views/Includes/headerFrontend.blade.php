@@ -27,7 +27,7 @@
                 <a class="nav-link fontSmall" href="#about"> <font style="color:white;" id="fontTentangKami"> <i class="fas fa-user-tie"></i> TENTANG KAMI </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link fontSmall" href="#event"> <font style="color:white;" id="fontEvent"> <i class="fas fa-calendar-week"></i> EVENT </font> </a>
+                <a class="nav-link fontSmall" onclick="gotoToEvent()"> <font style="color:white;" id="fontEvent"> <i class="fas fa-calendar-week"></i> EVENT </font> </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link fontSmall" onclick="goToKesaksian()" style="cursor: pointer;"> <font style="color:white;" id="fontKesaksian"> <i class="fas fa-volume-up"></i> KESAKSIAN </font> </a>
