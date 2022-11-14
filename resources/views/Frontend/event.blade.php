@@ -72,12 +72,10 @@
                                                     <td> Pukul </td>
                                                     <td> : {{$split[0].'.'.$split[1]}} WIT  </td>
                                                 </tr>
-                                                <tr>
-                                                    <td> Pelayan Tuhan </td>
-                                                    <td> : {{$eMGenap->speaker}}  </td>
-                                                </tr>
                                             </table>
                                             <div class="mt-5" style="text-align: justify">
+                                                <font style="font-weight:bold;">  {{strtoupper($eMGanjil->speaker)}} </font><br>
+                                                <font> Gereja Sion WKO </font><br><br><br>
                                                 <font> Ibrani 10 : 24 - 25 </font><br>
                                                 <font> <i>  Dan marilah kita saling memperhatikan supaya kita saling mendorong dalam kasih dan dalam pekerjaan baik. Janganlah kita menjauhkan diri dari pertemuan-pertemuan ibadah kita, seperti dibiasakan oleh beberapa orang, tetapi marilah kita saling menasihati, dan semakin giat melakukannya menjelang hari Tuhan yang mendekat.</i> </font>
                                             </div>
