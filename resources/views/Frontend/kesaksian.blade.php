@@ -37,7 +37,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="col-lg-12 footer-wrapper">
             <div class="container">
                 <div class="row px-3">

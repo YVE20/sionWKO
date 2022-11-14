@@ -341,4 +341,16 @@ class homeController extends Controller
         ';
         return $isi;
     }
+    public function event(){
+        $eventModel = eventModel::join('tb_kategori_event','tb_kategori_event.eventCategory_id','tb_event.eventCategory_id')->whereRaw('year(sermon_date) ='.date('Y'))->get();
+        $eventModelGanjil = eventModel::join('tb_kategori_event','tb_kategori_event.eventCategory_id','tb_event.eventCategory_id')->whereRaw('year(sermon_date) ='.date('Y'))->whereRaw("SUBSTRING_INDEX(event_id,'/',-1) % 2")->get();
+        $eventModelGenap = eventModel::join('tb_kategori_event','tb_kategori_event.eventCategory_id','tb_event.eventCategory_id')->whereRaw('year(sermon_date) ='.date('Y'))->whereRaw("SUBSTRING_INDEX(event_id,'/',-1) % 2 = 0")->get();
+        $data = [
+            'eventModel' => $eventModel,
+            'eventModelGanjil' => $eventModelGanjil,
+            'eventModelGenap' => $eventModelGenap,
+            'data' => 'KESAKSIAN'
+        ];
+        return view('Frontend.event',$data);
+    }
 }

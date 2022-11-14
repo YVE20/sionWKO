@@ -24,6 +24,7 @@ Route::get('/downloadManageJemaat','dataJemaatController@downloadManageJemaat');
 Route::get('/jadwalIbadah','homeController@jadwalIbadah');
 Route::get('/kesaksian','homeController@kesaksian');
 Route::get('/renungan','homeController@renungan');
+Route::get('/event','homeController@event');
 Route::post('/loadAyatHarianDB','homeController@loadAyatHarianDB');
 Route::post('/loadAyatHarianAPI','homeController@loadAyatHarianAPI');
 Route::post('/isiAyatHarian','homeController@isiAyatHarian');
