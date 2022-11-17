@@ -14,6 +14,8 @@ use App\Models\kartuKeluargaModel;
 use PDF;
 use Illuminate\Support\Facades\DB;
 use App\Models\eventModel;
+use App\Models\rapatEvaluasiModel;
+use App\Models\pembagianMajelisModel;
 
 class homeController extends Controller
 {
@@ -235,6 +237,12 @@ class homeController extends Controller
     }
     public function getRenunganById(){
         $dataRenungan = renunganModel::where('reflection_id',$_POST['reflection_id'])->get();
+        $content = "";
+        if($dataRenungan[0]->contents == "-"){
+            $content = "<center> <b> DATA BELUM DI ISI OLEH ADMIN GEREJA </b> </center>";
+        }else{
+            $content = $dataRenungan[0]->contents;
+        }
         $isi = '';
         $isi.='
             <div class="row" style="text-align:justify;">
@@ -246,10 +254,10 @@ class homeController extends Controller
                     <font><i>'.$dataRenungan[0]->verse.'</i></font>
                 </div>
                 <div class="col-lg-12 mt-4">
-                    <font>'.$dataRenungan[0]->contents.'</font>
+                    <font>'.$content.'</font>
                 </div>
                 <div class="col-lg-12 mt-5 copyright" style="font-size:13px;margin-bottom:-5px;">
-                    2022 OLEH GEREJA MASEHI DI HALMAHERA UTARA <br>
+                    2022 OLEH GEREJA SION WKO HALMAHERA UTARA <br>
                     &copy; ALL RIGHTS RESERVED
                 </div>
             </div>
@@ -297,44 +305,53 @@ class homeController extends Controller
         return view('DataJemaat.Manage Jemaat.pdf',$data);
     }
     public function viewInfoBulletin(){
-        $dataEvent = eventModel::join('tb_kategori_event','tb_kategori_event.eventCategory_id','tb_event.eventCategory_id')->whereRaw('year(sermon_date) ='.date('Y'))->get();
+        $dataRapatEvaluasi = rapatEvaluasiModel::whereRaw('month(date)='.date($_POST['bulan']))->whereRaw('year(date)='.date('Y'))->get();
+        $dataMajelis = pembagianMajelisModel::whereRaw('month(sermon_date)='.date($_POST['bulan']))->whereRaw('year(sermon_date)='.date('Y'))->get();
         $isi = '';
         $isi .='
             <div class="row">
-                <div class="col-lg-12">
-                    <h5> <b> <i class="fas fa-calendar-alt"></i> Event Gereja Sion WKO </b> </h5>
-                    <table class="mt-3 table-bordered table" >
-                        <thead>
-                            <tr>
-                                <th> # </th>
-                                <th> Kategori </th>
-                                <th> Pelaksanaan </th>
-                                <th> Tempat </th>
-                                <th> Gambar </th>
-                            </tr>
-                        </thead>
-                        <tbody>';
-                            $row = 1;
-                            foreach($dataEvent as $dE){
-                                $split = explode(' ',$dE->sermon_date);
-                                $splitTanggal = explode('-',$split[0]);
-                                $splitWaktu = explode(':',$dE->time);
-        $isi .='                <tr>
-                                    <td> '.$row++.' </td>
-                                    <td> '.$dE->event.' </td>
-                                    <td> '.$splitTanggal[2].'-'.$splitTanggal[1].'-'.$splitTanggal[0].' ( '.$splitWaktu[0].':'.$splitWaktu[1].' WIT) </td>
-                                    <td> '.$dE->place.' </td>';
-                                if($dE->photo == ""){
-        $isi .='                    <td> <img src="'.asset('/uploads/NOPICTURE/no_picture.png').'" style="height:50px;width:50px" alt="Poster"> </td>';
-                                }else{
-        $isi .='                    <td> <img src="'.asset('/uploads/EVENT/'.$dE->photo).'" style="height:50px;width:50px" alt="Poster"> </td>';
-                                }                     
-        $isi .='                </tr>';                        
-                            }    
-        $isi .='        </tbody>
-                    </table>
+                <div class="col-lg-4 col-12">
+                    <div> <h5> <i class="fas fa-people-carry"></i> <b> Rapat Evaluasi </b> </h5> </div> <hr>
+                    <div style="text-align:left;">
+                        <ul>';
+                            foreach($dataRapatEvaluasi as $dRE){
+                                $split = explode(':',$dRE->time);
+                                $splitDate = explode(' ',$dRE->date);
+                                $splitNewDate = explode('-',$splitDate[0]);
+        $isi.='                 <li class="mt-2">'.$dRE->evaluationMeeting.'</li>
+                                    <ul>
+                                        <li>  Tanggal : '.$splitNewDate[2].'-'.$splitNewDate[1].'-'.$splitNewDate[0].' </li>
+                                        <li>  Waktu : '.$split[0].':'.$split[1].' WIT </li>
+                                        <li>  Tempat : '.$dRE->place.' </li>
+                                    </ul>';                        
+                            }
+        $isi .='        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-12">
+                 <div class="col-lg-4" style="border-right:1px solid black;border-left:1px solid black">
+                    <div> <h5> <i class="fas fa-sitemap"></i> <b> Pembagian Tugas </b> </h5> </div> <hr>
+                    <div style="text-align:left;">
+                        <ul>
+                            <li> Majelis Ibadah Minggu </li>
+                            <li> Pembagain Khadim </li>
+                            <li> Penataan Bunga </li>
+                            <li> Tim Musik </li>
+                            <li> Tim Pujian </li>
+                            <li> Penerima Tamu </li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="col-lg-4" >
+                    <div> <h5> <i class="fas fa-newspaper"></i> <b> Pembagian Majelis </b> </h5> </div> <hr>
+                    <div style="text-align:left;">
+                        <ul>';
+                            foreach($dataMajelis as $dM){
+        $isi.='                 <li>'.$dM->assembly_name.'</li>';                        
+                            }
+        $isi .='        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-5">
                     <a href="javascript:void(0)" onclick="downloadBulletin()"> <i class="fas fa-file-pdf"></i> Download Bulletin </a>
                 </div>
             </div>
@@ -352,5 +369,8 @@ class homeController extends Controller
             'data' => 'KESAKSIAN'
         ];
         return view('Frontend.event',$data);
+    }
+    public function tentangKami(){
+        return view('Frontend.tentangKami');
     }
 }

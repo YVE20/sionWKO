@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\dataJemaatModel;
 use Illuminate\Support\Facades\DB;
+use App\Models\renunganModel;
 
 class dashboardController extends Controller
 {
@@ -169,185 +170,35 @@ class dashboardController extends Controller
         //$pdf = PDF::loadView('DataJemaat.Manage Jemaat.pdf', $data)->setPaper('a4', 'landscape');;
 		//return $pdf->download('All Data Jemaat.pdf');	
         return view('DataJemaat.Manage Jemaat.pdf',$data);
-        /* $dataJemaat = $tempData;
-        $pendidikanJemaat = $tempEducation;
-        $isi ='';
-        $isi .='
-            <table border="1" style="text-align:center" class="table">
-                <thead>
-                    <tr>
-                        <td rowspan="2" style="vertical-align: middle;"> LP </td>
-                        <td rowspan="2" style="vertical-align: middle;"> KK </td>
-                        <td colspan="3"> JIWA </td>
-                        <td colspan="3"> DEWASA </td>
-                        <td colspan="3"> ANAK-ANAK </td>
-                        <td colspan="3"> BAPTIS </td>
-                        <td colspan="3"> SIDI </td>
-                        <td colspan="2"> NIKAH </td>
-                        <td colspan="3"> ANAK SM </td>
-                        <td colspan="3"> REMAJA </td>
-                        <td colspan="3"> PEMUDA </td>
-                        <td rowspan="2" style="vertical-align: middle;"> KI </td>
-                        <td rowspan="2" style="vertical-align: middle;"> KB </td>
-                        <td rowspan="2" style="vertical-align: middle;"> JND </td>
-                        <td rowspan="2" style="vertical-align: middle;"> DD </td>
-                        <td rowspan="2" style="vertical-align: middle;"> YTM </td>
-                        <td rowspan="2" style="vertical-align: middle;"> PTU </td>
-                        <td rowspan="2" style="vertical-align: middle;"> YP </td>
-                        <td colspan="2"> LANSIA </td>
-                    </tr>
-                    <tr>
-                        <td> L </td>
-                        <td> P </td>
-                        <td> JLH </td>
-                        <td> L </td>
-                        <td> P </td>
-                        <td> JLH </td>
-                        <td> L </td>
-                        <td> P </td>
-                        <td> JLH </td>
-                        <td> L </td>
-                        <td> P </td>
-                        <td> JLH </td>
-                        <td> L </td>
-                        <td> P </td>
-                        <td> JLH </td>
-                        <td> SDH </td>
-                        <td> BLM </td>
-                        <td> L </td>
-                        <td> P </td>
-                        <td> JLH </td>
-                        <td> L </td>
-                        <td> P </td>
-                        <td> JLH </td>
-                        <td> L </td>
-                        <td> P </td>
-                        <td> JLH </td>
-                        <td> L </td>
-                        <td> P </td>
-                    </tr>
-                </thead>
-                <tbody>';				
-					$KK = 0;
-					$JIWA_L = 0;
-					$JIWA_P = 0;
-					$JIWA_JLH = 0;
-					$DEWASA_L = 0;
-					$DEWASA_P = 0;
-					$DEWASA_JLH = 0;
-					$ANAK_L = 0;
-					$ANAK_P = 0;
-					$ANAK_JLH = 0;
-					$BAPTIS_L = 0;
-					$BAPTIS_P = 0;
-					$BAPTIS_JLH = 0;
-					$SIDI_L = 0;
-					$SIDI_P = 0;
-					$SIDI_JLH = 0;
-					$NIKAH_SD = 0;
-					$NIKAH_BLM = 0;
-					$ANAK_SM_L = 0;
-					$ANAK_SM_P = 0;
-					$ANAK_SM_JLH = 0;
-					$REMAJA_L = 0;
-					$REMAJA_P = 0;
-					$REMAJA_JLH = 0;
-					$PEMUDA_L = 0;
-					$PEMUDA_P = 0;
-					$PEMUDA_JLH = 0;
-					$DEWASA_L = 0;
-					$DEWASA_P = 0;
-					$JND = 0;
-					$DD = 0;
-					$YTM = 0;
-					$PTU = 0;
-					$YP = 0;
-					$LANSIA_L = 0;
-					$LANSIA_P = 0;
-					foreach($dataJemaat as $data){
-	    $isi .= '       <tr>
-							<td>'.$data->LP.'</td>
-							<td>'.$data->KK; ($KK += (int) $data->KK) .'</td>
-							<td>'.$data->JIWA_L; ($JIWA_L += (int)$data->JIWA_L) .'</td>
-							<td>'.$data->JIWA_P; ($JIWA_P += (int)$data->JIWA_P) .'</td>
-                            <td>'.$data->JIWA_JLH; ($JIWA_JLH += (int)$data->JIWA_JLH) .'</td>
-                            <td>'.$data->DEWASA_L; ($DEWASA_L += (int)$data->DEWASA_L) .'</td>
-                            <td>'.$data->DEWASA_P; ($DEWASA_P += (int)$data->DEWASA_P) .'</td>
-                            <td>'.$data->DEWASA_JLH; ($DEWASA_JLH += (int)$data->DEWASA_JLH) .'</td>
-                            <td>'.$data->ANAK_L; ($ANAK_L += (int)$data->ANAK_L) .'</td>
-                            <td>'.$data->ANAK_P; ($ANAK_P += (int) $data->ANAK_P) .'</td>
-							<td>'.$data->ANAK_JLH; ($ANAK_JLH += (int) $data->ANAK_JLH) .'</td>
-                            <td>'.$data->BAPTIS_L; ($BAPTIS_L += (int) $data->BAPTIS_L) .'</td>
-                            <td>'.$data->BAPTIS_P; ($BAPTIS_P += (int) $data->BAPTIS_P) .'</td>
-                            <td>'.$data->BAPTIS_JLH; ($BAPTIS_JLH += (int) $data->BAPTIS_JLH) .'</td>
-                            <td>'.$data->SIDI_L; ($SIDI_L += (int) $data->SIDI_L) .'</td>
-                            <td>'.$data->SIDI_P; ($SIDI_P += (int) $data->SIDI_P) .'</td>
-                            <td>'.$data->SIDI_JLH; ($SIDI_JLH += (int) $data->SIDI_JLH) .'</td>
-                            <td>'.$data->NIKAH_SD; ($NIKAH_SD += (int) $data->NIKAH_SD) .'</td>
-                            <td>'.$data->NIKAH_BLM; ($NIKAH_BLM += (int) $data->NIKAH_BLM) .'</td>
-                            <td>'.$data->ANAK_SM_L; ($ANAK_SM_L += (int) $data->ANAK_SM_L) .'</td>
-                            <td>'.$data->ANAK_SM_P; ($ANAK_SM_P += (int) $data->ANAK_SM_P) .'</td>
-                            <td>'.$data->ANAK_SM_JLH; ($ANAK_SM_JLH += (int) $data->ANAK_SM_JLH) .'</td>
-                            <td>'.$data->REMAJA_L; ($REMAJA_L += (int) $data->REMAJA_L) .'</td>
-                            <td>'.$data->REMAJA_P; ($REMAJA_P += (int) $data->REMAJA_P) .'</td>
-                            <td>'.$data->REMAJA_JLH; ($REMAJA_JLH += (int) $data->REMAJA_JLH) .'</td>
-                            <td>'.$data->PEMUDA_L; ($PEMUDA_L += (int) $data->PEMUDA_L) .'</td>
-                            <td>'.$data->PEMUDA_P; ($PEMUDA_P += (int) $data->PEMUDA_P) .'</td>
-                            <td>'.$data->PEMUDA_JLH; ($PEMUDA_JLH += (int) $data->PEMUDA_JLH) .'</td>
-                            <td>'.$data->DEWASA_L; ($DEWASA_L += (int) $data->DEWASA_L) .'</td>
-                            <td>'.$data->DEWASA_P; ($DEWASA_P += (int) $data->DEWASA_P) .'</td>
-                            <td>'.$data->JND; ($JND += (int) $data->JND) .'</td>
-							<td>'.$data->DD; ($DD += (int) $data->DD) .'</td>
-							<td>'.$data->YTM; ($YTM += (int) $data->YTM) .'</td>
-							<td>'.$data->PTU; ($PTU += (int) $data->PTU) .'</td>
-							<td>'.$data->YP; ($YP += (int) $data->YP) .'</td>
-							<td>'.$data->LANSIA_L; ($LANSIA_L += (int) $data->LANSIA_L) .'</td>
-							<td>'.$data->LANSIA_P; ($LANSIA_P += (int) $data->LANSIA_P) .'</td>
-                        </tr>';
-					}
-		$isi .=         '<tr>
-							<th>Ttl</th>
-							<th>'. $KK.'</th>
-							<th>'. $JIWA_L.'</th>
-							<th>'. $JIWA_P.'</th>
-							<th>'. $JIWA_JLH.'</th>
-							<th>'. $DEWASA_L.'</th>
-							<th>'. $DEWASA_P.'</th>
-							<th>'. $DEWASA_JLH.'</th>
-							<th>'. $ANAK_L.'</th>
-							<th>'. $ANAK_P.'</th>
-							<th>'. $ANAK_JLH.'</th>
-							<th>'. $BAPTIS_L.'</th>
-							<th>'. $BAPTIS_P.'</th>
-							<th>'. $BAPTIS_JLH.'</th>
-							<th>'. $SIDI_L.'</th>
-							<th>'. $SIDI_P.'</th>
-							<th>'. $SIDI_JLH.'</th>
-							<th>'. $NIKAH_SD.'</th>
-							<th>'. $NIKAH_BLM.'</th>
-							<th>'. $ANAK_SM_L.'</th>
-							<th>'. $ANAK_SM_P.'</th>
-							<th>'. $ANAK_SM_JLH.'</th>
-							<th>'. $REMAJA_L.'</th>
-							<th>'. $REMAJA_P.'</th>
-							<th>'. $REMAJA_JLH.'</th>
-							<th>'. $PEMUDA_L.'</th>
-							<th>'. $PEMUDA_P.'</th>
-							<th>'. $PEMUDA_JLH.'</th>
-							<th>'. $DEWASA_L.'</th>
-							<th>'. $DEWASA_P.'</th>
-							<th>'. $JND.'</th>
-							<th>'. $DD.'</th>
-							<th>'. $YTM.'</th>
-							<th>'. $PTU.'</th>
-							<th>'. $YP.'</th>
-							<th>'. $LANSIA_L.'</th>
-							<th>'. $LANSIA_P.'</th>
-						</tr>
-                    </tbody>
-                </table>
+    }
+    public function renunganHarianForToday(){
+        $dataRenungan = renunganModel::whereRaw('day(created_at)='.date($_POST['date']))->get();
+        $content = "";
+        if($dataRenungan[0]->contents == "-"){
+            $content = "<center> <b> DATA BELUM DI ISI OLEH ADMIN GEREJA </b> </center>";
+        }else{
+            $content = $dataRenungan[0]->contents;
+        }
+        $isi = '';
+        $isi.='
+            <div class="row" style="text-align:justify;font-size:13px">
+                <div class="col-lg-12 mt-4">
+                    <center><b>'.strtoupper($dataRenungan[0]->reflection_title).'</b></center>
+                </div>
+                <div class="col-lg-12">
+                    <font>'.$dataRenungan[0]->bible_verse.'</font><br>
+                    <font><i>'.$dataRenungan[0]->verse.'</i></font>
+                </div>
+                <div class="col-lg-12 mt-4">
+                    <font>'.$content.'</font>
+                </div>
+                <div class="col-lg-12 mt-5 copyright" style="font-size:13px;margin-bottom:-5px;">
+                    2022 OLEH GEREJA SION WKO HALMAHERA UTARA <br>
+                    &copy; ALL RIGHTS RESERVED
+                </div>
+            </div>
         ';
-        return $isi; */
+        return $isi;
     }
     
 }

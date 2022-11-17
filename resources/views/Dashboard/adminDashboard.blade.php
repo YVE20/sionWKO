@@ -5,14 +5,15 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5 p-2 m-2 float-left">
-                    <iframe src="https://alkitab.mobi/renungan/rh/" frameborder="0" style="width:100%;height:300px"></iframe>
-                    <font> <h3> <b> Renungan Harian </b> </h3> </font>
+                <div class="col-lg-5 p-2 m-2 float-left card">
+                    <font> <center> <h5> <b> Renungan Harian </b> </h5> </center> </font> <hr>
+                    <div id="isiRenungan"></div>
                 </div>    
-                <div class="col-lg-5 p-2 m-2 float-left" style="background-color:green;height:100px;">
-                    <font> <h3> <b> Ayat Harian </b> </h3> </font>
-                    <div id="isiAyatHarian">
-                        
+                <div class="col-lg-5 p-2 m-2 float-left card" style="text-align: justify">
+                <font> <center> <h5> <b> Ayat Harian </b> </h5> </font> </center> <hr>
+                    <div class="p-4">
+                        <b><font style="font-size: 13px" id="AyatHarian"></font></b><br>
+                        <i><font style="font-size: 13px" id="isiAyatHarian"></font></i>
                     </div>
                 </div>            
             </div>
@@ -134,26 +135,36 @@
 @endsection
 @push('js')
 <script>
-    $(document).ready(function(){
-        ayatHarian();
-    });
+    ayatHarian();
+    renunganHarian();
     function ayatHarian(){
-        /* $.ajax({
-            url : 'https://www.renunganharian.net/2020/132-juli/3352-api-dan-palu.html',
-            method : 'GET',
-            dataType: 'jsonp',
-            contentType:"application/json",
-            crossDomain: true,
+        $.ajax({
+            url : '<?= url('/loadAyatHarianDB') ?>',
+            method : 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            succcess:function(data){
-                console.log(data);
-            },  
-            error:function(data){
-                console.log(data);
+            success:function(data){
+                var arr_data = data.split('###');
+                $('#AyatHarian').html(arr_data[0]);
+                $('#isiAyatHarian').html(arr_data[1]);
             }
-        }); */
+        });
+    }
+    function renunganHarian(){
+        const d = new Date();
+        let date = d.getDate()
+        $.ajax({
+            url : '<?= url('/renunganHarianForToday') ?>',
+            method : 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data : { date : date },
+            success:function(data){
+                $('#isiRenungan').html(data);
+            }
+        });
     }
     function dataJemaat(){
         $('#dataJemaatModal').modal('show');

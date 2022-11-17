@@ -1,8 +1,21 @@
 <div class="row">
     <div class="col-lg-2 float-left" id="logo">
         <div style="padding:11px 0;">
-            <img src="<?= asset('/img/Gereja SION WKO.png') ?>" class="h-50 w-55 float-left" alt="BMC">
-            <font class="h4 ml-3"> Gereja WKO </font>
+            <div class="row">
+                <div class="col-3">
+                    <img src="<?= asset('/img/Gereja SION WKO.png') ?>" style="height:100%;width:100%" alt="SionWKO">
+                </div>
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-12">
+                            <font style="font-size:18px;font-weight:bold;"> GEREJA SION WKO </font>
+                        </div>
+                        <div class="col-12" style="margin-top: -8px;">
+                            <font style="font-size:18px;font-weight:bold;"> HALMAHERA UTARA </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-lg-10 float-left bg-blue-gray" id="header">

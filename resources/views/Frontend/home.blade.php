@@ -125,9 +125,11 @@
                 <center>
                     <div class="row">
                         <div class="container">
-                            <div class="col-lg-12 px-3" id="font15">
+                            <div class="col-lg-12 px-3" id="font15" style="text-align:justify">
                                 <font>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                                    Gereja Sion WKO merupakan Gereja Masehi Injili di Halmahera (GMIH) yang terletak di desa WKO kecamatan Tobelo tengah kota Tobelo kabupaten Halmahera Utara. Adapun kepanjangan dari WKO sendiri yaitu “Wosia Klapper Ondernaming” WKO adalah lahan perkebunan kepala warisan Zendeling asal negeri Belanda. Diperkirakan pada tahun 60-an akhir yang mengelola perkebunan kelapa WKO adalah tuan Both asal negeri Belanda. Kemudian hari gedung gereja jemaat WKO yang pertama dibangun di atas tanah bekas rumah tuan Both. Jauh sebelum jemaat ini   didirikan, WKO adalah lokasi perkebunan yang tidak berpenghuni. Tuan Both dan anak angkatnya yang dikenal dengan nama Leaua kemudian menempati lokasi perkebunan, sedangkan yang mengurus perkebunan ialah Kornelius Bukako yang merupakan perpanjangan tangan dari Sinode Gereja Masehi Injili di Halmahera (GMIH). Jauh sebelum WKO diresmikan sebagai desa dan jemaat baru, lokasi WKO adalah lokasi perkebunan yang kemudian ditempati oleh pengurus, mandor dan para karyawan beserta keluarga mereka. Karena alasan itu setiap orang yang menempati wilayah perkebunan WKO diminta untuk melaksanakan kebaktian ibadah di jemaat-jemaat terdekat. Dan pada saat itu jemaat yang paling mungkin untuk dikunjungi ialah jemaat Elim Wosia dan Jemaat Maranatha kalipitu. 
+                                    <br>
+                                    <center> <a href="javascript:void(0)" onclick="readTentangKami()"> Baca lebih lanjut .. </a>  </center>
                                 </font>
                             </div>
                         </div>
@@ -147,7 +149,7 @@
                                 </div>
                                 <div class="col-lg-4 col-sm-4 col-md-4">
                                     <acronym title="Majelis Gereja">
-                                        <img src="<?= asset('/img/Foto Majelis.jpg') ?>" onclick="majelisGereja()" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%;cursor: pointer;">
+                                        <img src="<?= asset('/img/Gereja WKO.jpg') ?>" onclick="majelisGereja()" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%;cursor: pointer;">
                                     </acronym>
                                 </div>
                             </div>
@@ -457,11 +459,10 @@
     }
     function strukturGereja(){
         Swal.fire({
-            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Struktur Organisasi.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 1. </b> Struktur Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;font-size:16px;margin-top:10px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Utara merupakan gereja Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p> </div></div>',
+            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Struktur Organisasi.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 1. </b> Struktur Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;font-size:16px;margin-top:10px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Utara merupakan gereja memiliki struktur organisasi yang cara pemilihannya berbeda kalau pada jemaat awal ketua-ketua bidang diangkat dari majelis terpilih tapi sekarang dipilih dulu baru ditahbiskan menjadi majelis. </p> </div></div>',
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,
-            position : 'bottom'
         })
     }
     function visiMisiGereja(){
@@ -474,7 +475,7 @@
     }
     function majelisGereja(){
         Swal.fire({
-            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Foto Majelis.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 3. </b> Majelis Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;margin-top:10px;font-size:16px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Utara merupakan gereja Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p> </div></div>',
+            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Majelis 2017-2022.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 3. </b> Majelis Gereja Sion WKO Periode 2017 - 2022 </font></div><div class="mt-5"> <img src="<?= asset('/img/Majelis 2022-2027.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 4. </b> Majelis Gereja Sion WKO Periode 2022 - 2027 </font> </div>',
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,
@@ -534,21 +535,27 @@
         }
     }
     function viewInfoBulletin(){
+        const d = new Date();
+        const bulan = d.getMonth();
         $.ajax({
             url : '<?= url('/viewInfoBulletin') ?>',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
+            data : { bulan : bulan+1},
             method : 'POST',
             success:function(data){
                 Swal.fire({
                     html : data,
                     showConfirmButton: false,
                     showCloseButton: true,
-                    width : '50%'
+                    width : '70%',
                 })
             }
         }); 
+    }
+    function readTentangKami(){
+        location.href="<?= url('/tentangKami') ?>";
     }
 </script>
 @endpush

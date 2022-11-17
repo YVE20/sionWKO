@@ -5,7 +5,7 @@
     <div class="row mt-5">
         <div class="col-lg-12 services-wrapper mt-5">
             <div class="services-wrapper" id="ibadahRemaja">
-                <div class="text-center py-5"><h3><strong>  Event Gereja Sion WKO Tahun <?= date('Y') ?> </strong></h3></div>
+                <div class="text-center py-5"><h3><strong>  Event Gereja Sion WKO  </strong></h3></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -21,7 +21,10 @@
                                             @endif
                                         </div>
                                         <div class="col-lg-6 p-3">
-                                            <center> <h3> {{strtoupper($eMGanjil->theme)}} </h3> </center><br>
+                                            <center> 
+                                                <h3> {{strtoupper($eMGanjil->theme)}} </h3> 
+                                                <h5> {{$eMGanjil->event}} </h5>
+                                            </center><br><br>
                                             <table>
                                                 <tr>
                                                     <td> Tempat </td>
@@ -50,7 +53,7 @@
                                 </div>                  
                             @endforeach
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 mt-3">
                             @foreach($eventModelGenap as $eMGenap)
                                 @php $split = explode(':',$eMGenap->time)  @endphp
                                 <div class="col-lg-12">
@@ -58,7 +61,10 @@
                                         <div class="col-lg-2">
                                         </div>
                                         <div class="col-lg-6 p-3">
-                                            <center> <h3> {{strtoupper($eMGenap->theme)}} </h3> </center><br>
+                                            <center> 
+                                                <h3> {{strtoupper($eMGenap->theme)}} </h3> 
+                                                <h5> {{$eMGenap->event}} </h5>
+                                            </center><br><br>
                                             <table>
                                                 <tr>
                                                     <td> Tempat </td>
@@ -74,17 +80,17 @@
                                                 </tr>
                                             </table>
                                             <div class="mt-5" style="text-align: justify">
-                                                <font style="font-weight:bold;">  {{strtoupper($eMGanjil->speaker)}} </font><br>
+                                                <font style="font-weight:bold;">  {{strtoupper($eMGenap->speaker)}} </font><br>
                                                 <font> Gereja Sion WKO </font><br><br><br>
                                                 <font> Ibrani 10 : 24 - 25 </font><br>
                                                 <font> <i>  Dan marilah kita saling memperhatikan supaya kita saling mendorong dalam kasih dan dalam pekerjaan baik. Janganlah kita menjauhkan diri dari pertemuan-pertemuan ibadah kita, seperti dibiasakan oleh beberapa orang, tetapi marilah kita saling menasihati, dan semakin giat melakukannya menjelang hari Tuhan yang mendekat.</i> </font>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
-                                            @if($eMGanjil->photo == "")
+                                            @if($eMGenap->photo == "")
                                                 <img src="<?= asset('/uploads/NOPICTURE/no_picture.png') ?>" class="m-3" style="width:300px;height:500px; class="mt-3">
                                             @else
-                                                <img src="<?= asset('/uploads/EVENT/'.$eMGanjil->photo) ?>" class="m-3" style="width:300px;height:500px;" class="mt-3">
+                                                <img src="<?= asset('/uploads/EVENT/'.$eMGenap->photo) ?>" class="m-3" style="width:300px;height:500px;" class="mt-3">
                                             @endif
                                         </div>
                                     </div>

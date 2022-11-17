@@ -31,6 +31,8 @@ Route::post('/isiAyatHarian','homeController@isiAyatHarian');
 Route::post('/getRenunganById','homeController@getRenunganById');
 Route::post('/dataStatistikJemaat','homeController@dataStatistikJemaat');
 Route::post('/viewInfoBulletin','homeController@viewInfoBulletin');
+Route::post('/renunganHarianForToday','dashboardController@renunganHarianForToday');
+Route::get('/tentangKami','homeController@tentangKami');
 
 //Admin
 Route::group(['prefix' => 'adm'],function(){

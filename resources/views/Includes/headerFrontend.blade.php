@@ -2,7 +2,7 @@
     <a class="navbar-brand" href="{{url('/')}}" id="navGerejaMasehi">
         <img src="{{asset('/img/Gereja SION WKO.png')}}" style="max-width:80px;" alt="">
         <span style="line-height: 1;display:inline-block;margin-left:10px;font-size:16px !important;font-weight:bold;vertical-align:middle;color:black;">
-            GEREJA MASEHI <br> INJILI DI HALMAHERA 
+            GEREJA SION WKO <br> HALMAHERA UTARA
         </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#frontend-navbar"
@@ -27,7 +27,7 @@
                 <a class="nav-link fontSmall" href="#about"> <font style="color:white;" id="fontTentangKami"> <i class="fas fa-user-tie"></i> TENTANG KAMI </font> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link fontSmall" onclick="gotoToEvent()"> <font style="color:white;" id="fontEvent"> <i class="fas fa-calendar-week"></i> EVENT </font> </a>
+                <a class="nav-link fontSmall" onclick="gotoToEvent()" style="cursor: pointer"> <font style="color:white;" id="fontEvent"> <i class="fas fa-calendar-week"></i> EVENT </font> </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link fontSmall" onclick="goToKesaksian()" style="cursor: pointer;"> <font style="color:white;" id="fontKesaksian"> <i class="fas fa-volume-up"></i> KESAKSIAN </font> </a>
