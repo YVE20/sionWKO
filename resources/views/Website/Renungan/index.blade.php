@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
            <div class="row"> 
-                <div class="text-left float-left col-lg-2 col-4">
+                <div class="text-left float-left col-lg-3 col-12">
                     <a class="btn btn-primary w-100" href="javascript:void(0)" onclick="tambahRenunganModal()"> <i class="fas fa-plus-circle"></i> Tambah Renungan</a>
                 </div>
             </div>
