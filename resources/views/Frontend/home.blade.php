@@ -139,7 +139,7 @@
                             <div class="row mt-2">
                                 <div class="col-lg-4 col-sm-4 col-md-4">
                                     <acronym title="Struktur Gereja">
-                                        <img src="<?= asset('/img/Struktur Organisasi.jpg') ?>" onclick="strukturGereja()" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%;cursor: pointer;">
+                                        <img src="<?= asset('/img/Struktur Gereja WKO.jpg') ?>" onclick="strukturGereja()" alt="Gereja SION WKO 1" class="p-2" style="height:100%;width:100%;cursor: pointer;">
                                     </acronym>
                                 </div>
                                 <div class="col-lg-4 col-sm-4 col-md-4">
@@ -459,7 +459,7 @@
     }
     function strukturGereja(){
         Swal.fire({
-            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Struktur Organisasi.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 1. </b> Struktur Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;font-size:16px;margin-top:10px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Utara merupakan gereja memiliki struktur organisasi yang cara pemilihannya berbeda kalau pada jemaat awal ketua-ketua bidang diangkat dari majelis terpilih tapi sekarang dipilih dulu baru ditahbiskan menjadi majelis. </p> </div></div>',
+            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Struktur Gereja WKO.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 1. </b> Struktur Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;font-size:16px;margin-top:10px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Tengah merupakan gereja memiliki struktur organisasi yang cara pemilihannya berbeda kalau pada jemaat awal ketua-ketua bidang diangkat dari majelis terpilih tapi sekarang dipilih dulu baru ditahbiskan menjadi majelis. </p> </div></div>',
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,
@@ -467,7 +467,7 @@
     }
     function visiMisiGereja(){
         Swal.fire({
-            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Sion 3.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 2. </b> Visi Misi Gereja Sion WKO</font></div><div class="col-lg-12" style="text-align:justify;margin-top:10px;font-size:16px"> <p>  &emsp; Gereja Sion WKO yang berlokasi di Kabupaten Halmahera Utara, Kec. Tobelo Utara merupakan gereja Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p> </div></div>',
+            html : '<br><div class="row"><div class="col-lg-12"><img src="<?= asset('/img/Sion 3.jpg') ?>" style="width:60%;"><br><font style="font-size:15px"> <b> Gambar 2. </b> Gedung Gereja Sion WKO</font></div></div>',
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,

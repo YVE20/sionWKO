@@ -8,10 +8,10 @@
                 <div class="col-9">
                     <div class="row">
                         <div class="col-12">
-                            <font style="font-size:18px;font-weight:bold;"> GEREJA SION WKO </font>
+                            <font style="font-size:14px;font-weight:bold;"> GEREJA SION WKO </font>
                         </div>
                         <div class="col-12" style="margin-top: -8px;">
-                            <font style="font-size:18px;font-weight:bold;"> HALMAHERA UTARA </font>
+                            <font style="font-size:14px;font-weight:bold;"> HALMAHERA UTARA </font>
                         </div>
                     </div>
                 </div>

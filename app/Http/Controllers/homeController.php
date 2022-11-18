@@ -344,11 +344,10 @@ class homeController extends Controller
                  <div class="col-lg-4" >
                     <div> <h5> <i class="fas fa-newspaper"></i> <b> Pembagian Majelis </b> </h5> </div> <hr>
                     <div style="text-align:left;">
-                        <ul>';
-                            foreach($dataMajelis as $dM){
-        $isi.='                 <li>'.$dM->assembly_name.'</li>';                        
-                            }
-        $isi .='        </ul>
+                        <ul>
+                            <li> Kelompok 1 </li>
+                            <li> Kelompok 2 </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-12 mt-5">

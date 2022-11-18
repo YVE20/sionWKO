@@ -240,6 +240,7 @@
             method : 'POST',
             dataType : 'JSON',
             success:function(data){
+                console.log(data);
                 $('#category').val(data.category);
                 var worship = $('#worship');
 
