@@ -39,6 +39,8 @@ class ibadahController extends Controller
             return redirect('/adm/ibadah')->with(["status"=>"Lingkungan Pelayanan tidak boleh kosong", "judul_alert" => "Peringatan" , "icon" => "warning"]);
         }else if($request->category_id == "IBD/IBLL/2022" && $request->worship == "-"){
             return redirect('/adm/ibadah')->with(["status"=>"Jenis Ibadah tidak boleh kosong", "judul_alert" => "Peringatan" , "icon" => "warning"]);
+        }else if($request->category_id == "-"){
+            return redirect('/adm/ibadah')->with(["status"=>"Kategori Ibadah tidak boleh kosong", "judul_alert" => "Peringatan" , "icon" => "warning"]);
         }else{
             $worship = "";
             if($request->category_id == "IBD/IBLP/2022"){
