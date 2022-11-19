@@ -27,6 +27,7 @@
                                         <font> <center> <b> {{$dK->name}} </b> </center> </font><hr class="style-eight">
                                     </div>
                                     <div class="col-lg-9">
+                                        <font> <b> <?= $dK->subject ?> </b>  </font><br><br>
                                         <?= $dK->message ?>
                                     </div>
                                 </div>

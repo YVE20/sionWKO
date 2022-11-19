@@ -163,9 +163,7 @@ class kesaksianController extends Controller
                                 <label for="message"> Isi </label>
                             </div>
                             <div class="col-xl-8">
-                                <textarea id="message" class="form-control" name="message" placeholder="Isi" style="resize:none;">
-                                    
-                                </textarea>
+                                <textarea id="message" class="form-control" name="message" placeholder="Isi" style="resize:none;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -229,8 +227,7 @@ class kesaksianController extends Controller
                                 <label for="message"> Isi </label>
                             </div>
                             <div class="col-xl-8">
-                                <textarea id="message" class="form-control" name="message" placeholder="Isi" style="resize:none;">';
-                                    $dataKesaksianModel[0]->message;    
+                                <textarea id="message" class="form-control" name="message" placeholder="Isi" style="resize:none;">';$dataKesaksianModel[0]->message;    
             $isi .='            </textarea>
                             </div>
                         </div>

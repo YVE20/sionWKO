@@ -57,11 +57,10 @@
     @endif 
     $(document).ready(function(){
         getDataKesaksian();
-        tinymce.init({
-            selector: 'textarea#message'
-        });
     });
-    
+    tinymce.init({
+        selector: '#message'
+    });
     function pagination_prev(){
         if(current_page_index != 1){
             current_page_index -= 1;
@@ -132,6 +131,9 @@
             method : 'POST',
             success:function(data){
                 $('#isiModalKesaksian').html(data);
+                tinymce.init({
+                    selector: '#message'
+                });
             }
         });
     }
@@ -150,6 +152,9 @@
             method : 'POST',
             success:function(data){
                 $('#isiModalKesaksian').html(data);
+                tinymce.init({
+                    selector: '#message'
+                });
             }
         });
     }
