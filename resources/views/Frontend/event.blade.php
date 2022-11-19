@@ -120,6 +120,27 @@
 @endsection
 @push('js')
 <script>
+    function goToIbadah(){
+        location.href="<?= url('/jadwalIbadah') ?>";
+    }
+    function goToKesaksian(){
+        location.href="<?= url('/kesaksian') ?>";
+    }
+    function goToRenungan(){
+        location.href="<?= url('/renungan') ?>";
+    }
+    function gotoToEvent(){
+        location.href="<?= url('/event') ?>";
+    }
+    $('document').ready(function(){
+        $('#fontEvent').css('color','black');
+        $('#fontEvent').wrapInner('<b></b>');
+        $('#fontEvent').css({'-webkit-text-stroke':'0.5px white'});
+        $('#fontBerita').css('color','gray');
+        $('#fontTentangKami').css('color','gray');
+        $('#fontBerita').css('cursor','not-allowed');
+        $('#fontTentangKami').css('cursor','not-allowed');
+    });
     window.onscroll = function() {myFunction()};
     var navbar = document.getElementById("navbar");
     var fontHome = document.getElementById('fontHome');

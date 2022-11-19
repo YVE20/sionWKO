@@ -5,41 +5,68 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="text-left float-left col-lg-2 col-4">
+                <div class="text-left col-lg-2 col-4">
                     <a class="btn btn-primary w-100" href="javascript:void(0)" onclick="tambahIbadahModal()"> <i class="fas fa-plus-circle"></i> Tambah Ibadah</a>
                 </div>
-                <div class="text-left float-left col-lg-2 col-4">
+                <div class="text-left col-lg-2 col-4">
                     <a class="btn btn-primary w-100" href="javascript:void(0)" onclick="tambahKategoriIbadahModal()" data-toggle="modal" data-target="#jenisModal"> <i class="fas fa-plus-circle"></i> Tambah Kategori </a>
                 </div>
-                <div class="text-left float-left text-center col-lg-2 col-4">
+                <div class="text-left text-center col-lg-2 col-4">
                     <a class="btn btn-secondary w-100" href="javascript:void(0)" onclick="viewKategoriIbadahModal()" style="white-space: nowrap;" data-toggle="modal" data-target="#viewjenisModal"> <i class="far fa-eye"></i> Lihat Kategori </a>
                 </div>
-                <div class="text-left float-left col-lg-3 col-4">
-                   <select class="form-control" name="chooseIbadah" id="chooseIbadah">
-                        <option value="-"> -- Pilih Ibadah -- </option>
-                        <option value="IBD/IBKB/2022"> Ibadah Kaum Bapak </option>
-                        <option value="IBD/IBKI/2022"> Ibadah Kaum Ibu </option>
-                        <option value="IBD/IBM/2022"> Ibadah Minggu </option>
-                        <option value="IBD/IBASM/2022"> Ibadah Anak Sekolah Minggu </option>
-                        <option value="IBD/IBLP/2022"> Ibadah Lingkungan Pelayan </option>
-                        <option value="IBD/IBMG/2022"> Ibadah Minggu Gembira </option>
-                        <option value="IBD/IBP/2022"> Ibadah Pemuda </option>
-                        <option value="IBD/IBR/2022"> Ibadah Remaja </option>
-                        <option value="IBD/IBLL/2022"> Ibadah Lain-lain </option>
-                   </select>
+                <div class="text-left col-lg-3 col-4">
+                    <div class="row">
+                        <div class="col-lg-10" id="divIbadahOnly">
+                            <select class="form-control" name="chooseIbadah" id="chooseIbadah">
+                                <option value="-"> -- Pilih Ibadah -- </option>
+                                <option value="IBD/IBKB/2022"> Ibadah Kaum Bapak </option>
+                                <option value="IBD/IBKI/2022"> Ibadah Kaum Ibu </option>
+                                <option value="IBD/IBM/2022"> Ibadah Minggu </option>
+                                <option value="IBD/IBASM/2022"> Ibadah Anak Sekolah Minggu </option>
+                                <option value="IBD/IBLP/2022"> Ibadah Lingkungan Pelayan </option>
+                                <option value="IBD/IBMG/2022"> Ibadah Minggu Gembira </option>
+                                <option value="IBD/IBP/2022"> Ibadah Pemuda </option>
+                                <option value="IBD/IBR/2022"> Ibadah Remaja </option>
+                                <option value="IBD/IBLL/2022"> Ibadah Lain-lain </option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2" id="cleanIbadahOnly">
+                            <button id="clean" class="btn btn-secondary"> <i class="fas fa-eraser"></i> </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-left float-left col-lg-2 col-4">
-                   <select class="form-control" style="display:none;" name="chooseLingkunganPelayanan" id="chooseLingkunganPelayanan">
-                        <option value="-"> -- Pilih LP --  </option>
-                        <option value="1"> LP 1 </option>
-                        <option value="2"> LP 2 </option>
-                        <option value="3"> LP 3 </option>
-                        <option value="4"> LP 4 </option>
-                        <option value="5"> LP 5 </option>
-                   </select>
+                <div class="text-left col-lg-2 col-4" id="divLingkunganPelayanan" style="display:none">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <select class="form-control" style="display:none;" name="chooseLingkunganPelayanan" id="chooseLingkunganPelayanan">
+                                <option value="-"> -- Pilih LP --  </option>
+                                <option value="1"> LP 1 </option>
+                                <option value="2"> LP 2 </option>
+                                <option value="3"> LP 3 </option>
+                                <option value="4"> LP 4 </option>
+                                <option value="5"> LP 5 </option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button id="clean" class="btn btn-secondary"> <i class="fas fa-eraser"></i> </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-right float-left col-lg-1 col-4">
-                    <button id="clean" class="btn btn-secondary"> <i class="fas fa-eraser"></i> </button>
+                <div class="text-left col-lg-2 col-4" id="divJenisIbadah" style="display:none;">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <select class="form-control" style="display:none;" name="chooseJenisIbadah" id="chooseJenisIbadah">
+                                <option value="-"> -- Pilih --  </option>
+                                <option value="Ibadah Keluarga Pelayan"> Ibadah Keluarga Pelayan </option>
+                                <option value="Ibadah Pelajar"> Ibadah Pelajar </option>
+                                <option value="Ibadah Usinda"> Ibadah Usinda </option>
+                                <option value="Ibadah Pergumulan MJ"> Ibadah Pergumulan MJ </option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button id="clean" class="btn btn-secondary"> <i class="fas fa-eraser"></i> </button>
+                        </div>
+                    </div>
                 </div>
             </div>       
             <div class="table-responsive mt-3">
@@ -134,16 +161,41 @@
     });
     $('#chooseIbadah').change(function(){
         $('#chooseLingkunganPelayanan').val("-");
+        $('#chooseJenisIbadah').val("-");
         getDataIbadah();
         if($('#chooseIbadah').val() == "IBD/IBKB/2022" || $('#chooseIbadah').val() == "IBD/IBKI/2022" || $('#chooseIbadah').val() == "IBD/IBMG/2022" || $('#chooseIbadah').val() == "IBD/IBLP/2022"){
             $('#chooseLingkunganPelayanan').css('display','block');
+            $('#divLingkunganPelayanan').css('display','block');
+            $('#chooseJenisIbadah').css('display','none');
+            $('#divJenisIbadah').css('display','none')
+            $('#cleanIbadahOnly').css('display','none');
+            $('#divIbadahOnly').removeClass('col-lg-10');
+            $('#divIbadahOnly').addClass('col-lg-12');
             $('#chooseLingkunganPelayanan').change(function(){
                 getDataIbadah();
             });
             $('#chooseLingkunganPelayanan').val("-");
+        }else if($('#chooseIbadah').val() == "IBD/IBLL/2022"){
+            $('#chooseJenisIbadah').css('display','block');
+            $('#divJenisIbadah').css('display','block')
+            $('#chooseLingkunganPelayanan').css('display','none');
+            $('#divLingkunganPelayanan').css('display','none');
+            $('#divIbadahOnly').removeClass('col-lg-10');
+            $('#divIbadahOnly').addClass('col-lg-12');
+            $('#cleanIbadahOnly').css('display','none');
+            $('#chooseJenisIbadah').change(function(){
+                getDataIbadah();
+            });
         }else{
             $('#chooseLingkunganPelayanan').css('display','none');
+            $('#divLingkunganPelayanan').css('display','none');
             $('#chooseLingkunganPelayanan').val("-");
+            $('#chooseJenisIbadah').css('display','none');
+            $('#divJenisIbadah').css('display','none')
+            $('#chooseJenisIbadah').val("-");
+            $('#cleanIbadahOnly').css('display','block');
+            $('#divIbadahOnly').removeClass('col-lg-12');
+            $('#divIbadahOnly').addClass('col-lg-10');
         }
     });
     function viewKategoriIbadahModal(){
@@ -247,7 +299,6 @@
                 if(data.category == "Ibadah Lain-lain"){
                     worship.prop('readonly',false);
                     worship.css('display','block');
-                    worship.attr('placeholder','Tuliskan jenis ibadah');
                 }else{
                     if(data.category_id == "IBD/IBLP/2022"){
                         $('#service_environtment').css('display','block');
@@ -280,6 +331,7 @@
             data : {
                 chooseIbadah : "",
                 chooseLingkunganPelayanan : "",
+                chooseJenisIbadah : "",
                 page:current_page_index 
             },
             method : 'POST',
@@ -291,6 +343,9 @@
                 $('#chooseLingkunganPelayanan').val("-");
                 $('#chooseLingkunganPelayanan').css('display','none');
                 $('#chooseLingkunganPelayanan').val("-");
+                $('#chooseJenisIbadah').val("-");
+                $('#chooseJenisIbadah').css('display','none');
+                $('#chooseJenisIbadah').val("-");
             }
         });
     }
@@ -303,6 +358,7 @@
             data : {
                 chooseIbadah : $('#chooseIbadah').val(),
                 chooseLingkunganPelayanan : $('#chooseLingkunganPelayanan').val(),
+                chooseJenisIbadah : $('#chooseJenisIbadah').val(),
                 page:current_page_index 
             },
             method : 'POST',

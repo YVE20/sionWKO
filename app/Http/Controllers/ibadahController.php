@@ -37,6 +37,8 @@ class ibadahController extends Controller
             return redirect('/adm/ibadah')->with(["status"=>"Lingkungan Pelayanan tidak boleh kosong", "judul_alert" => "Peringatan" , "icon" => "warning"]);
         }else if($request->category_id == "IBD/IBMG/2022" && $request->service_environtment == "-"){
             return redirect('/adm/ibadah')->with(["status"=>"Lingkungan Pelayanan tidak boleh kosong", "judul_alert" => "Peringatan" , "icon" => "warning"]);
+        }else if($request->category_id == "IBD/IBLL/2022" && $request->worship == "-"){
+            return redirect('/adm/ibadah')->with(["status"=>"Jenis Ibadah tidak boleh kosong", "judul_alert" => "Peringatan" , "icon" => "warning"]);
         }else{
             $worship = "";
             if($request->category_id == "IBD/IBLP/2022"){
@@ -108,6 +110,8 @@ class ibadahController extends Controller
             $worship = "Ibadah Minggu Gembira";
         }else if($request->category_id == "IBD/IBASM/2022"){
             $worship = "Ibadah Anak Sekolah Minggu";
+        }else if($request->category_id == "IBD/IBLL/2022"){
+            $worship = "Ibadah Lain-lain";
         }else{ 
             $worship = $request->worship;
         }
@@ -164,12 +168,18 @@ class ibadahController extends Controller
     public function getAllWorship(){ 
         $chooseIbadah = $_POST['chooseIbadah'] == "-" ? "" : $_POST['chooseIbadah'];
         $chooseLingkunganPelayanan = $_POST['chooseLingkunganPelayanan'] ? $_POST['chooseLingkunganPelayanan'] : "";
+        $chooseJenisIbadah = $_POST['chooseJenisIbadah'] ? $_POST['chooseJenisIbadah'] : "";
         $ibadah = new ibadahModel();
         
-        if($chooseIbadah != "" && $chooseLingkunganPelayanan == "-"){
+        if($chooseIbadah != "" && $chooseLingkunganPelayanan == "-" && $chooseJenisIbadah == "-"){
             $ibadah = $ibadah->where('category_id',$chooseIbadah);
-        }else if($chooseIbadah != "" && $chooseLingkunganPelayanan != "-"){
+        }else if($chooseIbadah != "" && $chooseLingkunganPelayanan != "-" && $chooseJenisIbadah == "-"){
             $ibadah = $ibadah->where('category_id',$chooseIbadah)->where('service_environtment',$chooseLingkunganPelayanan);
+        }else if($chooseIbadah != "" && $chooseJenisIbadah != "-" && $chooseLingkunganPelayanan == "-"){
+            $ibadah = $ibadah->where('category_id',$chooseIbadah)->where('worship',$chooseJenisIbadah);
+        }
+        else if($chooseIbadah != "" && $chooseLingkunganPelayanan != "-" && $chooseIbadah != "-"){
+            $ibadah = $ibadah->where('category_id',$chooseIbadah)->where('service_environtment',$chooseLingkunganPelayanan)->where('worship',$chooseJenisIbadah);
         }
         $perPage = 10;
         $currentPage = isset($_POST["page"])? $_POST["page"] : 1;
@@ -193,6 +203,57 @@ class ibadahController extends Controller
                     <tr>
                         <td>'.$i->worship_id.'</td>
                         <td>'.$i->category_id.'</td>
+                        <td>'.$i->speaker.'</td>
+                        <td>'.$i->sermon_title.'</td>
+                        <td>'.$i->place.'</td>
+                        <td>'.$tanggal_baru[2].'-'.$tanggal_baru[1].'-'.$tanggal_baru[0].' ('.$jam[0].':'.$jam[1].' WIT)</td>
+                        <td>'.$i->speaker_contact.'</td>
+                        <td>'.$i->service_environtment.'</td>
+                        <td>
+                            <button onclick="editIbadahModal(`'.$i->worship_id.'`)" class="btn btn-warning text-white"> <i class="fas fa-pencil-alt"></i> </button>
+                            <button onclick="deleteIbadah(`'.$i->worship_id.'`)" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>  </button>
+                        </td>
+                    </tr>    
+                ';
+            }   
+        }
+        $isi .= "###".$paginator->links('vendor.pagination.bootstrap-4-ajax');
+        return $isi;
+    }
+    public function getLainlainWorship(){
+        $chooseIbadah = $_POST['chooseIbadah'] == "-" ? "" : $_POST['chooseIbadah'];
+        $chooseJenisIbadah = $_POST['chooseJenisIbadah'] ? $_POST['chooseJenisIbadah'] : "";
+        print_r($chooseJenisIbadah);
+        dd($chooseJenisIbadah);
+        $ibadah = new ibadahModel();
+        
+        if($chooseIbadah != "" && $chooseJenisIbadah == "-"){
+            $ibadah = $ibadah->where('category_id',$chooseIbadah);
+        }else if($chooseIbadah != "" && $chooseJenisIbadah != "-"){
+            $ibadah = $ibadah->where('category_id',$chooseIbadah)->where('worship',$chooseJenisIbadah);
+        }
+        $perPage = 10;
+        $currentPage = isset($_POST["page"])? $_POST["page"] : 1;
+        $ibadah = $ibadah->orderByRaw("SUBSTRING_INDEX(worship_id, '/', -1) + 0 DESC")->get();
+        $count = count($ibadah);
+        $currentItems = $ibadah->slice($perPage * ($currentPage - 1), $perPage);
+        $paginator = new LengthAwarePaginator($currentItems, $count, $perPage, $currentPage);
+        $isi = '';
+        if(count($ibadah) <= 0){
+            $isi .='
+                <tr>
+                    <th colspan="9"> <center> TIDAK ADA DATA </center> </th>
+                </tr>
+            ';
+        }else{
+            foreach($paginator as $i){
+                $pisah = explode(' ',$i->sermon_date);
+                $tanggal_baru = explode('-',$pisah[0]);
+                $jam = explode(':',$i->time);
+                $isi .= '
+                    <tr>
+                        <td>'.$i->worship_id.'AA</td>
+                        <td>'.$i->category_id.'AAA</td>
                         <td>'.$i->speaker.'</td>
                         <td>'.$i->sermon_title.'</td>
                         <td>'.$i->place.'</td>
@@ -268,11 +329,17 @@ class ibadahController extends Controller
                         <div class="col-xl-4">
                             <label for="worship_id">ID Ibadah </label>
                         </div>
-                        <div class="col-xl-3">
+                        <div class="col-xl-2">
                             <input type="text" class="form-control" readonly required id="worship_id" name="worship_id" value="'.$row.'">
                         </div>
-                        <div class="col-xl-5">
-                            <input type="text" class="form-control"  id="worship" name="worship" style="display:none">
+                        <div class="col-xl-6">
+                            <select class="form-control"  id="worship" name="worship" style="display:none">
+                                <option value="-"> -- PILIH -- </option>
+                                <option value="Ibadah Keluarga Pelayan"> Ibadah Keluarga Pelayan </option>
+                                <option value="Ibadah Pelajar"> Ibadah Pelajar </option>
+                                <option value="Ibadah Usinda"> Ibadah Usinda </option>
+                                <option value="Ibadah Pergumulan MJ"> Ibadah Pergumulan MJ </option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -403,11 +470,23 @@ class ibadahController extends Controller
                         <div class="col-xl-4">
                             <label for="worship_id">ID Ibadah </label>
                         </div>
-                        <div class="col-xl-3">
+                        <div class="col-xl-2">
                             <input type="text" class="form-control" readonly value="'.$ibadah[0]->worship_id.'" required id="worship_id" name="worship_id" placeholder="ID Ibadah">
                         </div>
-                        <div class="col-xl-5">
-                            <input type="text" class="form-control" id="worship" style="display:none" name="worship" value="'.$ibadah[0]->worship.'">
+                        <div class="col-xl-6">
+                            <select name="worship" id="worship" class="form-control">
+                                <option value="-"> -- PILIH </option>';
+                                $worship = array("Ibadah Keluarga Pelayan","Ibadah Pelajar","Ibadah Usinda","Ibadah Pergumulan MJ");
+                                    foreach($worship as $w){
+                                        if($ibadah[0]->worship == $w){
+                                            $isi .='<option value="'.$ibadah[0]->worship.'" selected>'.$ibadah[0]->worship.'</option>';
+                                        }
+                                    }
+                                    $reW = array_diff($worship, array($ibadah[0]->worship));
+                                    foreach($reW as $rW){
+                                        $isi .='<option value="'.$rW.'">'.$rW.'</option>';
+                                    }
+                $isi .='    </select>
                         </div>
                     </div>
                 </div>

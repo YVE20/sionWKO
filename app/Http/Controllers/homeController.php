@@ -151,7 +151,10 @@ class homeController extends Controller
         $dataIbadahSekolahMingguJam9 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBASM/2022')->whereRaw('time="09:30:00"')->get();
 
         //Ibadah Lain-lain
-        $dataIbadahLainlain = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBLL/2022')->get();
+        $dataIbadahLainlainKeluargaPelayan = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBLL/2022')->where('worship','Ibadah Keluarga Pelayan')->get();
+        $dataIbadahLainlainPelajar = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBLL/2022')->where('worship','Ibadah Pelajar')->get();
+        $dataIbadahLainlainUsinda = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBLL/2022')->where('worship','Ibadah Usinda')->get();
+        $dataIbadahLainlainPergumulanMJ = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBLL/2022')->where('worship','Ibadah Pergumulan MJ')->get();
 
         //Ibadah Minggu
         $dataIbadahMingguJam7 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date('m'))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.category_id','IBD/IBM/2022')->whereRaw('time="07:00:00"')->get();
@@ -213,7 +216,10 @@ class homeController extends Controller
             'dataIbadahLingkungan5MingguGembira' => $dataIbadahLingkungan5MingguGembira,
             'dataIbadahSekolahMingguJam7' => $dataIbadahSekolahMingguJam7,
             'dataIbadahSekolahMingguJam9' => $dataIbadahSekolahMingguJam9,
-            'dataIbadahLainlain' => $dataIbadahLainlain,
+            'dataIbadahLainlainKeluargaPelayan' => $dataIbadahLainlainKeluargaPelayan,
+            'dataIbadahLainlainPelajar' => $dataIbadahLainlainPelajar,
+            'dataIbadahLainlainUsinda' => $dataIbadahLainlainUsinda,
+            'dataIbadahLainlainPergumulanMJ' => $dataIbadahLainlainPergumulanMJ,
             'dataIbadahMingguJam7' => $dataIbadahMingguJam7,
             'dataIbadahMingguJam9' => $dataIbadahMingguJam9,
         ];

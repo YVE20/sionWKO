@@ -98,6 +98,7 @@ Route::group(['prefix' => 'adm'],function(){
     Route::post('/event/getEventByEventCategoryId','hutController@getEventByEventCategoryId');
 
     Route::post('/ibadah/getAllWorship', 'ibadahController@getAllWorship');
+    Route::post('/ibadah/getLainlainWorship','ibadahController@getLainlainWorship');
     Route::post('/ibadah/getAllKategoriIbadah', 'ibadahController@getAllKategoriIbadah');
     Route::post('/dataJemaat/getAllSIDI','sidiController@getAllSIDI');
     Route::post('/dataJemaat/getAllBaptis', 'baptisController@getAllBaptis');

@@ -25,6 +25,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahRemaja) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahRemaja as $dIR){
                                             $split = explode(' ',$dIR->sermon_date);
@@ -38,6 +43,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -59,6 +65,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahPemuda) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahPemuda as $dIP){
                                             $split = explode(' ',$dIP->sermon_date);
@@ -72,6 +83,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -100,6 +112,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan1) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan1 as $dIL1){
                                             $split = explode(' ',$dIL1->sermon_date);
@@ -113,6 +130,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -130,6 +148,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan2) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan2 as $dIL2){
                                             $split = explode(' ',$dIL2->sermon_date);
@@ -143,6 +166,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -158,6 +182,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan3) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan3 as $dIL3){
                                             $split = explode(' ',$dIL3->sermon_date);
@@ -171,6 +200,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -188,6 +218,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan4) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan4 as $dIL4){
                                             $split = explode(' ',$dIL4->sermon_date);
@@ -201,6 +236,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -216,6 +252,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan5) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan5 as $dIL5){
                                             $split = explode(' ',$dIL5->sermon_date);
@@ -229,6 +270,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -251,6 +293,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan1KaumBapak) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan1KaumBapak as $dIL1KB){
                                             $split = explode(' ',$dIL1KB->sermon_date);
@@ -264,6 +311,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -284,6 +332,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan2KaumBapak) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan2KaumBapak as $dIL2KB){
                                             $split = explode(' ',$dIL2KB->sermon_date);
@@ -297,6 +350,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -312,6 +366,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan3KaumBapak) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan3KaumBapak as $dIL3KB){
                                             $split = explode(' ',$dIL3KB->sermon_date);
@@ -325,6 +384,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -342,6 +402,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan4KaumBapak) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan4KaumBapak as $dIL4KB){
                                             $split = explode(' ',$dIL4KB->sermon_date);
@@ -355,6 +420,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -370,6 +436,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan5KaumBapak) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan5KaumBapak as $dIL5KB){
                                             $split = explode(' ',$dIL5KB->sermon_date);
@@ -383,6 +454,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -408,6 +480,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan1KaumIbu) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan1KaumIbu as $dIL1KI){
                                             $split = explode(' ',$dIL1KI->sermon_date);
@@ -421,6 +498,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -438,6 +516,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan2KaumIbu) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan2KaumIbu as $dIL2KI){
                                             $split = explode(' ',$dIL2KI->sermon_date);
@@ -451,6 +534,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -466,6 +550,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan3KaumIbu) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan3KaumIbu as $dIL3KI){
                                             $split = explode(' ',$dIL3KI->sermon_date);
@@ -479,6 +568,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -496,6 +586,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan4KaumIbu) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan4KaumIbu as $dIL4KI){
                                             $split = explode(' ',$dIL4KI->sermon_date);
@@ -509,6 +604,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -524,6 +620,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan5KaumIbu) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan5KaumIbu as $dIL5KI){
                                             $split = explode(' ',$dIL5KI->sermon_date);
@@ -537,6 +638,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -558,6 +660,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan1MingguGembira) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan1MingguGembira as $dIL1MG){
                                             $split = explode(' ',$dIL1MG->sermon_date);
@@ -571,6 +678,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -590,6 +698,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan2MingguGembira) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan2MingguGembira as $dIL2MG){
                                             $split = explode(' ',$dIL2MG->sermon_date);
@@ -603,6 +716,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -617,6 +731,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan3MingguGembira) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan3MingguGembira as $dIL3MG){
                                             $split = explode(' ',$dIL3MG->sermon_date);
@@ -630,6 +749,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -646,6 +766,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan4MingguGembira) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan4MingguGembira as $dIL4MG){
                                             $split = explode(' ',$dIL4MG->sermon_date);
@@ -659,6 +784,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -673,6 +799,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLingkungan5MingguGembira) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahLingkungan5MingguGembira as $dIL5MG){
                                             $split = explode(' ',$dIL5MG->sermon_date);
@@ -686,6 +817,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -707,6 +839,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahSekolahMingguJam7) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahSekolahMingguJam7 as $dISMJ7){
                                             $split = explode(' ',$dISMJ7->sermon_date);
@@ -720,6 +857,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -734,6 +872,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahSekolahMingguJam9) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahSekolahMingguJam9 as $dISMJ9){
                                             $split = explode(' ',$dISMJ9->sermon_date);
@@ -747,6 +890,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -760,9 +904,10 @@
             </div>
             <div class="services-wrapper" id="ibadahlainlain">
                 <div class="text-center py-5" onclick="viewIbadahLainlain()"><h3><strong> Ibadah Lain-lain <?= $bulan ?> </strong></h3></div>
-                <div class="container">
-                    <div class="row" id="viewIbadahLainlain" style="display:none";>
+                <div class="container" id="viewIbadahLainlain" style="display:none">
+                    <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
+                            <font style="float:right;font-weight:bold"> {{strtoupper("Ibadah Keluarga Pelayan (19.30 WIT)")}} </font>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -772,19 +917,126 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahLainlainKeluargaPelayan) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
-                                        foreach($dataIbadahLainlain as $dILl){
-                                            $split = explode(' ',$dILl->sermon_date);
+                                        foreach($dataIbadahLainlainKeluargaPelayan as $dILlKP){
+                                            $split = explode(' ',$dILlKP->sermon_date);
                                             $newDate = explode('-',$split[0]);
                                             echo "
                                                 <tr>
                                                     <td> Minggu, ".$newDate[2]."</td>
-                                                    <td>".$dILl->place."</td>
-                                                    <td>".$dILl->speaker."</td>
+                                                    <td>".$dILlKP->place."</td>
+                                                    <td>".$dILlKP->speaker."</td>
                                                 </tr>
                                             ";
                                         }
                                     ?>
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <font style="float:right;font-weight:bold"> {{strtoupper("Ibadah Keluarga Pelajar (16.00 WIT)")}} </font>
+                            <table class="table" style="margin-top:-15px;">
+                                <thead>
+                                    <tr>
+                                        <th> Hari, tgl </th>
+                                        <th> Tempat Ibadah </th>
+                                        <th> Pelayan </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(count($dataIbadahLainlainPelajar) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
+                                    <?php 
+                                        foreach($dataIbadahLainlainPelajar as $dILlP){
+                                            $split = explode(' ',$dILlP->sermon_date);
+                                            $newDate = explode('-',$split[0]);
+                                            echo "
+                                                <tr>
+                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$dILlP->place."</td>
+                                                    <td>".$dILlP->speaker."</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <font style="float:right;font-weight:bold"> {{strtoupper("Ibadah Usinda (16.00 WIT)")}} </font>
+                            <table class="table" style="margin-top:-15px;">
+                                <thead>
+                                    <tr>
+                                        <th> Hari, tgl </th>
+                                        <th> Tempat Ibadah </th>
+                                        <th> Pelayan </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(count($dataIbadahLainlainUsinda) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
+                                    <?php 
+                                        foreach($dataIbadahLainlainUsinda as $dILlU){
+                                            $split = explode(' ',$dILlU->sermon_date);
+                                            $newDate = explode('-',$split[0]);
+                                            echo "
+                                                <tr>
+                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$dILlU->place."</td>
+                                                    <td>".$dILlU->speaker."</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-6" style="font-size:14px;">
+                            <font style="float:right;font-weight:bold"> {{strtoupper("Ibadah Pergumulan MJ (22.00 WIT)")}} </font>
+                            <table class="table" style="margin-top:-15px;">
+                                <thead>
+                                    <tr>
+                                        <th> Hari, tgl </th>
+                                        <th> Tempat Ibadah </th>
+                                        <th> Pelayan </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(count($dataIbadahLainlainPergumulanMJ) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
+                                    <?php 
+                                        foreach($dataIbadahLainlainPergumulanMJ as $dILlPMJ){
+                                            $split = explode(' ',$dILlPMJ->sermon_date);
+                                            $newDate = explode('-',$split[0]);
+                                            echo "
+                                                <tr>
+                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$dILlPMJ->place."</td>
+                                                    <td>".$dILlPMJ->speaker."</td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -806,6 +1058,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahMingguJam7) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahMingguJam7 as $dIMJ7){
                                             $split = explode(' ',$dIMJ7->sermon_date);
@@ -819,6 +1076,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -841,6 +1099,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(count($dataIbadahMingguJam9) == "0")
+                                        <tr>
+                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
+                                        </tr>
+                                    @else
                                     <?php 
                                         foreach($dataIbadahMingguJam9 as $dIMJ9){
                                             $split = explode(' ',$dIMJ9->sermon_date);
@@ -854,6 +1117,7 @@
                                             ";
                                         }
                                     ?>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
