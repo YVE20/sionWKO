@@ -296,9 +296,9 @@
                 $('#category').val(data.category);
                 var worship = $('#worship');
 
-                if(data.category == "Ibadah Lain-lain"){
-                    worship.prop('readonly',false);
-                    worship.css('display','block');
+                if(data.category_id == "IBD/IBLL/2022"){
+                    $('#worship').css('display','block');
+                    $("#worship").prop('required',true);
                 }else{
                     if(data.category_id == "IBD/IBLP/2022"){
                         $('#service_environtment').css('display','block');

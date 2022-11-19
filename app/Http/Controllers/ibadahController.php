@@ -110,12 +110,10 @@ class ibadahController extends Controller
             $worship = "Ibadah Minggu Gembira";
         }else if($request->category_id == "IBD/IBASM/2022"){
             $worship = "Ibadah Anak Sekolah Minggu";
-        }else if($request->category_id == "IBD/IBLL/2022"){
-            $worship = "Ibadah Lain-lain";
         }else{ 
             $worship = $request->worship;
         }
-        ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->where('tb_ibadah.worship_id',$request->worship_id)->update([
+        ibadahModel::where('worship_id',$request->worship_id)->update([
             'speaker' => $request->speaker,
             'sermon_title' => $request->sermon_title,
             'speaker_contact' => $request->speaker_contact,
@@ -415,7 +413,7 @@ class ibadahController extends Controller
             </div>
         ';
         }else{
-            $ibadah = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->where('tb_ibadah.worship_id',$_POST['worship_id'])->get();
+            $ibadah = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->where('tb_ibadah.worship_id',$_POST['worship_id'])->get();;
             $kategoriIbadah = kategoriIbadahModel::get();
             $isi .='
                 <div class="row form-group">
