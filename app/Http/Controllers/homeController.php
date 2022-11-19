@@ -234,7 +234,7 @@ class homeController extends Controller
         return view('Frontend.kesaksian',$data);
     }
     public function renungan(){
-        $dataRenungan = renunganModel::whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
+        $dataRenungan = renunganModel::whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 DESC")->get();
         $data = [
             'dataRenungan' => $dataRenungan,
             'data' => 'RENUNGAN'
