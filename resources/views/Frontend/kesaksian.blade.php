@@ -75,10 +75,8 @@
         $('#fontKesaksian').css({'-webkit-text-stroke':'0.5px white'});
         $('#fontBerita').css('color','gray');
         $('#fontTentangKami').css('color','gray');
-        $('#fontEvent').css('color','gray');
         $('#fontBerita').css('cursor','not-allowed');
         $('#fontTentangKami').css('cursor','not-allowed');
-        $('#fontEvent').css('cursor','not-allowed');
     });
     window.onscroll = function() {myFunction()};
     var navbar = document.getElementById("navbar");
@@ -97,6 +95,7 @@
                 fontHome.classList.add("fontHome");
                 fontIbadah.classList.add("fontIbadah");
                 fontRenungan.classList.add("fontRenungan");
+                fontEvent.classList.add("fontEvent");
                 navbar.classList.add("navColor");
                 $('#fontKesaksian').css({'-webkit-text-stroke':'1px black'});
                 $('#fontKesaksian').css('color','white');
@@ -104,6 +103,7 @@
                 fontHome.classList.remove("fontHome");
                 fontIbadah.classList.remove("fontIbadah");
                 fontRenungan.classList.remove("fontRenungan");
+                fontEvent.classList.remove("fontEvent");
                 navbar.classList.remove("navColor");
                 $('#fontKesaksian').css('color','black');
                 $('#fontKesaksian').wrapInner('<b></b>');
