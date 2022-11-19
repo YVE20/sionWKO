@@ -160,7 +160,7 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            data : { date : date },
+            data : { date : date-1 },
             success:function(data){
                 $('#isiRenungan').html(data);
             }

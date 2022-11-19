@@ -27,7 +27,7 @@ Route::get('/renungan','homeController@renungan');
 Route::get('/event','homeController@event');
 Route::post('/loadAyatHarianDB','homeController@loadAyatHarianDB');
 Route::post('/loadAyatHarianAPI','homeController@loadAyatHarianAPI');
-Route::post('/isiAyatHarian','homeController@isiAyatHarian');
+Route::post('/isiRenunganHarian','homeController@isiRenunganHarian');
 Route::post('/getRenunganById','homeController@getRenunganById');
 Route::post('/dataStatistikJemaat','homeController@dataStatistikJemaat');
 Route::post('/viewInfoBulletin','homeController@viewInfoBulletin');

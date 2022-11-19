@@ -354,13 +354,13 @@
                 var arr_data = data.split('###');
                 $('#AyatHarian').html(arr_data[0]);
                 $('#isiAyatHarian').html(arr_data[1]);
-                addAyatHarian(arr_data[0],arr_data[1]);
+                isiRenunganHarian(arr_data[0],arr_data[1]);
             }
         });
     }
-    function addAyatHarian(ayat,isiAyat){
+    function isiRenunganHarian(ayat,isiAyat){
         $.ajax({
-            url : '<?= url('/isiAyatHarian') ?>',
+            url : '<?= url('/isiRenunganHarian') ?>',
             method : 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

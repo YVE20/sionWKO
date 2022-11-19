@@ -76,7 +76,8 @@ class homeController extends Controller
         $isi .=$object['id']['verse']['details']['text'];
         return $isi;
     }
-    public function isiAyatHarian(){
+    public function isiRenunganHarian(){
+        dd(date("Y-m-d"));
         $dataRenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 ASC")->get();
         $row = $dataRenungan->count();
         if($row == 0){
@@ -90,6 +91,7 @@ class homeController extends Controller
         $split = explode('/', $date);
         $bulan = $split[0];
         $tahun = $split[1];
+
 
         renunganModel::create([
             'reflection_id' => "REN/".$bulan."/".$tahun."/".$row,
