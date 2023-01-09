@@ -17,7 +17,7 @@ class dashboardController extends Controller
         return view('Dashboard.adminDashboard');
     }
     public function database(){
-        $mysqlHostName      = env('DB_HOST','127.0.0.1:3306');
+        $mysqlHostName      = env('DB_HOST','sql624.main-hosting.eu');
         $mysqlUserName      = env('DB_USER','u960510290_euaggeliony');
         $mysqlPassword      = env('DB_PASSWORD','YearicoVio123');
         $DbName             = env('DB_DATABASE','u960510290_sionwko');

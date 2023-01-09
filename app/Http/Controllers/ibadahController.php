@@ -277,6 +277,7 @@ class ibadahController extends Controller
         if($_POST['worship_id'] == ""){
             $kategoriIbadah = $kategoriIbadah->get();
             $dataIbadah = ibadahModel::orderBy('worship_id','DESC')->get();
+            print_r($dataIbadah[0]['worship_id']);
             $row = $dataIbadah[0]['worship_id'] + 1;
             $isi .='
                 <div class="row form-group">
