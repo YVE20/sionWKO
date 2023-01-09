@@ -13,6 +13,6 @@ class dataBaptisModel extends Model
     public $incrementing = false;
     public $timestamps = true;
     public $fillable = [
-        'baptism_id','full_name','gender','place_ofBirth','date_ofBirth','date_ofBaptism','religion','church','father_name','mother_name','address','pastor','photo','created_at','updated_at'
+        'baptism_id','familyCard_id','full_name','gender','place_ofBirth','date_ofBirth','date_ofBaptism','religion','church','father_name','mother_name','address','pastor','photo','created_at','updated_at'
     ];
 }

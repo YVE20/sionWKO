@@ -71,6 +71,8 @@ class homeController extends Controller
 
         $response = curl_exec($curlAyat);
         $object = json_decode($response, TRUE);
+        print_r($object);
+        dd($object);
         $isi .=$object['id']['verse']['details']['reference'];
         $isi .='###';
         $isi .=$object['id']['verse']['details']['text'];

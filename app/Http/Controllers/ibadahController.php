@@ -343,7 +343,7 @@ class ibadahController extends Controller
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6">
+                <div class="col-xl-6" style="display:none">
                     <div class="row ">
                         <div class="col-xl-4">
                             <label for="sermon_title"> Judul Khotbah </label>
@@ -368,10 +368,10 @@ class ibadahController extends Controller
                 <div class="col-xl-6">
                     <div class="row ">
                         <div class="col-xl-4">
-                            <label for="speaker_contact"> PIC </label>
+                            <label for="speaker_contact"> Narahubung </label>
                         </div>
                         <div class="col-xl-8">
-                            <input type="text" class="form-control" required id="speaker_contact" name="speaker_contact" placeholder="PIC">
+                            <input type="text" class="form-control" required id="speaker_contact" name="speaker_contact" placeholder="Narahubung">
                         </div>
                     </div>
                 </div>
@@ -401,7 +401,7 @@ class ibadahController extends Controller
                     </div>
                 </div>
             </div>
-            <div class="row form-group">
+            <div class="row form-group" style="display:none;">
                 <div class="col-xl-12">
                     <div class="row ">
                         <div class="col-xl-2">
@@ -457,7 +457,7 @@ class ibadahController extends Controller
                             <div class="col-xl-4">
                                 <label for="worship"> Kategori </label>
                             </div>
-                            <div class="col-xl-5">
+                            <div class="col-xl-8">
                                 <input type="text" class="form-control" id="category" value="'.$ibadah[0]->category.'" readonly>
                             </div>
                         </div>
@@ -490,7 +490,7 @@ class ibadahController extends Controller
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6">
+                <div class="col-xl-6" style="display:none;">
                     <div class="row ">
                         <div class="col-xl-4">
                             <label for="sermon_title"> Judul Khotbah </label>
@@ -515,10 +515,10 @@ class ibadahController extends Controller
                 <div class="col-xl-6">
                     <div class="row ">
                         <div class="col-xl-4">
-                            <label for="speaker_contact"> PIC </label>
+                            <label for="speaker_contact"> Narahubung </label>
                         </div>
                         <div class="col-xl-8">
-                            <input type="text" class="form-control" required value="'.$ibadah[0]->speaker_contact.'" id="speaker_contact" name="speaker_contact" placeholder="PIC">
+                            <input type="text" class="form-control" required value="'.$ibadah[0]->speaker_contact.'" id="speaker_contact" name="speaker_contact" placeholder="Narahubung">
                         </div>
                     </div>
                 </div>
@@ -550,7 +550,7 @@ class ibadahController extends Controller
                     </div>
                 </div>
             </div>
-            <div class="row form-group">
+            <div class="row form-group" style="display:none;">
                 <div class="col-xl-12">
                     <div class="row ">
                         <div class="col-xl-2">
@@ -574,10 +574,10 @@ class ibadahController extends Controller
                 <div class="row form-group">
                     <div class="col-xl-12">
                         <div class="row ">
-                            <div class="col-xl-2">
+                            <div class="col-xl-4">
                                 <label for="category_id"> ID Kategori </label>
                             </div>
-                            <div class="col-xl-10">
+                            <div class="col-xl-8">
                                 <input type="text" class="form-control" required id="category_id" autofocus name="category_id" placeholder="IBD/xx/2022">
                             </div>
                         </div>
@@ -586,12 +586,11 @@ class ibadahController extends Controller
                 <div class="row form-group">
                     <div class="col-xl-12">
                         <div class="row ">
-                            <div class="col-xl-2">
+                            <div class="col-xl-4">
                                 <label for="category"> Kategori </label>
                             </div>
-                                <div class="col-xl-10">
-                                    <input type="text" class="form-control" required id="category" name="category" placeholder="Kategori">
-                                </div>
+                            <div class="col-xl-8">
+                                <input type="text" class="form-control" required id="category" name="category" placeholder="Kategori">
                             </div>
                         </div>
                     </div>

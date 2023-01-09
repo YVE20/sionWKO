@@ -450,7 +450,7 @@
     function pelayananBaptis(){
         Swal.fire({
             title: 'Pelayanan Baptis <i class="fas fa-hand-holding-medical"></i> ',
-            html : '<br><div class="row"><div class="col-lg-6" style="float:left;"> <center> <div class="col-12" style="border-top:6px dashed;border-bottom:6px dashed;margin:20px;padding:20px;"> <br><br><br> <h2> Baptisan Air </h2> <br><br> <br> Info dan Pendaftaran : <br> <b> Sekretasi Sion WKO </b>  <br><br><br> <font style="font-size:13px;"> Yohanes 3 : 5 <i> Jawab Yesus: ”Aku berkata kepadamu, sesungguhnya jika seorang tidak dilahirkan dari air dan Roh, ia tidak dapat masuk ke dalam Kerajaan Allah. </i> </font> </div></center> </div><div class="col-lg-6" style="float:left;"> <img src="<?= asset("/img/Gambar Baptis.jpg") ?>" style="width:100%;"> </div></div>',
+            html : '<br><div class="row"><div class="col-lg-6" style="float:left;"> <center> <div class="col-12" style="border-top:6px dashed;border-bottom:6px dashed;margin:20px;padding:20px;"> <br><br><br> <h2> Baptisan Air </h2> <br><br> <br> Info dan Pendaftaran : <br> <b> Sekretaris Sion WKO </b>  <br><br><br> <font style="font-size:13px;"> Yohanes 3 : 5 <i> Jawab Yesus: ”Aku berkata kepadamu, sesungguhnya jika seorang tidak dilahirkan dari air dan Roh, ia tidak dapat masuk ke dalam Kerajaan Allah. </i> </font> </div></center> </div><div class="col-lg-6" style="float:left;"> <img src="<?= asset("/img/Gambar Baptis.jpg") ?>" style="width:100%;"> </div></div>',
             showConfirmButton: false,
             width : '50%',
             showCloseButton: true,

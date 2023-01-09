@@ -17,12 +17,12 @@ class dashboardController extends Controller
         return view('Dashboard.adminDashboard');
     }
     public function database(){
-        $mysqlHostName      = env('DB_HOST','localhost');
-        $mysqlUserName      = env('DB_USER','root');
-        $mysqlPassword      = env('DB_PASSWORD','');
-        $DbName             = env('DB_DATABASE','sionwko');
+        $mysqlHostName      = env('DB_HOST','127.0.0.1:3306');
+        $mysqlUserName      = env('DB_USER','u960510290_euaggeliony');
+        $mysqlPassword      = env('DB_PASSWORD','YearicoVio123');
+        $DbName             = env('DB_DATABASE','u960510290_sionwko');
         $backup_name        = "mybackup.sql";
-        $tables             = array("tb_alkitab","tb_data_baptis","tb_data_jemaat","tb_data_sidi","tb_dtl_kartu_keluarga","tb_event","tb_ibadah","tb_kartu_keluarga","tb_kategori_alkitab","tb_kategori_event","tb_kategori_ibadah","tb_temp_dtl_kartu_keluarga","tb_user"); //here your tables...
+        $tables             = array("tb_alkitab","tb_bulletin_cover","tb_data_baptis","tb_data_jemaat","tb_data_sidi","tb_dtl_kartu_keluarga","tb_event","tb_ibadah","tb_kartu_keluarga","tb_kategori_alkitab","tb_kategori_event","tb_kategori_ibadah","tb_kategory_pelayan","tb_kesaksian","tb_khadim","tb_majelis_ibadah_minggu","tb_pembagian_majelis","tb_pemusik","tb_penataan_bunga","tb_penerima_tamu","tb_pujian","tb_rapat_evaluasi","tb_renungan","tb_temp_dtl_kartu_keluarga","tb_user"); //here your tables...
 
         $connect = new \PDO("mysql:host=$mysqlHostName;dbname=$DbName;charset=utf8", "$mysqlUserName", "$mysqlPassword",array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
         $get_all_table_query = "SHOW TABLES";

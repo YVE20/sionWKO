@@ -283,7 +283,7 @@
                     <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -322,7 +322,7 @@
                     <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 2 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -356,7 +356,7 @@
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 3 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -392,7 +392,7 @@
                      <div class="row">
                         <div class="col-lg-6" style="font-size:13px;">
                             <font style="float:left"> Ibadah Lingkungan 4 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -426,7 +426,7 @@
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 5 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -470,7 +470,7 @@
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 1 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -506,7 +506,7 @@
                     <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 2 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -540,7 +540,7 @@
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 3 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -576,7 +576,7 @@
                      <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 4 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -610,7 +610,7 @@
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
                             <font style="float:left"> Ibadah Lingkungan 5 </font>
-				            <font style="float:right"> Pukul 17.00 WIT </font><br><br>
+				            <font style="float:right"> Pukul 11.00 WIT </font><br><br>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -861,41 +861,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-lg-6" style="font-size:14px;">
-                            <font style="float:right"> 09.30 WIT </font>
-                            <table class="table" style="margin-top:-15px;">
-                                <thead>
-                                    <tr>
-                                        <th> Hari, tgl </th>
-                                        <th> Tempat Ibadah </th>
-                                        <th> Pelayan </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if(count($dataIbadahSekolahMingguJam9) == "0")
-                                        <tr>
-                                            <th colspan="3"> <center> TIDAK ADA DATA </center> </th>
-                                        </tr>
-                                    @else
-                                    <?php 
-                                        foreach($dataIbadahSekolahMingguJam9 as $dISMJ9){
-                                            $split = explode(' ',$dISMJ9->sermon_date);
-                                            $newDate = explode('-',$split[0]);
-                                            echo "
-                                                <tr>
-                                                    <td> Minggu, ".$newDate[2]."</td>
-                                                    <td>".$dISMJ9->place."</td>
-                                                    <td>".$dISMJ9->speaker."</td>
-                                                </tr>
-                                            ";
-                                        }
-                                    ?>
-                                    @endif
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-lg-6" style="font-size:14px;">
                             <img src="{{asset('/img/Ibadah Anak Sekolah Minggu.jpg')}}" alt="AnakSekolahMinggu" style="height:300px;width:100%">
                         </div>

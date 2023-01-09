@@ -84,6 +84,7 @@ class baptisController extends Controller
 
         dataBaptisModel::create([
             'baptism_id' => $request->baptism_id,
+            'familyCard_id' => $request->familyCard_id,
             'full_name' => $request->full_name,
             'gender' => $request->gender,
             'place_ofBirth' => $request->place_ofBirth,
@@ -114,6 +115,7 @@ class baptisController extends Controller
         }
 
         dataBaptisModel::where('baptism_id',$request->baptism_id)->update([
+            'familyCard_id' => $request->familyCard_id,
             'full_name' => $request->full_name,
             'gender' => $request->gender,
             'place_ofBirth' => $request->place_ofBirth,
@@ -163,8 +165,11 @@ class baptisController extends Controller
                             <div class="col-xl-4">
                                 <label for="baptism_id"> ID Baptis </label>
                             </div>
-                            <div class="col-xl-8">
+                            <div class="col-xl-4">
                                 <input type="text" class="form-control" readonly id="baptism_id" name="baptism_id" value="'."BPTS/".$bulan."/".$tahun."/".$row.'">
+                            </div>
+                            <div class="col-xl-4">
+                                <input type="text" class="form-control" required id="familyCard_id" name="familyCard_id" placeholder="No KK">
                             </div>
                         </div>
                     </div>
@@ -290,8 +295,11 @@ class baptisController extends Controller
                             <div class="col-xl-4">
                                 <label for="baptism_id"> ID Baptis </label>
                             </div>
-                            <div class="col-xl-8">
+                            <div class="col-xl-4">
                                 <input type="text" class="form-control" readonly id="baptism_id" name="baptism_id" value="'.$baptisModel->baptism_id.'">
+                            </div>
+                            <div class="col-xl-4">
+                                <input type="text" class="form-control" required id="familyCard_id" name="familyCard_id" value="'.$baptisModel->familyCard_id.'">
                             </div>
                         </div>
                     </div>

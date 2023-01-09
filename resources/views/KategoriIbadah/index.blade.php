@@ -292,7 +292,6 @@
             method : 'POST',
             dataType : 'JSON',
             success:function(data){
-                console.log(data);
                 $('#category').val(data.category);
                 var worship = $('#worship');
 
@@ -301,17 +300,21 @@
                     $("#worship").prop('required',true);
                 }else{
                     if(data.category_id == "IBD/IBLP/2022"){
+                        $('#worship').css('display','none');
                         $('#service_environtment').css('display','block');
                         $("#service_environtment").prop('required',true);
                     }
                     else if(data.category_id == "IBD/IBKB/2022"){
+                        $('#worship').css('display','none');
                         $('#service_environtment').css('display','block');
                         $("#service_environtment").prop('required',true);
                     }
                     else if(data.category_id == "IBD/IBKI/2022"){
+                        $('#worship').css('display','none');
                         $('#service_environtment').css('display','block');
                         $("#service_environtment").prop('required',true);
                     }else if(data.category_id == "IBD/IBMG/2022"){
+                        $('#worship').css('display','none');
                         $('#service_environtment').css('display','block');
                         $("#service_environtment").prop('required',true);
                     }else{

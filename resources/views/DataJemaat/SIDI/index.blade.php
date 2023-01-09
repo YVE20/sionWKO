@@ -17,7 +17,7 @@
                             <th> NIK </th>
                             <th> Nama </th>
                             <th> TTL </th>
-                            <th> No Telp </th>
+                            <th> No KK </th>
                             <th> Baptis </th>
                             <th> Nikah </th>
                             <th> Foto </th>

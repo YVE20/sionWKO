@@ -56,6 +56,7 @@ class sidiController extends Controller
         }
         dataSIDIModel::create([
             'sidi_id' => $request->sidi_id,
+            'familyCard_id' => $request->familyCard_id,
             'full_name' => $request->full_name,
             'gender' => $request->gender,
             'place_ofBirth' => $request->place_ofBirth,
@@ -106,8 +107,12 @@ class sidiController extends Controller
                         <td>'.$dS->sidi_id.'</td>
                         <td>'.$dS->NIK.'</td>
                         <td>'.$dS->full_name.'</td>
-                        <td>'.$dS->place_ofBirth.', '.$tanggal_baru[2].'-'.$tanggal_baru[1].'-'.$tanggal_baru[0].'</td>
-                        <td>'.$dS->phone_number.'</td>';
+                        <td>'.$dS->place_ofBirth.', '.$tanggal_baru[2].'-'.$tanggal_baru[1].'-'.$tanggal_baru[0].'</td>';
+                        if($dS->familyCard_id == ""){
+                            $isi .='<td> - </td>';
+                        }else{
+                            $isi .='<td>'.$dS->familyCard_id.'</td>';
+                        }
                         if($dS->baptism_file == NULL){
                             $isi .='<td> <i class="fas fa-times-circle"></i> </td>';
                         }else{
@@ -160,8 +165,11 @@ class sidiController extends Controller
                             <div class="col-xl-4">
                                 <label for="sidi_id">ID SIDI </label>
                             </div>
-                            <div class="col-xl-8">
+                            <div class="col-xl-4">
                                 <input type="text" class="form-control" readonly id="sidi_id" name="sidi_id" value="'."SIDI/".$bulan."/".$tahun."/".$row.'">
+                            </div>
+                            <div class="col-xl-4">
+                                <input type="text" class="form-control" required id="familyCard_id" name="familyCard_id" placeholder="No KK">
                             </div>
                         </div>
                     </div>
@@ -341,8 +349,11 @@ class sidiController extends Controller
                             <div class="col-xl-4">
                                 <label for="sidi_id">ID SIDI </label>
                             </div>
-                            <div class="col-xl-8">
+                            <div class="col-xl-4">
                                 <input type="text" class="form-control" readonly id="sidi_id" name="sidi_id" value="'.$sidiModel->sidi_id.'">
+                            </div>
+                            <div class="col-xl-4">
+                                <input type="text" class="form-control" id="familyCard_id" name="familyCard_id" value="'.$sidiModel->familyCard_id.'">
                             </div>
                         </div>
                     </div>
@@ -582,6 +593,7 @@ class sidiController extends Controller
             $urlPhoto = $dataSIDIByID->photo;
         }
         dataSIDIModel::where('sidi_id',$request->sidi_id)->update([
+            'familyCard_id' => $request->familyCard_id,
             'full_name' => $request->full_name,
             'gender' => $request->gender,
             'place_ofBirth' => $request->place_ofBirth,
