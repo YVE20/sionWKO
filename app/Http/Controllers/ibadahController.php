@@ -277,7 +277,6 @@ class ibadahController extends Controller
         if($_POST['worship_id'] == ""){
             $kategoriIbadah = $kategoriIbadah->get();
             $dataIbadah = ibadahModel::orderBy('worship_id','DESC')->get();
-            print_r($dataIbadah[0]['worship_id']);
             $row = $dataIbadah[0]['worship_id'] + 1;
             $isi .='
                 <div class="row form-group">
@@ -345,7 +344,7 @@ class ibadahController extends Controller
                             <label for="sermon_title"> Judul Khotbah </label>
                         </div>
                         <div class="col-xl-8">
-                            <input type="text" class="form-control" required id="sermon_title" name="sermon_title" placeholder="Judul Khotbah">
+                            <input type="text" class="form-control" required value="-" id="sermon_title" name="sermon_title" placeholder="Judul Khotbah">
                         </div>
                     </div>
                 </div>
@@ -404,7 +403,7 @@ class ibadahController extends Controller
                             <label for="sermon_content"> Isi Khotbah </label>
                         </div>
                         <div class="col-xl-10">
-                            <textarea name="sermon_content" class="form-control" id="sermon_content" cols="30" rows="10" placeholder="Isi Khotbah" style="resize:none;"></textarea>
+                            <textarea name="sermon_content" class="form-control" id="sermon_content" cols="30" rows="10" placeholder="Isi Khotbah" style="resize:none;">-</textarea>
                         </div>
                     </div>
                 </div>
