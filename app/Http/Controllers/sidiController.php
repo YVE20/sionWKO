@@ -24,7 +24,7 @@ class sidiController extends Controller
         $data = [
             'sidi' => $sidi
         ];
-        return view('dataJemaat.SIDI.index',$data);
+        return view('DataJemaat.SIDI.index',$data);
     }
     public function createSIDI(Request $request){
         $date = date('m/Y');
