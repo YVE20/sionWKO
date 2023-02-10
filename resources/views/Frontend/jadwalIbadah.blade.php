@@ -1,5 +1,6 @@
 @extends('Layouts.frontend',['title' => 'Ibadah'])
 @section('content')
+<?php date_default_timezone_set('Asia/Jakarta'); ?>
 <div class="col-lg-12 hero-image" id="rumah">
     
 </div>
@@ -891,9 +892,29 @@
                                         foreach($dataIbadahLainlainKeluargaPelayan as $dILlKP){
                                             $split = explode(' ',$dILlKP->sermon_date);
                                             $newDate = explode('-',$split[0]);
+                                            $timestamp = strtotime($split[0]);
+                                            $day = date('l',$timestamp);
+
+                                            $hari = "";                                            
+                                            if($day == "Sunday"){
+                                                $hari = "Minggu";
+                                            }else if($day == "Monday"){
+                                                $hari = "Senin";
+                                            }else if($day == "Tuesday"){
+                                                $hari = "Selasa";
+                                            }else if($day == "Wednesday"){
+                                                $hari = "Rabu";
+                                            }else if($day == "Thursday"){
+                                                $hari = "Kamis";
+                                            }else if($day == "Friday"){
+                                                $hari = "Jumat";
+                                            }else if($day == "Saturday"){
+                                                $hari = "Sabtu";
+                                            }
+
                                             echo "
                                                 <tr>
-                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$hari.", ".$newDate[2]."</td>
                                                     <td>".$dILlKP->place."</td>
                                                     <td>".$dILlKP->speaker."</td>
                                                 </tr>
@@ -905,7 +926,7 @@
                             </table>
                         </div>
                         <div class="col-lg-6" style="font-size:14px;">
-                            <font style="float:right;font-weight:bold"> {{strtoupper("Ibadah Keluarga Pelajar (16.00 WIT)")}} </font>
+                            <font style="float:right;font-weight:bold"> {{strtoupper("Ibadah Pelajar (16.00 WIT)")}} </font>
                             <table class="table" style="margin-top:-15px;">
                                 <thead>
                                     <tr>
@@ -924,9 +945,28 @@
                                         foreach($dataIbadahLainlainPelajar as $dILlP){
                                             $split = explode(' ',$dILlP->sermon_date);
                                             $newDate = explode('-',$split[0]);
+                                            $timestamp = strtotime($split[0]);
+                                            $day = date('l',$timestamp);
+
+                                            $hari = "";                                            
+                                            if($day == "Sunday"){
+                                                $hari = "Minggu";
+                                            }else if($day == "Monday"){
+                                                $hari = "Senin";
+                                            }else if($day == "Tuesday"){
+                                                $hari = "Selasa";
+                                            }else if($day == "Wednesday"){
+                                                $hari = "Rabu";
+                                            }else if($day == "Thursday"){
+                                                $hari = "Kamis";
+                                            }else if($day == "Friday"){
+                                                $hari = "Jumat";
+                                            }else if($day == "Saturday"){
+                                                $hari = "Sabtu";
+                                            }
                                             echo "
                                                 <tr>
-                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$hari.", ".$newDate[2]."</td>
                                                     <td>".$dILlP->place."</td>
                                                     <td>".$dILlP->speaker."</td>
                                                 </tr>
@@ -959,9 +999,28 @@
                                         foreach($dataIbadahLainlainUsinda as $dILlU){
                                             $split = explode(' ',$dILlU->sermon_date);
                                             $newDate = explode('-',$split[0]);
+                                            $timestamp = strtotime($split[0]);
+                                            $day = date('l',$timestamp);
+
+                                            $hari = "";                                            
+                                            if($day == "Sunday"){
+                                                $hari = "Minggu";
+                                            }else if($day == "Monday"){
+                                                $hari = "Senin";
+                                            }else if($day == "Tuesday"){
+                                                $hari = "Selasa";
+                                            }else if($day == "Wednesday"){
+                                                $hari = "Rabu";
+                                            }else if($day == "Thursday"){
+                                                $hari = "Kamis";
+                                            }else if($day == "Friday"){
+                                                $hari = "Jumat";
+                                            }else if($day == "Saturday"){
+                                                $hari = "Sabtu";
+                                            }
                                             echo "
                                                 <tr>
-                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$hari.", ".$newDate[2]."</td>
                                                     <td>".$dILlU->place."</td>
                                                     <td>".$dILlU->speaker."</td>
                                                 </tr>
@@ -992,9 +1051,28 @@
                                         foreach($dataIbadahLainlainPergumulanMJ as $dILlPMJ){
                                             $split = explode(' ',$dILlPMJ->sermon_date);
                                             $newDate = explode('-',$split[0]);
+                                            $timestamp = strtotime($split[0]);
+                                            $day = date('l',$timestamp);
+
+                                            $hari = "";                                            
+                                            if($day == "Sunday"){
+                                                $hari = "Minggu";
+                                            }else if($day == "Monday"){
+                                                $hari = "Senin";
+                                            }else if($day == "Tuesday"){
+                                                $hari = "Selasa";
+                                            }else if($day == "Wednesday"){
+                                                $hari = "Rabu";
+                                            }else if($day == "Thursday"){
+                                                $hari = "Kamis";
+                                            }else if($day == "Friday"){
+                                                $hari = "Jumat";
+                                            }else if($day == "Saturday"){
+                                                $hari = "Sabtu";
+                                            }
                                             echo "
                                                 <tr>
-                                                    <td> Minggu, ".$newDate[2]."</td>
+                                                    <td>".$hari.", ".$newDate[2]."</td>
                                                     <td>".$dILlPMJ->place."</td>
                                                     <td>".$dILlPMJ->speaker."</td>
                                                 </tr>
