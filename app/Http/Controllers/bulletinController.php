@@ -510,8 +510,8 @@ class bulletinController extends Controller
             'daftarNikahJemaat' => $daftarNikahJemaat,
             'dataKelompokMajelis' => $dataKelompokMajelis
         ];
-        //$pdf = PDF::loadView('Bulletin.downloadBulletin', $data);
-		//return $pdf->download('Bulletin/'.$bulan.'.pdf');		
-        return view('Bulletin.downloadBulletin',$data);
+        $pdf = PDF::loadView('Bulletin.downloadBulletin', $data);
+        return $pdf->download('Bulletin/'.$bulan.'.pdf');		
+        //return view('Bulletin.downloadBulletin',$data);
     }
 }
