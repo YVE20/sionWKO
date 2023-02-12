@@ -160,10 +160,11 @@ class renunganController extends Controller
         }else{
             return redirect('/adm/website/renungan')->with(["status"=>"Data batal disimpan", "judul_alert" => "Gagal" , "icon" => "error"]); 
         } */
+        dd($request->all());
         renunganModel::where('reflection_id',$request->reflection_id)->update([
             'reflection_title' => $request->reflection_title,
             'bible_verse' => $request->kitab." ".$request->pasal.":".$request->ayat,
-            'verse' => "",
+            'verse' => $request->verse,
             'contents' => $request->contents,
         ]);
         return redirect('/adm/website/renungan')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
@@ -304,6 +305,9 @@ class renunganController extends Controller
                             </div>
                         </div>
                     </div>
+                </div>
+                <div style="display:none;">
+                    <textarea id="verse" name="verse">'.$dataRenunganModel->verse.'</textarea>
                 </div>
                 <div class="row form-group">
                     <div class="col-xl-12">
