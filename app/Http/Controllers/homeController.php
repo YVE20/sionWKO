@@ -39,6 +39,7 @@ class homeController extends Controller
         if(count($dataRenungan) != null){
             $isAyatHarian = true;
         }
+
         $data = [
             'id_kesaksian' => "KSK/".$bulan."/".$tahun."/".$row,
             'isAyatHarian' => $isAyatHarian,
@@ -98,7 +99,6 @@ class homeController extends Controller
         return $isi;
     }
     public function isiRenunganHarian(){
-        dd(date("Y-m-d"));
         $dataRenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 ASC")->get();
         $row = $dataRenungan->count();
         if($row == 0){

@@ -355,6 +355,7 @@
                 $('#AyatHarian').html(arr_data[0]);
                 $('#isiAyatHarian').html(arr_data[1]);
                 isiRenunganHarian(arr_data[0],arr_data[1]);
+                //alert("SUKSES ISI RENUNGAN KE DB");
             }
         });
     }
@@ -367,6 +368,8 @@
             },
             data : {ayat : ayat , isiAyat : isiAyat},
             success:function(data){
+                //alert("AA");
+            },error:function(data){
                 console.log(data);
             }
         });
