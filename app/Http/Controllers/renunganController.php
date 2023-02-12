@@ -107,7 +107,7 @@ class renunganController extends Controller
         }
     }
     public function updateRenungan(Request $request){
-        $url = "https://api-alkitab.herokuapp.com/v2/passage/list";
+        /* $url = "https://api-alkitab.herokuapp.com/v2/passage/list";
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -150,7 +150,14 @@ class renunganController extends Controller
 
         }else{
             return redirect('/adm/website/renungan')->with(["status"=>"Data batal disimpan", "judul_alert" => "Gagal" , "icon" => "error"]); 
-        }
+        } */
+        renunganModel::where('reflection_id',$request->reflection_id)->update([
+            'reflection_title' => $request->reflection_title,
+            'bible_verse' => $request->kitab." ".$request->pasal.":".$request->ayat,
+            'verse' => "",
+            'contents' => $request->contents,
+        ]);
+        return redirect('/adm/website/renungan')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
     }
     public function deleteRenungan(){
         try{
