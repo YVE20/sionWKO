@@ -57,7 +57,7 @@ class homeController extends Controller
         return $isi;
     }
     public function loadAyatHarianAPI(){
-        $isi = '';
+        /* $isi = '';
         $urlAyat = "https://indo-bible.herokuapp.com/bible/random";
         $curlAyat = curl_init($urlAyat);
         curl_setopt($curlAyat, CURLOPT_URL, $urlAyat);
@@ -76,6 +76,25 @@ class homeController extends Controller
         $isi .=$object['id']['verse']['details']['reference'];
         $isi .='###';
         $isi .=$object['id']['verse']['details']['text'];
+        return $isi; */
+
+        $isi = '';
+        $urlAyat = "https://labs.bible.org/api/?passage=random&type=json";
+        $curlAyat = curl_init($urlAyat);
+        curl_setopt($curlAyat, CURLOPT_URL, $urlAyat);
+        curl_setopt($curlAyat, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Content-Type: application/json",
+            "Content-Length: 0",
+        );
+        curl_setopt($curlAyat, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($curlAyat);
+        $object = json_decode($response, TRUE);
+        //print_r($object);
+        $isi .=$object[0]['bookname']." ".$object[0]['chapter'].":".$object[0]['verse'];
+        $isi .='###';
+        $isi .=$object[0]['text'];
         return $isi;
     }
     public function isiRenunganHarian(){
