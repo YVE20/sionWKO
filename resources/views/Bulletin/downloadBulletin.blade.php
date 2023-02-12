@@ -2197,7 +2197,7 @@
 			</div>
 		</center>
     </div>
-	<div class="container enter">
+	<div class="container enter enter">
         <div>
             <font style="font-size:20px;"> <i> Buletin <?= $bulan." ".date('y') ?> _Jemaat Sion WKO </i> </font>
         </div>
