@@ -172,7 +172,7 @@ class dashboardController extends Controller
         return view('DataJemaat.Manage Jemaat.pdf',$data);
     }
     public function renunganHarianForToday(){
-        $dataRenungan = renunganModel::whereRaw('day(created_at)='.date($_POST['date']))->whereRaw('year(created_at)='.date('Y'))->get();
+        $dataRenungan = renunganModel::whereRaw('day(publish_date)='.date($_POST['date']))->whereRaw('year(publish_date)='.date('Y'))->get();
         $content = "";
         if($dataRenungan[0]->contents == "-"){
             $content = "<center> <b> DATA BELUM DI ISI OLEH ADMIN GEREJA </b> </center>";
