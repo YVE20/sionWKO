@@ -35,7 +35,7 @@ class homeController extends Controller
         $tahun = $split[1];
 
         $isAyatHarian = false;
-        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
+        $dataRenungan = renunganModel::whereRaw('day(publish_date) ='.date('d'))->whereRaw('month(publish_date) ='.date('m'))->whereRaw('year(publish_date) ='.date('Y'))->get();
         if(count($dataRenungan) != null){
             $isAyatHarian = true;
         }
@@ -49,7 +49,7 @@ class homeController extends Controller
     }
     public function loadAyatHarianDB(){
         $isi = '';
-        $dataRenungan = renunganModel::whereRaw('day(created_at) ='.date('d'))->whereRaw('month(created_at) ='.date('m'))->whereRaw('year(created_at) ='.date('Y'))->get();
+        $dataRenungan = renunganModel::whereRaw('day(publish_date) ='.date('d'))->whereRaw('month(publish_date) ='.date('m'))->whereRaw('year(publish_date) ='.date('Y'))->get();
         foreach($dataRenungan as $dR){
             $isi .=$dR->bible_verse;
             $isi .='###';
@@ -99,29 +99,37 @@ class homeController extends Controller
         return $isi;
     }
     public function isiRenunganHarian(){
-        $dataRenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 ASC")->get();
-        $row = $dataRenungan->count();
-        if($row == 0){
-            $row = 1;
+        //Cek data publish date
+        $renungan = renunganModel::whereRaw('day(publish_date) ='.date('d'))->whereRaw('month(publish_date) ='.date('m'))->whereRaw('year(publish_date) ='.date('Y'))->get();
+
+        if(count($renungan) > 0){
+            return "error";
         }else{
-            $id_renungan = $dataRenungan[$row-1]->reflection_id;
-            $pisah = explode('/',$id_renungan);
-            $row = $pisah[3] + 1;
+            $dataRenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 ASC")->get();
+            $row = $dataRenungan->count();
+            if($row == 0){
+                $row = 1;
+            }else{
+                $id_renungan = $dataRenungan[$row-1]->reflection_id;
+                $pisah = explode('/',$id_renungan);
+                $row = $pisah[3] + 1;
+            }
+            $date = date('m/Y');
+            $split = explode('/', $date);
+            $bulan = $split[0];
+            $tahun = $split[1];
+    
+    
+            renunganModel::create([
+                'reflection_id' => "REN/".$bulan."/".$tahun."/".$row,
+                'reflection_title' => $_POST['ayat'],
+                'bible_verse' => $_POST['ayat'],
+                'verse' => $_POST['isiAyat'],
+                'contents' => "-",
+                'publish_date' => date('Y-m-d')
+            ]);
+            return "success";
         }
-        $date = date('m/Y');
-        $split = explode('/', $date);
-        $bulan = $split[0];
-        $tahun = $split[1];
-
-
-        renunganModel::create([
-            'reflection_id' => "REN/".$bulan."/".$tahun."/".$row,
-            'reflection_title' => $_POST['ayat'],
-            'bible_verse' => $_POST['ayat'],
-            'verse' => $_POST['isiAyat'],
-            'contents' => "-"
-        ]);
-        return "success";
     }
     public function hubungiKami(Request $request){
         kesaksianModel::create([

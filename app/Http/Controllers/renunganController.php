@@ -9,57 +9,60 @@ use Exception;
 
 class renunganController extends Controller
 {
-    public function readRenungan(Request $request){
+    public function readRenungan(Request $request)
+    {
         $renungan = renunganModel::get();
         $row = $renungan->count();
         $per_page = 10;
         $current_page = $request->input("page") ?? 1;
         $starting_point = ($current_page * $per_page) - $per_page;
-        $renungan = array_slice($renungan->toArray(),$starting_point,$per_page,true);
-        $renungan= new LengthAwarePaginator($renungan, $row, $per_page, $current_page, [
+        $renungan = array_slice($renungan->toArray(), $starting_point, $per_page, true);
+        $renungan = new LengthAwarePaginator($renungan, $row, $per_page, $current_page, [
             'path' => $request->url(),
             'query' => $request->query(),
         ]);
         $data = [
             'renungan' => $renungan
         ];
-        return view('Website.Renungan.index',$data);
+        return view('Website.Renungan.index', $data);
     }
-    public function getAllrenungan(){
+    public function getAllrenungan()
+    {
         $perPage = 10;
-        $currentPage = isset($_POST["page"])? $_POST["page"] : 1;
+        $currentPage = isset($_POST["page"]) ? $_POST["page"] : 1;
         $datarenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 DESC")->get();
         $count = count($datarenungan);
         $currentItems = $datarenungan->slice($perPage * ($currentPage - 1), $perPage);
         $paginator = new LengthAwarePaginator($currentItems, $count, $perPage, $currentPage);
         $isi = '';
-        if(count($datarenungan) <= 0){
-            $isi .='
+        if (count($datarenungan) <= 0) {
+            $isi .= '
                 <tr>
                     <th colspan="6"> <center> TIDAK ADA DATA </center> </th>
                 </tr>
             ';
-        }else{
-            foreach($paginator as $dS){
-                $isi .='
+        } else {
+            foreach ($paginator as $dS) {
+                $isi .= '
                     <tr>
-                        <td>'.$dS->reflection_id.'</td>
-                        <td>'.$dS->reflection_title.'</td>
-                        <td>'.$dS->bible_verse.'</td>
-                        <td>'.$dS->verse.'</td>
-                        <td><div style="overflow-y: scroll;height:100px;">'.$dS->contents.'</div></td>
+                        <td>' . $dS->reflection_id . '</td>
+                        <td>' . $dS->reflection_title . '</td>
+                        <td>' . $dS->bible_verse . '</td>
+                        <td><div style="overflow-y: scroll;height:100px;">' . $dS->contents . '</div></td>
+                        <td>'. $dS->publish_date .'</td>
                         <td> 
-                            <button onclick="editRenunganModal(`'.$dS->reflection_id.'`)" class="btn btn-warning text-white"> <i class="fas fa-pencil-alt"></i> </button>
-                            <button onclick="deleteRenungan(`'.$dS->reflection_id.'`)" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>  </button>
+                            <button onclick="editRenunganModal(`' . $dS->reflection_id . '`)" class="btn btn-warning text-white"> <i class="fas fa-pencil-alt"></i> </button>
+                            <button onclick="deleteRenungan(`' . $dS->reflection_id . '`)" class="btn btn-danger"> <i class="fas fa-trash-alt"></i>  </button>
                         </td>
                     </tr>
                 ';
             }
         }
-        $isi .= "###".$paginator->links('vendor.pagination.bootstrap-4-ajax');
+        $isi .= "###" . $paginator->links('vendor.pagination.bootstrap-4-ajax');
         return $isi;
     }
-    public function createRenungan(Request $request){
+    public function createRenungan(Request $request)
+    {
         //Cek Ayat sudah sesuai ketikan atau belum
         /* $url = "https://api-alkitab.herokuapp.com/v2/passage/list";
         $curl = curl_init($url);
@@ -106,16 +109,25 @@ class renunganController extends Controller
         }else{
             return redirect('/adm/website/renungan')->with(["status"=>"Data batal disimpan", "judul_alert" => "Gagal" , "icon" => "error"]); 
         } */
-        renunganModel::create([
-            'reflection_id' => $request->reflection_id,
-            'reflection_title' => $request->reflection_title,
-            'bible_verse' => $request->kitab." ".$request->pasal.":".$request->ayat,
-            'verse' => "",
-            'contents' => $request->contents,
-        ]);
-        return redirect('/adm/website/renungan')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
+
+        //Check data ada yang tanggal publish sama atau tidak
+        $dataRenungan = renunganModel::where('publish_date', $request->publish_date)->get();
+        if (count($dataRenungan) > 0) {
+            return redirect('/adm/website/renungan')->with(["status" => "Tanggal publish hari ini sudah dibuat", "judul_alert" => "Gagal", "icon" => "warning"]);
+        } else {
+            renunganModel::create([
+                'reflection_id' => $request->reflection_id,
+                'reflection_title' => $request->reflection_title,
+                'bible_verse' => $request->kitab . " " . $request->pasal . ":" . $request->ayat,
+                'verse' => $request->verse,
+                'contents' => $request->contents,
+                'publish_date' => $request->publish_date
+            ]);
+            return redirect('/adm/website/renungan')->with(["status" => "Data berhasil disimpan", "judul_alert" => "Berhasil", "icon" => "success"]);
+        }
     }
-    public function updateRenungan(Request $request){
+    public function updateRenungan(Request $request)
+    {
         /* $url = "https://api-alkitab.herokuapp.com/v2/passage/list";
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -160,32 +172,33 @@ class renunganController extends Controller
         }else{
             return redirect('/adm/website/renungan')->with(["status"=>"Data batal disimpan", "judul_alert" => "Gagal" , "icon" => "error"]); 
         } */
-        dd($request->all());
-        renunganModel::where('reflection_id',$request->reflection_id)->update([
+        renunganModel::where('reflection_id', $request->reflection_id)->update([
             'reflection_title' => $request->reflection_title,
-            'bible_verse' => $request->kitab." ".$request->pasal.":".$request->ayat,
+            'bible_verse' => $request->kitab . " " . $request->pasal . ":" . $request->ayat,
             'verse' => $request->verse,
             'contents' => $request->contents,
+            'publish_date' => $request->publish_date
         ]);
-        return redirect('/adm/website/renungan')->with(["status"=>"Data berhasil disimpan", "judul_alert" => "Berhasil" , "icon" => "success"]);
+        return redirect('/adm/website/renungan')->with(["status" => "Data berhasil disimpan", "judul_alert" => "Berhasil", "icon" => "success"]);
     }
-    public function deleteRenungan(){
-        try{
-            renunganModel::where('reflection_id',$_POST['reflection_id'])->delete();
+    public function deleteRenungan()
+    {
+        try {
+            renunganModel::where('reflection_id', $_POST['reflection_id'])->delete();
             return "success";
-        }
-        catch(Exception $ex){
+        } catch (Exception $ex) {
             throw $ex;
         }
     }
-    public function showRenunganModel(Request $request){
+    public function showRenunganModel(Request $request)
+    {
         $dataRenungan = renunganModel::orderByRaw("SUBSTRING_INDEX(reflection_id, '/', -1) + 0 ASC")->get();
         $row = $dataRenungan->count();
-        if($row == 0){
+        if ($row == 0) {
             $row = 1;
-        }else{
-            $id_renungan = $dataRenungan[$row-1]->reflection_id;
-            $pisah = explode('/',$id_renungan);
+        } else {
+            $id_renungan = $dataRenungan[$row - 1]->reflection_id;
+            $pisah = explode('/', $id_renungan);
             $row = $pisah[3] + 1;
         }
         $date = date('m/Y');
@@ -195,16 +208,22 @@ class renunganController extends Controller
 
         $isi = '';
 
-        if($_POST['cmd'] == "add"){
-            $isi .='
+        if ($_POST['cmd'] == "add") {
+            $isi .= '
                 <div class="row form-group">
                     <div class="col-xl-12">
-                        <div class="row ">
+                        <div class="row">
                             <div class="col-xl-4">
                                 <label for="reflection_id"> ID Renungan </label>
                             </div>
-                            <div class="col-xl-8">
-                                <input type="text" class="form-control" readonly id="reflection_id" name="reflection_id" value="'."REN/".$bulan."/".$tahun."/".$row.'"> 
+                            <div class="col-xl-3">
+                                <input type="text" class="form-control" readonly id="reflection_id" name="reflection_id" value="' . "REN/" . $bulan . "/" . $tahun . "/" . $row . '"> 
+                            </div>
+                            <div class="col-xl-2">
+                                <label for="publish_date"> Tanggal Publish </label>
+                            </div>
+                            <div class="col-xl-3">
+                                <input type="date" class="form-control" name="publish_date" id="publish_date" value="' . date('Y-m-d') . '">
                             </div>
                         </div>
                     </div>
@@ -243,26 +262,44 @@ class renunganController extends Controller
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
+                                <label for="verse"> Isi Renungan </label>
+                            </div>
+                            <div class="col-xl-8">
+                                <textarea id="verse" class="form-control" name="verse" placeholder="Ayat" style="resize:none;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-xl-12">
+                        <div class="row ">
+                            <div class="col-xl-4">
                                 <label for="contents"> Isi Renungan </label>
                             </div>
                             <div class="col-xl-8">
-                                <textarea id="contents" class="form-control" name="contents" placeholder="Isi" style="resize:none;"></textarea>
+                                <textarea id="contents" class="form-control" name="contents" placeholder="Isi"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             ';
-        }else{
-            $dataRenunganModel = renunganModel::where('reflection_id',$_POST['reflection_id'])->first(); 
-            $isi .='
+        } else {
+            $dataRenunganModel = renunganModel::where('reflection_id', $_POST['reflection_id'])->first();
+            $isi .= '
                 <div class="row form-group">
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
                                 <label for="reflection_id"> ID Renungan </label>
                             </div>
-                            <div class="col-xl-8">
-                                <input type="text" class="form-control" readonly id="reflection_id" name="reflection_id" value="'.$dataRenunganModel->reflection_id.'"> 
+                            <div class="col-xl-3">
+                                <input type="text" class="form-control" readonly id="reflection_id" name="reflection_id" value="' . $dataRenunganModel->reflection_id . '"> 
+                            </div>
+                            <div class="col-xl-2">
+                                <label for="publish_date"> Tanggal Publish </label>
+                            </div>
+                            <div class="col-xl-3">
+                                <input type="date" class="form-control" name="publish_date" id="publish_date" value="' . $dataRenunganModel->publish_date . '">
                             </div>
                         </div>
                     </div>
@@ -274,7 +311,7 @@ class renunganController extends Controller
                                 <label for="reflection_title"> Judul </label>
                             </div>
                             <div class="col-xl-8">
-                                <input type="text" class="form-control" autofocus required id="reflection_title" name="reflection_title" value="'.$dataRenunganModel->reflection_title.'">
+                                <input type="text" class="form-control" autofocus required id="reflection_title" name="reflection_title" value="' . $dataRenunganModel->reflection_title . '">
                             </div>
                         </div>
                     </div>
@@ -285,29 +322,38 @@ class renunganController extends Controller
                             <div class="col-xl-4">
                                 <label for="bible_verse"> Kitab </label>
                             </div>';
-                            $splitKitab = explode(' ',$dataRenunganModel->bible_verse);
-                            $hasilMergeKitab = "";
-                            if(count($splitKitab) == 3){
-                                $hasilMergeKitab = $splitKitab[0]." ".$splitKitab[1];
-                                $splitPasal = explode(':',$splitKitab[2]);
-                            }else{
-                                $hasilMergeKitab = $splitKitab[0];
-                                $splitPasal = explode(':',$splitKitab[1]);   
-                            }
-            $isi .='        <div class="col-xl-4 col-8">
-                                <input type="text" class="form-control" required id="kitab" name="kitab" value="'.$hasilMergeKitab.'">
+            $splitKitab = explode(' ', $dataRenunganModel->bible_verse);
+            $hasilMergeKitab = "";
+            if (count($splitKitab) == 3) {
+                $hasilMergeKitab = $splitKitab[0] . " " . $splitKitab[1];
+                $splitPasal = explode(':', $splitKitab[2]);
+            } else {
+                $hasilMergeKitab = $splitKitab[0];
+                $splitPasal = explode(':', $splitKitab[1]);
+            }
+            $isi .= '        <div class="col-xl-4 col-8">
+                                <input type="text" class="form-control" required id="kitab" name="kitab" value="' . $hasilMergeKitab . '">
                             </div>
                             <div class="col-xl-2 col-2">
-                                <input type="text" class="form-control" required id="pasal" name="pasal" value="'.$splitPasal[0].'">
+                                <input type="text" class="form-control" required id="pasal" name="pasal" value="' . $splitPasal[0] . '">
                             </div>
                             <div class="col-xl-2 col-2">
-                                <input type="text" class="form-control" required id="ayat" name="ayat" value="'.$splitPasal[1].'">
+                                <input type="text" class="form-control" required id="ayat" name="ayat" value="' . $splitPasal[1] . '">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div style="display:none;">
-                    <textarea id="verse" name="verse">'.$dataRenunganModel->verse.'</textarea>
+                <div class="row form-group">
+                    <div class="col-xl-12">
+                        <div class="row ">
+                            <div class="col-xl-4">
+                                <label for="contents"> Ayat </label>
+                            </div>
+                            <div class="col-xl-8">
+                                <textarea id="verse" class="form-control" name="verse" placeholder="Ayat">' . $dataRenunganModel->verse . '</textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-xl-12">
@@ -316,7 +362,7 @@ class renunganController extends Controller
                                 <label for="contents"> Isi Renungan </label>
                             </div>
                             <div class="col-xl-8">
-                                <textarea id="contents" class="form-control" name="contents" placeholder="Isi" style="resize:none;">'.$dataRenunganModel->contents.'</textarea>
+                                <textarea id="contents" class="form-control" name="contents" placeholder="Isi" style="resize:none;">' . $dataRenunganModel->contents . '</textarea>
                             </div>
                         </div>
                     </div>

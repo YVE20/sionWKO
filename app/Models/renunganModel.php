@@ -13,6 +13,6 @@ class renunganModel extends Model
     public $incrementing = false;
     public $timestamps = true;
     public $fillable = [
-        'reflection_id','reflection_title','bible_verse','verse','contents','created_at','updated_at'
+        'reflection_id', 'reflection_title', 'bible_verse', 'verse', 'contents', 'publish_date', 'created_at', 'updated_at'
     ];
 }
