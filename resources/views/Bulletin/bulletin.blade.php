@@ -64,7 +64,7 @@
     function tambahBulletinCoverModal() {
         document.getElementById('cmd').value = "add";
         $('#addBulletinCoverModal').modal('show');
-        $('.modal-title').html('<i class="fas fa-plus-circle"></i> BUSI');
+        $('.modal-title').html('<i class="fas fa-plus-circle"></i> Tambah Cover');
         $('.modal-footer button[type=submit]').html('<i class="fas fa-plus-circle"></i> Tambah Cover');
         $('#tampilBulletinCoverModal').attr('action','<?= '/adm/bulletin/createBulletinCover'?> ');
         $.ajax({
