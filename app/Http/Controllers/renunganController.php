@@ -262,7 +262,7 @@ class renunganController extends Controller
                     <div class="col-xl-12">
                         <div class="row ">
                             <div class="col-xl-4">
-                                <label for="verse"> Isi Renungan </label>
+                                <label for="verse"> Ayat </label>
                             </div>
                             <div class="col-xl-8">
                                 <textarea id="verse" class="form-control" name="verse" placeholder="Ayat" style="resize:none;"></textarea>
