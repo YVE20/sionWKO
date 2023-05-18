@@ -7,6 +7,7 @@
 <div class="col-lg-12" style="background-image: url('{{ asset('img/background-gereja.webp') }}');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative">
     <div class="color-overlay"></div>
     <div class="row">
+        <h1> VIO </h1>
         <div class="col-lg-12 services-wrapper">
             <div class="text-center py-5" id="font22" ><h2><strong><font>Pelayanan Kami</font></strong></h2></div>
             <div class="container">
