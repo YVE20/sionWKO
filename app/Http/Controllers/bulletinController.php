@@ -332,7 +332,8 @@ class bulletinController extends Controller
         }
     }
     public function downloadBulletin($bulan){
-        $dataCover = bulletinCoverModel::where('month',date($bulan))->first();
+        $newDateFormat   = str_pad($bulan, 2, '0', STR_PAD_LEFT);
+        $dataCover = bulletinCoverModel::where('month',date($newDateFormat))->first();
         //Data Ibadah Lingkungan
         $dataIbadahLingkungan1 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','1')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
         $dataIbadahLingkungan2 = ibadahModel::join('tb_kategori_ibadah','tb_kategori_ibadah.category_id','tb_ibadah.category_id')->whereRaw('month(sermon_date)='.date($bulan))->whereRaw('year(sermon_date)='.date('Y'))->where('tb_ibadah.service_environtment','2')->where('tb_ibadah.category_id','IBD/IBLP/2022')->get();
